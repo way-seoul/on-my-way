@@ -17,12 +17,12 @@ class ChallengeManger extends Db {
     }
 
     protected function delete($table_name, $id, $field_name = 'id') {
-        // $db = $this->connectDB();
+        $db = $this->connectDB();
 
-        // $delete = $db->prepare(
-        //     "DELETE FROM " . $table_name . " WHERE " . $field_name . " = ?"
-        // );
-        // $delete->execute([$id]);
+        $delete = $db->prepare(
+            "DELETE FROM " . $table_name . " WHERE " . $field_name . " = ?"
+        );
+        $delete->execute([$id]);
     }
 
     public function deletePlace($place_id)
@@ -50,26 +50,5 @@ class ChallengeManger extends Db {
         ]);
     }
 
-    // public function editPlace($place_id, $formData)
-    // {
-    //     $db = Manager::connectDB();
-    //     $edit_places = $db->prepare(
-    //         "UPDATE places SET " . "
-    //         name = ?,
-    //         map_provider = ?,
-    //         map_link = ?,
-    //         memo = ?,
-    //         rating = ?
-    //         " . "WHERE id = ?"
-    //     );
-    //     $edit_places->execute([
-    //         $formData['name'],
-    //         $formData['map_provider'],
-    //         $formData['map_link'],
-    //         $formData['memo'],
-    //         $formData['rating'],
-    //         $place_id
-    //     ]);
-    // }
 }
 
