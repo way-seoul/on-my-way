@@ -55,6 +55,17 @@ class ChallengeManager extends Db {
         $this->delete('challenges', $challenge_id);
     }
 
+   
+    public function validateData($data)
+    {
+      foreach($data as $key => $value) {
+        if($key == 'submit') continue;
+        if(empty($value)) return false;
+        if($key == 'score' && !(is_numeric($value))) return false;
+        $value = trim(htmlspecialchars($value));
+      }
+      return $data;
+    }
     public function addChallenge($data)
     {
         $db = $this->connectDB();
@@ -69,6 +80,5 @@ class ChallengeManager extends Db {
             'created_date' => date("Y-m-d H:i:s")
         ]);
     }
-
 }
 

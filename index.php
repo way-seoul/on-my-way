@@ -1,9 +1,5 @@
 <?php
-
-
     $action = $_GET['action'] ?? '';
-
-    print_r($_GET['action']);
 
     switch($action) {
         case "create-challenge":
@@ -16,7 +12,7 @@
             include './controller/challenge-specific.php';
             break;
         default:
-            echo 'Nope youve chosen an invalid route';
+            include './controller/display-home.php';
             break;
     }
 ?>
