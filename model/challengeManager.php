@@ -1,31 +1,37 @@
 <?php
 
 class ChallengeManger {
+
+    public function getPlaces() {
+        //
+    }
+
+    protected function getPlace() {
+        //
+    }
+
+    public function getChallenges() {
+        //
+    }
+
+    protected function delete($table_name, $id, $field_name = 'id') {
+        // $db = $this->connectDB();
+
+        // $delete = $db->prepare(
+        //     "DELETE FROM " . $table_name . " WHERE " . $field_name . " = ?"
+        // );
+        // $delete->execute([$id]);
+    }
+
     public function deletePlace($place_id)
     {
         $this->delete('places', $place_id);
     }
 
-    public function editPlace($place_id, $formData)
+    public function deleteChallenge($challenge_id)
     {
-        $db = Manager::connectDB();
-        $edit_places = $db->prepare(
-            "UPDATE places SET " . "
-            name = ?,
-            map_provider = ?,
-            map_link = ?,
-            memo = ?,
-            rating = ?
-            " . "WHERE id = ?"
-        );
-        $edit_places->execute([
-            $formData['name'],
-            $formData['map_provider'],
-            $formData['map_link'],
-            $formData['memo'],
-            $formData['rating'],
-            $place_id
-        ]);
+        $this->delete('challenges', $challenge_id);
     }
+
 }
 
