@@ -3,6 +3,26 @@
 require_once './model/db.php';
 
 class ChallengeManager extends Db {
+
+    protected function delete($table_name, $id, $field_name = 'id') {
+        $db = $this->connectDB();
+
+        $delete = $db->prepare(
+            "DELETE FROM " . $table_name . " WHERE " . $field_name . " = ?"
+        );
+        $delete->execute([$id]);
+    }
+
+    public function deletePlace($place_id)
+    {
+        $this->delete('places', $place_id);
+    }
+
+    public function deleteChallenge($challenge_id)
+    {
+        $this->delete('challenges', $challenge_id);
+    }
+
    
     public function validateData($data)
     {
@@ -14,7 +34,6 @@ class ChallengeManager extends Db {
       }
       return $data;
     }
-
     public function addChallenge($data)
     {
         $db = $this->connectDB();
