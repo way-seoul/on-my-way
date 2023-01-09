@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 05, 2023 at 12:04 PM
+-- Generation Time: Jan 09, 2023 at 01:01 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,13 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `challenges` (
   `id` int(11) NOT NULL,
-  `name` varchar(11) DEFAULT NULL,
-  `conditions` varchar(11) DEFAULT NULL,
+  `name` varchar(1000) DEFAULT NULL,
+  `conditions` varchar(500) DEFAULT NULL,
   `place_id` int(11) NOT NULL,
   `score` int(11) DEFAULT NULL,
   `users_accomplished` int(11) DEFAULT NULL,
   `created_date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `challenges`
+--
+
+INSERT INTO `challenges` (`id`, `name`, `conditions`, `place_id`, `score`, `users_accomplished`, `created_date`) VALUES
+(10, 'New Challenge', 'fdsfds', 1, 12, 0, '2023-01-09 11:42:35'),
+(12, 'A New Challenge', 'Be there at sunrsie', 2, 100, 0, '2023-01-09 11:49:14'),
+(22, 'Place C', 'Go on Sunny day', 1, 1000, 0, '2023-01-09 12:39:25');
 
 -- --------------------------------------------------------
 
@@ -47,6 +56,14 @@ CREATE TABLE `places` (
   `id` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `places`
+--
+
+INSERT INTO `places` (`id`, `name`) VALUES
+(1, 'Place A'),
+(2, 'Place B');
 
 --
 -- Indexes for dumped tables
@@ -73,13 +90,13 @@ ALTER TABLE `places`
 -- AUTO_INCREMENT for table `challenges`
 --
 ALTER TABLE `challenges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `places`
 --
 ALTER TABLE `places`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

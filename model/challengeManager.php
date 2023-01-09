@@ -1,12 +1,20 @@
 <?php
 
-require_once './models/db.php';
+require_once './model/db.php';
 
-class ChallengeManger extends Db {
-    // public function deletePlace($place_id)
-    // {
-    //     $this->delete('places', $place_id);
-    // }
+class ChallengeManager extends Db {
+   
+    public function validateData($data)
+    {
+      foreach($data as $key => $value) {
+        if($key == 'submit') continue;
+        if(empty($value)) return false;
+        if($key == 'score' && !(is_numeric($value))) return false;
+        $value = trim(htmlspecialchars($value));
+      }
+      return $data;
+    }
+
     public function addChallenge($data)
     {
         $db = $this->connectDB();
@@ -21,27 +29,5 @@ class ChallengeManger extends Db {
             'created_date' => date("Y-m-d H:i:s")
         ]);
     }
-
-    // public function editPlace($place_id, $formData)
-    // {
-    //     $db = Manager::connectDB();
-    //     $edit_places = $db->prepare(
-    //         "UPDATE places SET " . "
-    //         name = ?,
-    //         map_provider = ?,
-    //         map_link = ?,
-    //         memo = ?,
-    //         rating = ?
-    //         " . "WHERE id = ?"
-    //     );
-    //     $edit_places->execute([
-    //         $formData['name'],
-    //         $formData['map_provider'],
-    //         $formData['map_link'],
-    //         $formData['memo'],
-    //         $formData['rating'],
-    //         $place_id
-    //     ]);
-    // }
 }
 
