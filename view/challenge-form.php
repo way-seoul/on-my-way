@@ -7,7 +7,9 @@
     <title>Create A New Challenge</title>
 </head>
 <body>
-<!--name, conditions, score-->
+<?php
+    if(isset($backBtn)) echo $backBtn;
+?>
 <form action="../on-my-way/index.php?action=<?=$action?>" method="post">
     <input name="name" type="text" placeholder="Place Name" value="<?=$name ?? ''?>" required>
     <input name="conditions" type="text" placeholder="Conditions" value="<?=$conditions ?? ''?>" required>

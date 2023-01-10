@@ -12,8 +12,6 @@ if(isset($_POST['delete']) && $_POST['delete']!= '') {
 } 
 if(isset($_POST['edit'])) {
     $challengeId = $_POST['edit'];
-    print_r($challengeId);
-    //3 Get the place info for a given place ID
     $challengeData = $c_manager->getChallengeData($challengeId);
     //Pull list of existing places from DB for user to select from
     $existingPlaces = $p_manager->retrievePlaces();
@@ -23,6 +21,7 @@ if(isset($_POST['edit'])) {
     $conditions = $challengeData['conditions'];
     $score = $challengeData['score'];
     $edit_place_id = $challengeData['place_id'];
+    $backBtn = "<a href='../on-my-way/index.php?action=list-challenges'>Back To Challenges</a>";
     //4 Populate the existing form with data for that place
     require_once 'view/challenge-form.php';
     //Populate forms same as before......
