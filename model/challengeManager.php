@@ -48,5 +48,21 @@ class ChallengeManager extends Db {
             'created_date' => date("Y-m-d H:i:s")
         ]);
     }
+
+    public function retrieveChallenges()
+    {
+        $db = $this->connectDB();
+        $challenges = $db->query('SELECT * FROM challenges');
+        $challenges = $challenges->fetchAll();
+        return $challenges;
+    }
+    public function getChallengeData($challengeId)
+    {
+        $db = $this->connectDB();
+        $stmt = $db->prepare("SELECT * FROM challenges WHERE id=:id");
+        $stmt->execute(['id' => $challengeId]); 
+        $challengeData = $stmt->fetch();
+        return $challengeData;
+    }
 }
 
