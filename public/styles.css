@@ -1,3 +1,28 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: auto;
+    background-color: antiquewhite;
+}
+
+h1 {
+    width: 100%;
+    border: 1px solid black;
+    background-color: antiquewhite;
+}
+
+button {
+    margin-right: 10px;
+    background-color: #FFD750;
+    border: none;
+    text-align: left;
+}
+
+a {
+    color: #FF5078;
+    text-decoration: none;
+    font-size: large;
+}
+
 /* Log-in page*/
 html, body {
     margin: 0;
