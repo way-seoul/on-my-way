@@ -1,0 +1,56 @@
+/* Log-in page*/
+html, body {
+    margin: 0;
+}
+
+.login_div {
+    margin: auto;
+    width: 700px;
+    height: 500px;
+}
+
+.login_header {
+    text-align: center;
+}
+
+form {
+    width: 413px;
+    height: 230px;
+    margin: auto;
+}
+
+.username_label, .password_label {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.username_input, .password_input {
+    height: 40px;
+}
+
+.login_button_div {
+    margin: auto;
+    height: 70px;
+    text-align: center;
+    margin-top: 25px;
+}
+.login_button {
+    width: 100px;
+    height: 35px;
+}
+
+.login_footer {
+    margin: auto;
+    width: 413px;
+}
+
+.forgot_password{
+    display: inline-block;
+    width: 180px;
+    text-align: center;
+}
+.sign_up_link {
+    display: inline-block;
+    width: 210px;
+    text-align: center;
+}
