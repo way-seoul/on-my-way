@@ -7,6 +7,11 @@
             break;
         case "edit-challenge":
             include './controller/edit-challenge.php';
+        case "list-challenges":
+            include './controller/list-challenges.php';
+            break;
+        case "challenge-specific":
+            include './controller/challenge-specific.php';
             break;
         default:
             include './controller/display-home.php';

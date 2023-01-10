@@ -4,6 +4,37 @@ require_once './model/db.php';
 
 class ChallengeManager extends Db {
 
+    public function getPlaces() {
+        $db = $this->connectDB();
+        $places = $db->query("SELECT * FROM places");
+        $places = $places->fetchAll();
+        return $places;
+    }
+
+    public function getPlace($place_id) {
+        $db = $this->connectDB();
+        $place = $db->prepare("SELECT * FROM places WHERE id = ?");
+        $place->execute([$place_id]);
+        $place = $place->fetch();
+        return $place;
+    }
+
+    public function getChallenges($place_id) {
+        $db = $this->connectDB();
+        $challenges = $db->prepare("SELECT * FROM challenges WHERE place_id = ?");
+        $challenges->execute([$place_id]);
+        $challenges = $challenges->fetchAll();
+        return $challenges;
+    }
+
+    public function getChallenge($challenge_id) {
+        $db = $this->connectDB();
+        $challenge = $db->prepare("SELECT * FROM challenges WHERE id = ?");
+        $challenge->execute([$challenge_id]);
+        $challenge = $challenge->fetch();
+        return $challenge;
+    }
+
     protected function delete($table_name, $id, $field_name = 'id') {
         $db = $this->connectDB();
 
@@ -15,6 +46,7 @@ class ChallengeManager extends Db {
 
     public function deletePlace($place_id)
     {
+        // should delete all the challenges belong to this place
         $this->delete('places', $place_id);
     }
 
