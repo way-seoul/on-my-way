@@ -14,6 +14,10 @@
         <a href="../on-my-way/index.php?action=create-challenge">click here</a>
         to create a new challenge
     </h4>
+    <h4>Please
+        <a href="../on-my-way/index.php?action=list-challenges">click here</a>
+        to see the list of challenges
+    </h4>
 </body>
 </html>
 
