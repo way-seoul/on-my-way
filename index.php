@@ -5,8 +5,6 @@
         case "create-challenge":
             include './controller/create-challenge.php';
             break;
-        case "edit-challenge":
-            include './controller/edit-challenge.php';
         case "list-challenges":
             include './controller/list-challenges.php';
             break;

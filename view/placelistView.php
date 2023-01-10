@@ -15,6 +15,7 @@ ob_start();
                 <li>
                     <a href="index.php?action=challenge-specific&id=<?= $challenge['id']?>"><?= $challenge["name"] ?></a>
                     <div class="btns">
+                        <button type="submit" name="edit" value="<?= $challenge['id'] ?>">EDIT</button>
                         <button type="submit" name="delete" value="<?= $challenge['id'] ?>">DELETE</button>
                     </div>
                 </li>
