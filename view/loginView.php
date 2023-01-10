@@ -12,7 +12,7 @@
                     <div class="username_label">
                         <label for="username">Username</label>
                     </div>
-                    <input class="username_input" type="text" name="username" placeholder="Enter email or username" size="60">
+                    <input class="username_input" type="text" name="username" placeholder="Enter username" size="60">
                 </div>
                 <div class="login_password">
                     <div class="password_label">
