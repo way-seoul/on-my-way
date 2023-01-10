@@ -18,12 +18,12 @@ class Users {
         $newEntry->execute([$entry['username'], $hashed_password, $entry['first_name'], $entry['last_name'], $entry['email'], date('Y-m-d H:i:s'), '0']);
     }
 
-    public function getUsers($id){
+    public function verifyUserPassword($password){
         $db = DB::connectDB();
 
-        $users = $db->prepare('SELECT username, password FROM users WHERE id = ?');
-        $users->execute([$id]);
+        $user = $db->prepare('SELECT username, password FROM users WHERE password = ?');
+        $user->execute([$password]);
 
-        return $users->fetchAll();
+        return $user->fetchAll();
     }
 }
