@@ -1,10 +1,10 @@
 <?php
 include_once 'db.php';
 
-class adminFunction{
+class adminFunction extends Db{
     public function listUsers()
     {
-        $db = DB::connectDB();
+        $db = Db::connectDB();
 
         $users = $db->query('SELECT * FROM users');
         $users = $users->fetchAll(PDO::FETCH_ASSOC);
@@ -15,7 +15,7 @@ class adminFunction{
 
     public function listUser($id)
     {
-        $db = DB::connectDB();
+        $db = Db::connectDB();
 
         $users = $db->prepare('SELECT * FROM users WHERE id = ?');
         $users->execute([$id]);
@@ -27,7 +27,7 @@ class adminFunction{
 
     public function deleteUser($id)
     {
-        $db = DB::connectDB();
+        $db = Db::connectDB();
 
         $users = $db->prepare('DELETE FROM users WHERE id = ?');
         $users->execute([$id]);
@@ -35,7 +35,7 @@ class adminFunction{
 
     public function addUsers($entry){
 
-        $db = DB::connectDB();
+        $db = Db::connectDB();
 
         //hash password
         $password=$entry["password"];

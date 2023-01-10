@@ -1,10 +1,10 @@
 <?php
 include_once 'db.php';
 
-class adminEditFunction {
+class adminEditFunction extends Db {
     function showEntry($id) 
     {
-        $db = DB::connectDB();
+        $db = Db::connectDB();
 
         $users = $db->prepare('SELECT * FROM users WHERE id = ?');
         
@@ -17,7 +17,7 @@ class adminEditFunction {
 
     function editEntry($id, $edited_username, $edited_password, $edited_email, $edited_firstname, $edited_lastname, $edited_admin) 
     {
-        $db = DB::connectDB();
+        $db = Db::connectDB();
 
         $users = $db->prepare('UPDATE users SET username=?, password=?, email=?, first_name=?, last_name=?, admin=? WHERE id=?');
 
