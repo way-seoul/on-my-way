@@ -1,3 +1,8 @@
+<?php
+    $highlight = 'text-decoration:underline';
+    $username = 'username;'
+?>
+
 <header>
     <nav id="menu">
         <ul>
@@ -11,7 +16,7 @@
     <form method="GET" id="login-box">
         <!-- if loggedin then show this -->
             <span>
-                Hi <strong><?= "username" ?></strong>!
+                Hi <strong><?= $username ?></strong>!
             </span>
             <button type="submit" name="">LOG OUT</button>
         <!-- end if -->
