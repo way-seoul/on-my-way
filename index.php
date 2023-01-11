@@ -1,4 +1,6 @@
 <?php
+    include_once "../on-my-way/controller/_paths.php";
+
     $action = $_GET['action'] ?? '';
 
     switch($action) {
