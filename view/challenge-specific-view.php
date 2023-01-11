@@ -1,5 +1,5 @@
 <?php
-$title = $challenge['name'];
+$title = 'ON MY WAY | '.$challenge['name'];
 ob_start();
 ?>
 
