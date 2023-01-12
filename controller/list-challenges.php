@@ -37,6 +37,7 @@ if(isset($_POST['edit'])) {
     //4 Populate the existing form with data for that place
     require_once 'view/challenge-form.php';
 } else {
+    //THIS IT THE DEFAULT LIST VIEW WHICH SHOWS UNLESS THE EDIT BUTTON IS CLICKED!
     require_once 'view/placelistView.php';
 }
 
