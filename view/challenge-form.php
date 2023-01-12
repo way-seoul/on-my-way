@@ -10,7 +10,7 @@
 <?php
     if(isset($backBtn)) echo $backBtn;
 ?>
-<form action="../on-my-way/index.php?action=<?=$action?>" method="post">
+<form action="<?= $root . $action ?>" method="post">
     <input name="name" type="text" placeholder="Place Name" value="<?=$name ?? ''?>" required>
     <input name="conditions" type="text" placeholder="Conditions" value="<?=$conditions ?? ''?>" required>
     <input name="score" type="text" placeholder="Score" value="<?=$score ?? ''?>" required>

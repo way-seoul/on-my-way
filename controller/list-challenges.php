@@ -21,7 +21,7 @@ if(isset($_POST['edit'])) {
     $conditions = $challengeData['conditions'];
     $score = $challengeData['score'];
     $edit_place_id = $challengeData['place_id'];
-    $backBtn = "<a href='../on-my-way/index.php?action=list-challenges'>Back To Challenges</a>";
+    $backBtn = "<a href='" . $listChallenges_path . "'>Back To Challenges</a>";
     //4 Populate the existing form with data for that place
     require_once 'view/challenge-form.php';
     //Populate forms same as before......

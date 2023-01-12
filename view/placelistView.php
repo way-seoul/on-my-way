@@ -4,7 +4,7 @@ ob_start();
 ?>
 <h1><?= $title ?></h1>
 <div id="challenges">
-    <form action="../on-my-way/index.php?action=list-challenges" method="POST">
+    <form action="<?= $listChallenges_path ?>" method="POST">
         <?php for($i = 0; $i<count($places); $i++): 
             $challenges = $c_manager->getChallenges($places[$i]["id"]);    
         ?>
@@ -13,7 +13,7 @@ ob_start();
             <ul>
                 <?php foreach($challenges as $challenge): ?>
                 <li>
-                    <a href="index.php?action=challenge-specific&id=<?= $challenge['id']?>"><?= $challenge["name"] ?></a>
+                    <a href="<?= $challenge_path ?>&id=<?= $challenge['id']?>"><?= $challenge["name"] ?></a>
                     <div class="btns">
                         <button type="submit" name="edit" value="<?= $challenge['id'] ?>">EDIT</button>
                         <button type="submit" name="delete" value="<?= $challenge['id'] ?>">DELETE</button>
