@@ -6,7 +6,7 @@
 <?php
     if(isset($backBtn)) echo $backBtn;
 ?>
-<form action="../on-my-way/index.php?action=<?=$action?>" method="post">
+<form action="<?= $root . $action ?>" method="post">
     <?php
     if(isset($challengeId)) {
     ?>
