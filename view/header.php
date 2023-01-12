@@ -23,7 +23,6 @@
                 Hi <strong><?= $username ?></strong>!
             </span>
             <button type="submit" name="">LOG OUT</button>
-        <!-- end if -->
         <!-- else if not loggedin then show this -->
             <button type="submit">LOG IN</button>
         <!-- end if -->
