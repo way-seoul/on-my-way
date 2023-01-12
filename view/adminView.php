@@ -63,6 +63,7 @@
 </form>
 
 <h2>Manage Challenges</h2>
+<a href="<?= $listChallenges_path?>">Challenges List page</a> <!-- this is for convenience -->
 <!-- list of challenges: Add/Edit/Delete Challenges -->
 
 <?php 

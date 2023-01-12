@@ -48,3 +48,25 @@ header {
     color: white;
     text-decoration: underline;
 }
+
+#single-marker {
+    height: 400px; 
+    width: 100vw; 
+}
+
+#map {
+    height: 100%; 
+    width: 100%; 
+}
+
+#challenge {
+    width: fit-content;
+}
+
+#onspot {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: #FFD750;
+    text-align: center;
+}
