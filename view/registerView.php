@@ -25,8 +25,5 @@
 
 <?php 
     $html = ob_get_clean();
-?>
-
-<?php 
     include 'template.php';
 ?>

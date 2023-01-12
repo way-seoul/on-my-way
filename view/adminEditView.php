@@ -1,5 +1,5 @@
 <?php 
-    $title = 'Edit The User';
+    $title = 'ON MY WAY | EDIT THE USER';
     ob_start();
 ?>
 
@@ -28,8 +28,5 @@
 
 <?php 
     $html = ob_get_clean();
-?>
-
-<?php 
     include 'template.php';
 ?>

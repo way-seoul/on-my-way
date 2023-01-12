@@ -1,5 +1,5 @@
 <?php
-$title = 'Challenge List';
+$title = 'ON MY WAY | CHALLENGE LIST';
 ob_start();
 ?>
 <h1><?= $title ?></h1>

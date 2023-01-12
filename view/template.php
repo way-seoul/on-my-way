@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../public/styles.css" />
 </head>
 <body>
+    <?php include 'header.php' ?>
     <?= $html ?>
     <script type="text/javascript" src="public/app.js"></script>
 </body>
