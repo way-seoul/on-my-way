@@ -9,7 +9,7 @@
 <body>
     <h1>Welcome to On My Way</h1>
     <h2>Please view existing places on our map</h2>
-    <h3>Please click here to login / <a href="../on-my-way/index.php?action=register">register</a></h3>
+    <h3>Please click here to <a href="../on-my-way/index.php?action=login">login</a> / <a href="../on-my-way/index.php?action=register">register</a></h3>
 </body>
 </html>
 

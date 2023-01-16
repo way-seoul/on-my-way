@@ -1,7 +1,7 @@
 <?php
 include_once 'db.php';
 
-class Users {
+class Users extends Db {
 
     public function addUsers($entry){
 
@@ -18,12 +18,12 @@ class Users {
         $newEntry->execute([$entry['username'], $hashed_password, $entry['first_name'], $entry['last_name'], $entry['email'], date('Y-m-d H:i:s'), '0']);
     }
 
-    public function verifyUserPassword($password){
+    public function getUser($username){
         $db = DB::connectDB();
 
-        $user = $db->prepare('SELECT username, password FROM users WHERE password = ?');
-        $user->execute([$password]);
+        $user = $db->prepare('SELECT username, password FROM users WHERE username = ?');
+        $user->execute([$username]);
 
-        return $user->fetchAll();
+        return $user->fetch();
     }
 }

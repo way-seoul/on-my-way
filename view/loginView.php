@@ -2,6 +2,9 @@
     $title = 'ON MY WAY | LOG IN';
     ob_start();
 ?>
+<?php
+    if(!$login){
+?>
     <div class="login_div">
         <div class="login_header">
             <h1>USER LOGIN</h1>
@@ -34,8 +37,14 @@
             </div>
         </div>
     </div>
-
 <?php
     $html = ob_get_clean();
     include 'template.php';
+?>
+<?php
+    }else{
+        echo '<h1>Log in successful!</h1>';
+        // sleep(0.8);
+        // header('Location: home.php');
+    };
 ?>
