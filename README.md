@@ -1,5 +1,5 @@
 # ON MY WAY
-visit:: https://onmyway.nfshost.com/
+visit:: https://onmyway.razzi.dev/
 
 Concept
 -
