@@ -30,15 +30,17 @@ class ChallengeManager extends Db {
     public function updateChallenge($data) {
         $db = $this->connectDB();
         $sql = "UPDATE challenges 
-                SET name=:name, conditions=:conditions, score=:score, place_id=:place_id 
+                SET name=:name, content=:content, conditions=:conditions, score=:score, place_id=:place_id, updated_date=:updated_date
                 WHERE id=:id";
         $stmt= $db->prepare($sql);
         $stmt->execute([
             'id' => $data['edit'],
             'name' => $data['name'],
+            'content' => 'N/A for now', // let's add the input for this later
             'conditions' => $data['conditions'],
             'score' => $data['score'],
-            'place_id' => $data['place_id']
+            'place_id' => $data['place_id'],
+            'updated_date' => date("Y-m-d H:i:s")
         ]);
     }
 
@@ -76,14 +78,14 @@ class ChallengeManager extends Db {
     public function addChallenge($data)
     {
         $db = $this->connectDB();
-        $newChallenge = $db->prepare('INSERT INTO challenges (name, conditions, place_id, score, users_accomplished, created_date)
-        VALUES (:name, :conditions, :place_id, :score, :users_accomplished, :created_date)');
+        $newChallenge = $db->prepare('INSERT INTO challenges (name, content, conditions, place_id, score, created_date)
+        VALUES (:name, :content, :conditions, :place_id, :score, :created_date)');
         $newChallenge->execute([
             'name' => $data['name'],
+            'content' => 'N/A for now', // let's add the input for this later
             'conditions' => $data['conditions'],
             'place_id' => $data['place_id'],
             'score' => $data['score'],
-            'users_accomplished' => 0,
             'created_date' => date("Y-m-d H:i:s")
         ]);
     }
