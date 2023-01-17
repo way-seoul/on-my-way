@@ -20,6 +20,9 @@
         case "challenge-specific":
             include './controller/challenge-specific.php';
             break;
+        case "preview":
+            include 'controller/landing.php';
+            break;
         default:
             include './controller/display-home.php';
             break;
