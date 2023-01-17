@@ -6,7 +6,7 @@ class CommentManager extends Db {
     public function getAllCommentsForChallenge($id) {
         $db = $this->connectDB();
         $comments = $db->prepare(
-            "SELECT challenge_comments.content, challenge_comments.date_added, users.first_name, users.last_name 
+            "SELECT challenge_comments.id, challenge_comments.content, challenge_comments.date_added, users.first_name, users.last_name 
             FROM challenge_comments
             LEFT JOIN users
             ON challenge_comments.user_id = users.id
@@ -33,6 +33,16 @@ class CommentManager extends Db {
             'date_added' => date("Y-m-d H:i:s"),
             'user_id' => 1,
             'challenge_id' => $challenge_id
+        ]);
+    }
+
+    public function deleteComment($commentId) {
+        $db = $this->connectDB();
+        $delete = $db->prepare(
+            "DELETE FROM challenge_comments WHERE id=:id" 
+        );
+        $delete->execute([
+            'id' => $commentId
         ]);
     }
 }

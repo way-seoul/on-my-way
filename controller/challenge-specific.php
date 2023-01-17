@@ -13,6 +13,13 @@ if(isset($_POST['add_comment'])) {
         $newComment = $comment_manager->addComment($id, $_POST['comment_content']);
     }
 }
+if(isset($_POST['delete'])) {
+    $commentId = $_POST['comment_id'];
+    //IF SET CALL DELETE FUNCTION.......
+    if(isset($commentId)) {
+        $comment_manager->deleteComment($commentId);
+    }
+}
 $comments = $comment_manager->getAllCommentsForChallenge($id);
 
 require_once 'view/challenge-specific-view.php';

@@ -6,7 +6,7 @@
     <form action="<?=$path?>" method="post">
         <textarea required name="comment_content" id="comment_content" cols="80" rows="5" placeholder="Add a comment....."></textarea>
         <br>
-        <button name="add_comment">Add a comment</button>
+        <button name="add_comment" value="add_comment">Add a comment</button>
     </form>
     <?php
         if(isset($comments) && count($comments) > 0) {
@@ -23,6 +23,10 @@
                     <p class="comment-content">
                         <?=$comments[$i]['content']?>
                     </p>
+                    <form action="<?=$path?>" method="post">
+                        <button style="background-color: red;" name="delete">DELETE COMMENT</button>
+                        <input type="hidden" name="comment_id" value="<?=$comments[$i]['id']?>">
+                    </form>
                 </div>
     <?php
             }
