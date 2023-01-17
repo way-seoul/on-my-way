@@ -12,7 +12,7 @@ class CommentManager extends Db {
             ON challenge_comments.user_id = users.id
             WHERE challenge_comments.challenge_id = ?;"
         );
-        $comments->execute([5]);
+        $comments->execute([$id]);
         $comments = $comments->fetchAll();
         return $comments;
     }

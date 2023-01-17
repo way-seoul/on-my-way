@@ -1,7 +1,12 @@
 <section class="comments">
     <h3>Comments:</h3>
+    <form action="">
+        <textarea name="" id="" cols="80" rows="5" placeholder="Add a comment....."></textarea>
+        <br>
+        <button>Add a comment</button>
+    </form>
     <?php
-        if(isset($comments)) {
+        if(isset($comments) && count($comments) > 0) {
             for($i=0; $i<count($comments); $i++) {
     ?>
                 <div class="comment">
