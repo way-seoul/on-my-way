@@ -20,13 +20,10 @@
 
 <div class="btn">
     Already have an account?
-    <a href="index.php?action=login">Log In</a>
+    <a href="<?= $login_path ?>">Log In</a>
 </div>
 
 <?php 
     $html = ob_get_clean();
-?>
-
-<?php 
     include 'template.php';
 ?>

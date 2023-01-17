@@ -22,3 +22,51 @@ a {
     text-decoration: none;
     font-size: large;
 }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+#menu ul {
+    display: flex;
+    list-style-type: none;
+}
+#menu ul li {
+    padding-right: 15px;
+}
+
+#menu ul li a {
+    color: rgba(255, 255, 255, 0.75);
+
+}
+
+#menu ul li a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+#single-marker {
+    height: 400px; 
+    width: 100vw; 
+}
+
+#map {
+    height: 100%; 
+    width: 100%; 
+}
+
+#challenge {
+    width: fit-content;
+}
+
+#onspot {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: #FFD750;
+    text-align: center;
+}

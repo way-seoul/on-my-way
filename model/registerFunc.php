@@ -1,10 +1,10 @@
 <?php
 include_once 'db.php';
 
-class registerFunction{
+class registerFunction extends Db{
     public function addUsers($entry){
 
-        $db = DB::connectDB();
+        $db = Db::connectDB();
 
         //hash password
         $password=$entry["password"];
