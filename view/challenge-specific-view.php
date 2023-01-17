@@ -50,6 +50,7 @@ ob_start();
             <?= $place['name'] ?>
         </strong></a> <!-- let's replace the link later with list of challenges on this spot -->
     </p>
+    <?=require_once 'listComments.php'?>
     <div id="single-marker">
         <div id="map"></div>
     </div>
@@ -60,7 +61,6 @@ ob_start();
         &callback=initMap&v=weekly"
     defer
 ></script>
-
 
 <?php
     $html = ob_get_clean(); // give the code into a variable
