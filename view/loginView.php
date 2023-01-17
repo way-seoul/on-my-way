@@ -43,8 +43,7 @@
 ?>
 <?php
     }else{
-        echo '<h1>Log in successful!</h1>';
-        // sleep(0.8);
-        // header('Location: home.php');
+        sleep(0.9);
+        header('Location: index.php?action=');
     };
 ?>

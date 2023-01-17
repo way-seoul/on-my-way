@@ -2,7 +2,8 @@
     $title = 'Create a New Challenge';
     ob_start();
 ?>
-<form action="../on-my-way/index.php?action=edit-challenge" method="post">
+
+<form action="<?= $editChallenge_path ?>" method="post">
     <!-- <select name="edit-challenge" id=""> -->
         <!----------- PHP LOOP HERE -------->
         <select name="edit-challenge-id" id="edit-challenge">

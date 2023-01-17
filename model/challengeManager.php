@@ -27,12 +27,19 @@ class ChallengeManager extends Db {
         return $challenges;
     }
 
-    public function getChallenge($challenge_id) {
+    public function updateChallenge($data) {
         $db = $this->connectDB();
-        $challenge = $db->prepare("SELECT * FROM challenges WHERE id = ?");
-        $challenge->execute([$challenge_id]);
-        $challenge = $challenge->fetch();
-        return $challenge;
+        $sql = "UPDATE challenges 
+                SET name=:name, conditions=:conditions, score=:score, place_id=:place_id 
+                WHERE id=:id";
+        $stmt= $db->prepare($sql);
+        $stmt->execute([
+            'id' => $data['edit'],
+            'name' => $data['name'],
+            'conditions' => $data['conditions'],
+            'score' => $data['score'],
+            'place_id' => $data['place_id']
+        ]);
     }
 
     protected function delete($table_name, $id, $field_name = 'id') {
@@ -59,7 +66,7 @@ class ChallengeManager extends Db {
     public function validateData($data)
     {
       foreach($data as $key => $value) {
-        if($key == 'submit') continue;
+        if($key == 'add-challenge' || $key == 'edit-challenge') continue;
         if(empty($value)) return false;
         if($key == 'score' && !(is_numeric($value))) return false;
         $value = trim(htmlspecialchars($value));

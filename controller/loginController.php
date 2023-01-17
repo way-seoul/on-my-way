@@ -13,7 +13,6 @@ function login(){
         $validated = isset($username) && isset($password) && $username == $user_info['username'] && $verified_password == true ? true : false;
         
         if($validated == true){
-            session_start();
             
             $verified_username = $user_info['username'];
             
@@ -24,17 +23,20 @@ function login(){
         }
         
         $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
-        $logout = isset($_GET['log_out']) ? true : false;
-        
-        if($logout){
-            $logged_in = false;
-            session_destroy();
-        }
         
         return $logged_in;
     }
 }
 
+function logout(){
+    $logout = isset($_POST['log_out']) ? true : false;
+    
+    if($logout){
+        session_destroy();
+    }
+}
+
 $login = login();
+$logout = logout();
 
 include_once './view/loginView.php';
