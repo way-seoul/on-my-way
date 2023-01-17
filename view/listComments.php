@@ -1,15 +1,18 @@
 <section class="comments">
     <h3>Comments:</h3>
-    <form action="">
-        <textarea name="" id="" cols="80" rows="5" placeholder="Add a comment....."></textarea>
+    <?php
+    $path = $challenge_path . '&id=' . $id;
+    ?>
+    <form action="<?=$path?>" method="post">
+        <textarea required name="comment_content" id="comment_content" cols="80" rows="5" placeholder="Add a comment....."></textarea>
         <br>
-        <button>Add a comment</button>
+        <button name="add_comment">Add a comment</button>
     </form>
     <?php
         if(isset($comments) && count($comments) > 0) {
             for($i=0; $i<count($comments); $i++) {
     ?>
-                <div class="comment">
+                <div class="comment" style="border: 1px solid red; margin: 5px;">
                     <h4>
                         <?=
                         $comments[$i]['first_name'] . ' ' . $comments[$i]['last_name'] 

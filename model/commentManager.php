@@ -16,4 +16,23 @@ class CommentManager extends Db {
         $comments = $comments->fetchAll();
         return $comments;
     }
+
+    public function addComment($challenge_id, $comment_content) {
+        $db = $this->connectDB();
+        $comment_content = trim(($comment_content));
+        //STATUS USER ID FOR NOW: NEED TO DYNAMICALLY PASS IN LOGGED IN USER ID LATER
+        //(Presumabnly from SESSION VAR)
+        $newComment = $db->prepare(
+            'INSERT INTO challenge_comments
+            (content, date_added, user_id, challenge_id)
+            VALUES 
+            (:content, :date_added, :user_id, :challenge_id)'
+        );
+        $newComment->execute([
+            'content' => $comment_content,
+            'date_added' => date("Y-m-d H:i:s"),
+            'user_id' => 1,
+            'challenge_id' => $challenge_id
+        ]);
+    }
 }
