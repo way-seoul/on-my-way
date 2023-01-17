@@ -1,7 +1,6 @@
 <?php
     session_start();
-    print_r($_SESSION);
-    include_once "../on-my-way/controller/_paths.php";
+    include_once "controller/_paths.php";
 
     $action = $_GET['action'] ?? '';
 
