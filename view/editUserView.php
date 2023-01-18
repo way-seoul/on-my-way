@@ -10,13 +10,23 @@
     Edit form.
 </h1>
 
+<div>
+    <?php
+       if($_SERVER["REQUEST_METHOD"] == "GET"){
+        header("location:index.php");
+       }else
+    
+    ?>
+</div>
+
 <form method = "POST" action = "" style = "margin-top:3rem">
     <div>
-        username <input type = "text" value = <?php if(isset($_POST["name"])){echo($_GET["name"]);} ?>  name = "username">
-        password <input type = "text" value = " password">
-        email <input type = "text" value = "email">
-        first name <input type = "text" value = "fname">
-        last name <input type = "text" value = "lname">
+            username <input type = "text" value = <?php if(isset($_POST["name"])){echo($_GET["name"]);} ?>  name = "username">
+            password <input type = "text" name = "password" value = " password">
+            email <input type = "text" name = "email" value = "email">
+            first name <input type = "text"  name = "firstname" value = "fname">
+            last name <input type = "text" name = "lastname" value = "lname">
+        submit  <input type = "submit" name = "create" value = "sign up">
     </div>
 </form>
 

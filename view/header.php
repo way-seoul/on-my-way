@@ -1,3 +1,4 @@
+<?php ob_start()?>
 <?php
     $highlight = 'color:white; font-weight:bolder';
     $username = 'username'
