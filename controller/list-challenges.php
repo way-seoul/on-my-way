@@ -20,6 +20,7 @@ if(isset($_POST['edit'])) {
     $btnName = 'edit-challenge';
     $btnText = 'Edit Challenge';
     $name = $challengeData['name'];
+    $content = $challengeData['content'];
     $conditions = $challengeData['conditions'];
     $score = $challengeData['score'];
     $edit_place_id = $challengeData['place_id'];
