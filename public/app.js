@@ -33,3 +33,27 @@ buttons.forEach(button => {
     });
 
 });
+
+// Reset user password
+let reset_buttons = document.querySelectorAll('button.reset-password');
+
+reset_buttons.forEach(reset_button => {
+
+    let id = reset_button.getAttribute('data-id');
+
+    reset_button.addEventListener('click', function(){
+        let formData = new FormData();
+        formData.append('id', id);
+        formData.append('reset', 'reset');
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'index.php?action=admin');
+        xhr.send(formData);
+
+        xhr.addEventListener('readystatechange', function(){
+            if(xhr.readyState == XMLHttpRequest.DONE){
+                alert("Password reset successful!");
+            }
+        })
+    })
+})
