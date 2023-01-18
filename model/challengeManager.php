@@ -18,7 +18,7 @@ class ChallengeManager extends Db {
         $place = $place->fetch();
         return $place;
     }
-
+    
     public function getChallenges($place_id) {
         $db = $this->connectDB();
         $challenges = $db->prepare("SELECT * FROM challenges WHERE place_id = ?");
