@@ -10,6 +10,6 @@ ob_start();
 
 
 <?php
-    $html = ob_get_clean(); // give the code into a variable
-    include 'template.php'; // and call the variable from the template
+$html = ob_get_clean(); 
+include 'template.php'; // and call the variable from the template
 ?>

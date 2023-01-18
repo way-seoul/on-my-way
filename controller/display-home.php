@@ -1,10 +1,8 @@
 <?php
-// include 'controllerHelper.php';
-// $login = login();
-// echo $login;
+include 'controllerHelper.php';
 
-// if ($login) {
+if ($_SESSION['logged_in']) {
     include 'view/home.php';
-// } else {
-    // include 'view/landingView.php';
-// }
+} else {
+    include 'view/landingView.php';
+}

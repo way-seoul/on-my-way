@@ -29,7 +29,7 @@
             session_destroy();
         ?>
             
-            <button type="submit">LOGIN</button>
+            <!-- <button type="submit">LOGIN</button> -->
         <!-- end if -->
         <?php } ?>
     </form>
