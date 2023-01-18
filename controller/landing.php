@@ -1,3 +1,3 @@
 <?php
 
-include 'view/landing.php';
+include 'view/landingView.php';

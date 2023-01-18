@@ -1,5 +1,5 @@
 # ON MY WAY
-https://docs.google.com/document/d/1Sy6emsOmGmD7i18eFfcoFndc-_pVb8sVBVLDa16dNOQ/edit
+visit:: https://onmyway.razzi.dev/
 
 Concept
 -
@@ -15,3 +15,7 @@ For this project, please define your username/password/GMAP on your Apache confi
 $ONMYWAY_DB_USERNAME
 $ONMYWAY_DB_PASSWORD
 $ONMYWAY_GMAP_KEY
+=======
+
+https://docs.google.com/document/d/1Sy6emsOmGmD7i18eFfcoFndc-_pVb8sVBVLDa16dNOQ/edit
+

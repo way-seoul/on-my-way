@@ -1,4 +1,7 @@
 <?php
+    session_start();
+    include_once "../on-my-way/controller/_paths.php";
+
     $action = $_GET['action'] ?? '';
 
     switch($action) {
@@ -11,17 +14,20 @@
         case 'register':
             include 'controller/register.php'; 
             break;
-        case "create-challenge":
+        case 'create-challenge':
             include './controller/create-challenge.php';
             break;
-        case "list-challenges":
+        case 'list-challenges':
             include './controller/list-challenges.php';
             break;
-        case "challenge-specific":
+        case 'challenge-specific':
             include './controller/challenge-specific.php';
             break;
         case "preview":
             include 'controller/landing.php';
+            break;
+        case 'login':
+            include './controller/loginController.php';
             break;
         default:
             include './controller/display-home.php';
