@@ -1,6 +1,7 @@
 <?php 
 include 'model/adminFunc.php';
 
+//Delete user
 //prepare data
 $manager = new adminFunction();
 
@@ -14,6 +15,14 @@ if (isset($_POST['delete'])) {
 }
 
 $users = $manager->listUsers();
+
+//Reset password
+if(isset($_POST['reset'])){
+    //reset password
+    $id = $_POST['id'];
+    $reset_password = '0000';
+    $manager->resetUserPassword($reset_password, $id);
+}
 
 //include view
 

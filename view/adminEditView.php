@@ -15,7 +15,6 @@
 <form method="POST" action="" style="margin-top: 3rem;">
     <div>
         User Name: <input type="text" name="username" value=<?= isset($user['username'])? $user['username']:" ";?>><br>
-        Password: <input type="text" name="password" value=<?= isset($user['password'])? $user['password']:" ";?>><br>
         Email: <input type="text" name="email" value=<?= isset($user['email'])? $user['email']:" ";?>><br>
         First Name: <input type="text" name="first_name" value=<?= isset($user['first_name'])? $user['first_name']:" ";?>><br>
         Last Name: <input type="text" name="last_name" value=<?= isset($user['last_name'])? $user['last_name']:" ";?>><br>
