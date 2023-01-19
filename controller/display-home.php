@@ -1,7 +1,7 @@
 <?php
 include 'controllerHelper.php';
 
-if ($_SESSION['logged_in']) {
+if (isset($_POST['login_button']) && $_POST['username'] !== '' && $_POST['password'] !== '') {
     include 'view/home.php';
 } else {
     include 'view/landingView.php';
