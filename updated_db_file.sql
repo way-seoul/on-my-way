@@ -15,6 +15,7 @@ CREATE TABLE challenges (
   place_id int(11) NOT NULL,
   conditions varchar(100) DEFAULT NULL,
   score int(11) DEFAULT NULL,
+  users_accomplished int(11) DEFAULT NULL,
   created_date datetime NOT NULL DEFAULT current_timestamp(),
   updated_date datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (id)

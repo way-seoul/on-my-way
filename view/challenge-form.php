@@ -15,6 +15,7 @@
     }
     ?>
     <input name="name" type="text" placeholder="Place Name" value="<?=$name ?? ''?>" required>
+    <input name="content" type="text" placeholder="Content" value="<?=$content ?? '' ?>" required>
     <input name="conditions" type="text" placeholder="Conditions" value="<?=$conditions ?? ''?>" required>
     <input name="score" type="text" placeholder="Score" value="<?=$score ?? ''?>" required>
     <select name="place_id" id="name">
