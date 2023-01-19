@@ -1,22 +1,18 @@
 <?php
 include 'controllerHelper.php';
+include './model/placeManager.php';
+
+$placeManager = new PlaceManager();
+
+//When user clicks 'share location' button, fetch all places and send back to front-end
+if(isset($_GET['get_place_coords'])) {
+    $existingPlaces = $placeManager->retrievePlaces();
+    print_r(json_encode($existingPlaces));
+    die();
+}
 
 if ($_SESSION['logged_in']) {
     include 'view/home.php';
-<<<<<<< HEAD
-// } else {
-    // include 'view/landingView.php';
-// }
-
-
-//ASK USER FOR LOCATION
-//GET THEIR CO_ORDINATES
-//LOOP THROUGH PLACES 
-//FOR EACH PLACE CHECK IF IT IS IN XYZ RADIUS
-//RETURN LIST OF PLACES
-//
-=======
 } else {
     include 'view/landingView.php';
 }
->>>>>>> 6ab4aaa751e32196e6f46da635831ba5e6537e0e
