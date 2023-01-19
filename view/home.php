@@ -8,6 +8,9 @@ ob_start();
 <button id="get-location">
     To Use This App, please share your location
 </button>
+
+<h1>On My Way</h1>
+<h2>Please view existing places & challenges on our map</h2>
 <div id="logged-in-map"></div>
 <div id="map"></div>
 

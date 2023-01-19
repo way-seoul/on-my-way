@@ -18,12 +18,12 @@
         <tr>
             <th>ID</th>
             <th>User Name</th>
-            <th>Password</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
             <th>Created Date</th>
             <th>Admin</th>
+            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -33,7 +33,6 @@
                 <tr>
                     <td><?= $user['id']; ?></td>
                     <td><?= $user['username']; ?></td>
-                    <td><?= $user['password']; ?></td>
                     <td><?= $user['first_name']; ?></td>
                     <td><?= $user['last_name']; ?></td>
                     <td><?= $user['email']; ?></td>
@@ -42,6 +41,7 @@
                     <td><a href="<?= $adminEdit_path ?>&id=<?=$user['id']?>">Edit</a></td>
                     <td><button type="button" class="delete-user" name="delete"
                     data-id="<?= $user['id'] ?>">Delete</button></td>
+                    <td><button type="button" class="reset-password" name="reset" data-id=<?= $user['id'] ?>>Reset password</button></td>
                 </tr>
         <?php } ?>
     </tbody>

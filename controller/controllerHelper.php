@@ -1,5 +1,5 @@
 <?php
-// include_once './model/usersManager.php';
+include_once './model/usersManager.php';
 
 function login(){
 
