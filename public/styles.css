@@ -38,7 +38,7 @@ html, body {
     text-align: center;
 }
 
-form {
+.login_div {
     width: 413px;
     height: 230px;
     margin: auto;

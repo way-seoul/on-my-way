@@ -1,8 +1,10 @@
 <?php
     session_start();
-    include_once "../on-my-way/controller/_paths.php";
+    include_once "controller/_paths.php";
 
     $action = $_GET['action'] ?? '';
+
+
 
     switch($action) {
         case 'admin':
