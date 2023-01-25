@@ -28,15 +28,6 @@ function login(){
     }
 }
 
-function logout(){
-    $logout = isset($_POST['log_out']) ? true : false;
-    
-    if($logout){
-        session_destroy();
-    }
-}
-
 $login = login();
-$logout = logout();
 
 include_once './view/loginView.php';
