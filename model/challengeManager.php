@@ -105,5 +105,29 @@ class ChallengeManager extends Db {
         $challengeData = $stmt->fetch();
         return $challengeData;
     }
+
+    public function incrementUsersAccomplished($id) 
+    {
+        $db = $this->connectDB();
+        $users_accomplished = 0;
+        $stmt = $db->prepare("SELECT users_accomplished FROM challenges WHERE id=:id");
+        $stmt->execute(['id' => $id]); 
+        $data = $stmt->fetch();
+        //If users already completed challenge, get current number and increment 
+        if($data['users_accomplished'] && $data['users_accomplished'] > 0) {
+            $users_accomplished = $data['users_accomplished'] + 1;
+        } else {
+        //Nobody has completed challenge yet, just set to 1...
+            $users_accomplished = 1;
+        }
+        $sql = "UPDATE challenges
+                SET users_accomplished=:users_accomplished
+                WHERE id=:id";
+        $stmt= $db->prepare($sql);
+        $stmt->execute([
+            'users_accomplished' => $users_accomplished,
+            'id' => $id
+        ]);
+    }
 }
 

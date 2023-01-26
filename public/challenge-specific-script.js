@@ -1,11 +1,10 @@
 
 const getLocationBtn = document.getElementById('get-location');
 //DIST IN METRES - places further from user location  will not show on map
-const maxDistance = 100;
+const maxDistance = 1000;
 const onTheSpot = document.getElementById('onspot');
 const resultMsg = document.getElementById('result-message-container');
 let userLoc = {};
-console.log(placeLoc, userID, score, challID);
 
 window.onload = function () {
     //Check if browser supports geolocation......
@@ -40,10 +39,15 @@ const getUserLocation = async (position) => {
     userLoc.lat = await position.coords.latitude;
     userLoc.lng = await position.coords.longitude
     let challengeAchieved = await didUserPassChallenge();
-    if(!challengeAchieved) return;
-    //USER ACHIEVED CHALLENGE SO UPDATE THE DB ACCORDINGLY..
+    if(!challengeAchieved) {
+        resultMsg.innerText += 'Sorry you didn\'t meet the conditions needed to achieve the challenge';
+        return;
+    }
+    //USER ACHIEVED CHALLENGE SO TRY TO UPDATE THE DB
     let dbUpdated = await addResultToDB();
-    //Then display msg to user...
+    console.log(dbUpdated);
+    //Then display msg to user..
+    resultMsg.innerText += dbUpdated.msg;
 }
 
 const didUserPassChallenge = async () => {
@@ -60,6 +64,7 @@ const didUserPassChallenge = async () => {
     //Returns Distance In Meters
     let dist = google.maps.geometry.spherical.computeDistanceBetween(place, user);
     console.log('THE DISTANCE IN METRES IS : ', dist);
+    resultMsg.innerHTML = `Your distance from the place is ${dist} metres. <br>`;
     //CONDITIONS WILL ALSO NEED TO BE PASSED ONCE ADDED TO DB
     //FOR NOW.. Set to true by default....
     let conditions = true;
@@ -72,21 +77,11 @@ const didUserPassChallenge = async () => {
 
 const addResultToDB = async () => {
     //PREP DATA
-    // let data = {
-    //     'challengeAchieved': true,
-    //     'userID': userID,
-    //     'challID': challID,
-    //     'score': score
-    // };
     let data = new FormData();
     data.append('challengeAchieved', true);
     data.append('userID', userID);
     data.append('challID', challID);
-    data.append('score', score);
-    // data.append('challengeAchieved', true);
-    // data.append('userID', userID);
-    // data.append('challID', challID);
-    // data.append('score', score);
+    data.append('score', score)
     console.log(data);
     //MAKE REQ TO SERVER
     try {

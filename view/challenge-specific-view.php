@@ -4,18 +4,6 @@ $coord = array(
     "lat" => $place['latitude'],
     "lng" => $place['longitude']
 );
-//WILL NEED TO BE PULLED DYNAMICALLY FROM SESSION LATER..
-$userID = 1;
-print_r($title);
-echo "<br>";
-echo "<br>";
-print_r($coord);
-echo "<br>";
-echo "<br>";
-print_r($challenge);
-echo "<br>";
-echo "<br>";
-print_r($place);
 ob_start();
 ?>
 <!-- DEFINE GLOBAL VARS NEEDED IN CHALLENGE-SPECIFIC SCRIPT.. -->
