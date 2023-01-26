@@ -18,11 +18,15 @@ ob_start();
 
 <div id="challenges">
     <form action="<?= $listChallenges_path ?>" method="POST">
+        <?php if(isset($delete_msg)): ?> 
+        <p style="font-size:1.1em; margin-bottom:10px;color:red;"><?= $delete_msg ?></p>
+        <?php endif ?>
         <?php for($i = 0; $i<count($places); $i++): 
             $challenges = $c_manager->getChallenges($places[$i]["id"]);    
         ?>
         <details>
             <summary><?= $places[$i]["name"] ?></summary>
+            <button type="submit" name="delete-Place" value="<?= $places[$i]['id'] ?>">DELETE THE PLACE</button>
             <ul>
                 <?php foreach($challenges as $challenge): ?>
                 <li>

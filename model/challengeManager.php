@@ -89,8 +89,15 @@ class ChallengeManager extends Db {
 
     public function deletePlace($place_id)
     {
-        // should delete all the challenges belong to this place
-        $this->delete('places', $place_id);
+        // can't delete a place before all the challenges belong to this place has been deleted (by hand)
+        $challenges = $this->getChallenges($place_id);
+        // echo empty($challenges)? 'true':'false'; 
+        if(empty($challenges)){
+            $this->delete('places', $place_id);
+            return 1;
+        } else {
+            return 'Failed! Delete the challenges on this place first to delete the place.';
+        }
     }
 
     public function deleteChallenge($challenge_id)
