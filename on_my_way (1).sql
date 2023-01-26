@@ -35,7 +35,7 @@ CREATE TABLE `challenges` (
   `score` int(11) DEFAULT NULL,
   `users_accomplished` int(11) DEFAULT NULL,
   `created_date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=Inno DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `challenges`
