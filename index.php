@@ -22,6 +22,9 @@
         case "challenge-specific":
             include './controller/challenge-specific.php';
             break;
+        case "add-place":
+            include './controller/add-place.php';
+            break;
         default:
             include './controller/display-home.php';
             break;

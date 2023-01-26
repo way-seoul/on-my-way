@@ -1,14 +1,21 @@
 <?php
-$title = 'ON MY WAY | CHALLENGE LIST';
+$h1 = 'CHALLENGE LIST';
+$title = 'ON MY WAY | ' . $h1;
 ob_start();
 ?>
 <script src="./public/responsive_search_bar.js" defer></script>
-<h1><?= $title ?></h1>
+<h1><?= $h1 ?></h1>
+
+<div style="background-color:black; width:fit-content; padding: 10px; margin: 10px;">
+    <a href="<?= $addPlace_path ?>">Add a Place ></a>
+</div>
+
 <!--NEW CONTENT: Responsive Search Bar-->
 <form id="search_form">
     <input id="search" type="text" class="input" placeholder="search..."/>
     <button id="clear" type="button" class="clear-results">clear</button>
 </form>
+
 <div id="challenges">
     <form action="<?= $listChallenges_path ?>" method="POST">
         <?php for($i = 0; $i<count($places); $i++): 

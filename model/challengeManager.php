@@ -27,6 +27,40 @@ class ChallengeManager extends Db {
         return $challenges;
     }
 
+    public function validatePlace($data) {
+        foreach($data as $key => $value) {
+            if(empty($value)) return false;
+            if ($key == 'latitude' || $key == 'longitude') {
+                if(!is_numeric($value)) return false;
+
+                if($key == 'latitude' && ($value>90 || $value<-90)) return false;
+                else if($key == 'longitude' && ($value>180 || $value<-180)) return false;
+
+                preg_match('/-*[0-9]+[\.]*[0-9]*/', $value, $matches, PREG_OFFSET_CAPTURE);
+
+                $value = trim(htmlspecialchars($matches[0][0]));
+                $data[$key] = number_format(floatval($value), 15, '.');
+            } else {
+                if($key == 'add-place') continue;
+                $data[$key] = trim(htmlspecialchars($value));
+            }
+        }
+        return $data;    
+    }
+
+    public function addPlace($data) {
+        $db = $this->connectDB();
+        $newPlace = $db->prepare('
+            INSERT INTO places (name, latitude, longitude)
+            VALUES (:name, :latitude, :longitude)
+        ');
+        $newPlace->execute([
+            'name' => $data['name'], 
+            'latitude' => $data['latitude'], 
+            'longitude' => $data['longitude']
+        ]);
+    }
+
     public function updateChallenge($data) {
         $db = $this->connectDB();
         $sql = "UPDATE challenges 
