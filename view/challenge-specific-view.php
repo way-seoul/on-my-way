@@ -4,37 +4,33 @@ $coord = array(
     "lat" => $place['latitude'],
     "lng" => $place['longitude']
 );
+//WILL NEED TO BE PULLED DYNAMICALLY FROM SESSION LATER..
+$userID = 1;
+print_r($title);
+echo "<br>";
+echo "<br>";
+print_r($coord);
+echo "<br>";
+echo "<br>";
+print_r($challenge);
+echo "<br>";
+echo "<br>";
+print_r($place);
 ob_start();
 ?>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<!-- DEFINE GLOBAL VARS NEEDED IN CHALLENGE-SPECIFIC SCRIPT.. -->
 <script>
-    let map;
-
-    function initMap() {
-        let location = { lat: <?= $coord['lat'] ?>, lng: <?= $coord['lng']?> };
-
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: location,
-            zoom: 15,
-            disableDefaultUI: true,
-            zoomControl: false,
-        });
-
-        const marker = new google.maps.Marker({
-            position: location,
-            map: map,
-            title: "Port Dodong"
-        });
-
-    }
-
-    window.initMap = initMap;
+    let placeLoc = { lat: <?= $coord['lat'] ?>, lng: <?= $coord['lng']?> };
+    let userID = <?=$userID?>;
+    let score = <?=$challenge['score']?>;
+    let challID = <?=$challenge['id']?>
 </script>
+<script src="public/challenge-specific-script.js" async defer></script>
 
 <h1><?= $challenge['name'] ?></h1>
-<div onclick="alert('hello!');" id="onspot">
+<button id="onspot">
     I'm ON the SPOT!
-</div>
+</button>
 <div id="challenge">
     <p>Description: 
         <?= $challenge['content'] ?>
@@ -50,17 +46,12 @@ ob_start();
             <?= $place['name'] ?>
         </strong></a> <!-- let's replace the link later with list of challenges on this spot -->
     </p>
+    <p id="result-message-container"></p>
     <?=require_once 'listComments.php'?>
     <div id="single-marker">
         <div id="map"></div>
     </div>
 </div>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=
-            AIzaSyD2BtiQ-uN99L2bC0QfQHo_RI1nk53XqYk
-        &callback=initMap&v=weekly"
-    defer
-></script>
 
 <?php
     $html = ob_get_clean(); // give the code into a variable
