@@ -4,8 +4,6 @@
 
     $action = $_GET['action'] ?? '';
 
-
-
     switch($action) {
         case 'admin':
             include 'controller/admin.php';
