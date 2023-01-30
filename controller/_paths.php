@@ -13,3 +13,4 @@ DEFINE("LIST_CHALLENGES_PATH", ROOT . "list-challenges", FALSE);
 DEFINE("CHALLENGE_PATH", ROOT . "challenge-specific", FALSE);
 DEFINE("EDIT_CHALLENGE_PATH", ROOT . "edit-challenge", FALSE);
 DEFINE("LOGIN_PATH", ROOT . "login", FALSE);
+DEFINE("ADD_PLACE_PATH", ROOT . "add-place", FALSE);

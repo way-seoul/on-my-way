@@ -64,6 +64,9 @@
 
 <h2>Manage Challenges</h2>
 <a href="<?= LIST_CHALLENGES_PATH ?>">Challenges List page</a> <!-- this is for convenience -->
+<table>
+    
+</table>
 <!-- list of challenges: Add/Edit/Delete Challenges -->
 
 <?php 

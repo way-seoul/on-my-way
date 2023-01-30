@@ -29,6 +29,9 @@
         case 'challenge-specific':
             ChallengeContr::showChallengeInfo();
             break;
+        case "add-place":
+            include './controller/add-place.php';
+            break;
         case 'login':
             UsersContr::loginUser();
             break;
