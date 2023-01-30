@@ -18,7 +18,7 @@ class ChallengeManager extends Db {
         $place = $place->fetch();
         return $place;
     }
-
+    
     public function getChallenges($place_id) {
         $db = $this->connectDB();
         $challenges = $db->prepare("SELECT * FROM challenges WHERE place_id = ?");
@@ -70,7 +70,7 @@ class ChallengeManager extends Db {
         $stmt->execute([
             'id' => $data['edit'],
             'name' => $data['name'],
-            'content' => 'N/A for now', // let's add the input for this later
+            'content' => $data['content'],
             'conditions' => $data['conditions'],
             'score' => $data['score'],
             'place_id' => $data['place_id'],
@@ -91,7 +91,6 @@ class ChallengeManager extends Db {
     {
         // can't delete a place before all the challenges belong to this place has been deleted (by hand)
         $challenges = $this->getChallenges($place_id);
-        // echo empty($challenges)? 'true':'false'; 
         if(empty($challenges)){
             $this->delete('places', $place_id);
             return 1;

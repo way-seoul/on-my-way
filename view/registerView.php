@@ -1,4 +1,5 @@
-<?php 
+<?php
+
     $title = 'ON MY WAY | REGISTER';
     ob_start();
 ?>
@@ -26,4 +27,7 @@
 <?php 
     $html = ob_get_clean();
     include 'template.php';
+    if(session_status() === PHP_SESSION_ACTIVE && isset($_SESSION['user'])){
+        header('Location: index.php?action=create-challenge');
+    }
 ?>

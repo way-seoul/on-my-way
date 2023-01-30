@@ -48,4 +48,12 @@ class adminFunction extends Db{
         $newEntry->execute([$entry['username'], $hashed_password, $entry['first_name'], $entry['last_name'], $entry['email'], date('Y-m-d H:i:s'), '0']);
     }
 
+    public function resetUserPassword($reset_password, $id){
+
+        $db = DB::connectDB();
+        $hashed_reset_password = password_hash($reset_password, PASSWORD_BCRYPT);
+        $users = $db->prepare('UPDATE users SET password = ? WHERE id = ?');
+        $users->execute([$hashed_reset_password, $id]);
+    }
+
 }

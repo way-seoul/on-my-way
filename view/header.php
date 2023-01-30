@@ -1,6 +1,6 @@
 <?php
     $highlight = 'color:white; font-weight:bolder';
-    $username = 'username'
+    $username = 'username';
 ?>
 
 <header>
@@ -16,19 +16,22 @@
             <!-- end if -->
         </ul>
     </nav>
-
-    <form method="GET" id="login-box">
+    <form method="POST" id="login-box">
         <!-- if loggedin then show this -->
+        <?php if(isset($_SESSION['user']) && !isset($_POST['log_out'])){?>
             <span>
-                Hi <strong><?= $username ?></strong>!
+                Hi <strong><?= $_SESSION['user'] ?></strong>!
             </span>
-            <button type="submit" name="">LOG OUT</button>
-        <!-- else if not loggedin then show this -->
-            <button type="submit">LOG IN</button>
+            <button type="submit" name="log_out">LOG OUT</button>
         <!-- end if -->
+        <!-- else if not loggedin then show this -->
+        <?php }else if(isset($_POST['log_out'])){
+            session_unset();
+            session_destroy();
+            header('Location: index.php?action=');
+        ?>
+            
+        <!-- end if -->
+        <?php } ?>
     </form>
-
-
-
-
 </header>
