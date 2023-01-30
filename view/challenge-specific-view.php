@@ -55,12 +55,6 @@ ob_start();
         <div id="map"></div>
     </div>
 </div>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=
-            AIzaSyD2BtiQ-uN99L2bC0QfQHo_RI1nk53XqYk
-        &callback=initMap&v=weekly"
-    defer
-></script>
 
 <?php
     $html = ob_get_clean(); // give the code into a variable
