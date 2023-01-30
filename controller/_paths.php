@@ -13,3 +13,5 @@ $challenge_path = $root . "challenge-specific";
 $editChallenge_path = $root . "edit-challenge";
 
 $login_path = $root . "login";
+
+$addPlace_path = $root . "add-place";

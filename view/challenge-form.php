@@ -1,11 +1,13 @@
 <?php 
-    $title = 'ON MY WAY | CREATE A NEW CHALLENGE';
+    $h1 = isset($backBtn) ? 'Edit: ' . $name:'CREATE A NEW CHALLENGE';
+    $title = 'ON MY WAY | ' . $h1;
     ob_start();
 ?>
 
 <?php
     if(isset($backBtn)) echo $backBtn;
 ?>
+<h1><?= $h1 ?></h1>
 <form action="<?= $root . $action ?>" method="post">
     <?php
     if(isset($challengeId)) {

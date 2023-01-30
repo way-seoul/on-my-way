@@ -26,6 +26,8 @@
         case 'challenge-specific':
             include './controller/challenge-specific.php';
             break;
+        case "add-place":
+            include './controller/add-place.php';
         case "preview":
             include 'controller/landing.php';
             break;
