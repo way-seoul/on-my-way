@@ -1,11 +1,6 @@
 <?php
 $title = 'ON MY WAY | WELCOME';
-if(isset($_SESSION['logged_in'])){
-    ob_start();
-} else {
-    header('Location: '.$landing_path);
-    die();
-}
+ob_start();
 
 ?>
 <script src="public/user-location-home.js" defer></script>
