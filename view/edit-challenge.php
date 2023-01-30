@@ -3,7 +3,7 @@
     ob_start();
 ?>
 
-<form action="<?= $editChallenge_path ?>" method="post">
+<form action="<?= EDIT_CHALLENGE_PATH ?>" method="post">
     <!-- <select name="edit-challenge" id=""> -->
         <!----------- PHP LOOP HERE -------->
         <select name="edit-challenge-id" id="edit-challenge">

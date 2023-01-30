@@ -1,7 +1,7 @@
 <?php
 include_once 'db.php';
 
-class adminFunction extends Db{
+class Admin extends Db {
     public function listUsers()
     {
         $db = Db::connectDB();
@@ -54,6 +54,28 @@ class adminFunction extends Db{
         $hashed_reset_password = password_hash($reset_password, PASSWORD_BCRYPT);
         $users = $db->prepare('UPDATE users SET password = ? WHERE id = ?');
         $users->execute([$hashed_reset_password, $id]);
+    }
+
+    function showEntry($id) 
+    {
+        $db = Db::connectDB();
+
+        $users = $db->prepare('SELECT * FROM users WHERE id = ?');
+        
+        $users->execute([$id]);
+        $user = $users->fetch();
+
+        return $user;
+
+    }
+
+    function editEntry($id, $edited_username, $edited_email, $edited_firstname, $edited_lastname, $edited_admin) 
+    {
+        $db = Db::connectDB();
+
+        $users = $db->prepare('UPDATE users SET username=?, email=?, first_name=?, last_name=?, admin=? WHERE id=?');
+        
+        $users->execute([$edited_username, $edited_email, $edited_firstname, $edited_lastname, $edited_admin, $id]);
     }
 
 }

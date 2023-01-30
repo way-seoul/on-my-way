@@ -12,9 +12,9 @@ The users can choose the CHALLENGE of the location, visit the location and get r
 
 For this project, please define your username/password/GMAP on your Apache configuration file (httpd.conf):
 
-$ONMYWAY_DB_USERNAME
-$ONMYWAY_DB_PASSWORD
-$ONMYWAY_GMAP_KEY
+ONMYWAY_DB_USERNAME
+ONMYWAY_DB_PASSWORD
+ONMYWAY_GMAP_KEY
 =======
 
 https://docs.google.com/document/d/1Sy6emsOmGmD7i18eFfcoFndc-_pVb8sVBVLDa16dNOQ/edit

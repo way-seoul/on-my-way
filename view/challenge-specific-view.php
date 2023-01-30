@@ -46,7 +46,7 @@ ob_start();
         <strong><?= $challenge['score'] ?> points</strong>
     </p>
     <p>Location: 
-        <strong><a href="<?= $listChallenges_path ?>">
+        <strong><a href="<?= LIST_CHALLENGES_PATH ?>">
             <?= $place['name'] ?>
         </strong></a> <!-- let's replace the link later with list of challenges on this spot -->
     </p>
@@ -55,12 +55,6 @@ ob_start();
         <div id="map"></div>
     </div>
 </div>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key=
-            AIzaSyD2BtiQ-uN99L2bC0QfQHo_RI1nk53XqYk
-        &callback=initMap&v=weekly"
-    defer
-></script>
 
 <?php
     $html = ob_get_clean(); // give the code into a variable
