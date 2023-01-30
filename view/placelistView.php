@@ -17,7 +17,7 @@ ob_start();
 </form>
 
 <div id="challenges">
-    <form action="<?= $listChallenges_path ?>" method="POST">
+    <form action="<?= LIST_CHALLENGES_PATH ?>" method="POST">
         <?php if(isset($delete_msg)): ?> 
         <p style="font-size:1.1em; margin-bottom:10px;color:red;"><?= $delete_msg ?></p>
         <?php endif ?>
@@ -30,7 +30,7 @@ ob_start();
             <ul>
                 <?php foreach($challenges as $challenge): ?>
                 <li>
-                    <a href="<?= $challenge_path ?>&id=<?= $challenge['id']?>"><?= $challenge["name"] ?></a>
+                    <a href="<?= CHALLENGE_PATH ?>&id=<?= $challenge['id']?>"><?= $challenge["name"] ?></a>
                     <div class="btns">
                         <button type="submit" name="edit" value="<?= $challenge['id'] ?>">EDIT</button>
                         <button type="submit" name="delete" value="<?= $challenge['id'] ?>">DELETE</button>

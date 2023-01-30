@@ -7,8 +7,9 @@
 <?php
     if(isset($backBtn)) echo $backBtn;
 ?>
+
 <h1><?= $h1 ?></h1>
-<form action="<?= $root . $action ?>" method="post">
+<form action="<?= ROOT . $action ?>" method="post">
     <?php
     if(isset($challengeId)) {
     ?>

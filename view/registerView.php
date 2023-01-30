@@ -21,7 +21,7 @@
 
 <div class="btn">
     Already have an account?
-    <a href="<?= $login_path ?>">Log In</a>
+    <a href="<?= LOGIN_PATH ?>">Log In</a>
 </div>
 
 <?php 
