@@ -28,6 +28,7 @@
             break;
         case "add-place":
             include './controller/add-place.php';
+            break;
         case "preview":
             include 'controller/landing.php';
             break;
