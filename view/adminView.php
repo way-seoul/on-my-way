@@ -7,7 +7,7 @@
 
 <div class="btn">
     <button type="button">
-    <a href="<?= $login_path ?>">Log Out</a>
+    <a href="<?= LOGIN_PATH ?>">Log Out</a>
     </button>
 </div>
 
@@ -38,7 +38,7 @@
                     <td><?= $user['email']; ?></td>
                     <td><?= $user['created_date']; ?></td>
                     <td><?= $user['admin']; ?></td>
-                    <td><a href="<?= $adminEdit_path ?>&id=<?=$user['id']?>">Edit</a></td>
+                    <td><a href="<?= ADMIN_EDIT_PATH ?>&id=<?=$user['id']?>">Edit</a></td>
                     <td><button type="button" class="delete-user" name="delete"
                     data-id="<?= $user['id'] ?>">Delete</button></td>
                     <td><button type="button" class="reset-password" name="reset" data-id=<?= $user['id'] ?>>Reset password</button></td>
@@ -63,7 +63,7 @@
 </form>
 
 <h2>Manage Challenges</h2>
-<a href="<?= $listChallenges_path?>">Challenges List page</a> <!-- this is for convenience -->
+<a href="<?= LIST_CHALLENGES_PATH ?>">Challenges List page</a> <!-- this is for convenience -->
 <!-- list of challenges: Add/Edit/Delete Challenges -->
 
 <?php 

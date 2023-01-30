@@ -8,7 +8,7 @@
 
 <div class="btn">
     <button type="button">
-    <a href="<?= $admin_path ?>">See Full List of Users</a>
+    <a href="<?= ADMIN_PATH ?>">See Full List of Users</a>
     </button>
 </div>
 
