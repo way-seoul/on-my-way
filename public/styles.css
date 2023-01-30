@@ -107,7 +107,6 @@ header {
     text-decoration: underline;
 }
 
-<<<<<<< HEAD
 /* Google Map API */
 /* 
  * Always set the map height explicitly to define the size of the div element
@@ -120,13 +119,12 @@ header {
   /* 
    * Optional: Makes the sample page fill the window. 
    */
-  html,
-  body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-  }
-=======
+}
 #single-marker {
     height: 400px; 
     width: 100vw; 
@@ -148,4 +146,3 @@ header {
     background-color: #FFD750;
     text-align: center;
 }
->>>>>>> 94af5a58af6de069fa86df3ab26eb69441c2c21f

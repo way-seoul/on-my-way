@@ -14,10 +14,7 @@ function login(){
         $validated = isset($username) && isset($password) && $username == $user_info['username'] && $verified_password == true ? true : false;
         
         if($validated == true){
-            
-
-            $_SESSION['logged_in'] = true;
-
+           $_SESSION['logged_in'] = true;
         }
         
         $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];

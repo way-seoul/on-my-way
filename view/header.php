@@ -25,8 +25,10 @@
             <button type="submit" name="log_out">LOG OUT</button>
         <!-- end if -->
         <!-- else if not loggedin then show this -->
-        <?php }else if(isset($_POST['log_out']) || !isset($_SESSION['user'])){
+        <?php }else if(isset($_POST['log_out'])){
+            session_unset();
             session_destroy();
+            header('Location: index.php?action=');
         ?>
             
         <!-- end if -->
