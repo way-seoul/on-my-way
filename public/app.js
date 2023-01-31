@@ -1,3 +1,5 @@
+
+console.log('HI App.js');
 //User Delete Function using AJAX
 let buttons = document.querySelectorAll('button.delete-user');
 
