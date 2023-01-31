@@ -50,7 +50,7 @@ CREATE TABLE users (
   last_name varchar(64) NOT NULL,
   email varchar(64) NOT NULL,
   created_date datetime NOT NULL,
-  points_total int(11) NOT NULL,
+  points_total int(11) DEFAULT '0',
   admin tinyint(1) NOT NULL,
   PRIMARY KEY (id)
 );
