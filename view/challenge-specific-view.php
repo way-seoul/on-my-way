@@ -35,7 +35,7 @@ ob_start();
         </strong></a> <!-- let's replace the link later with list of challenges on this spot -->
     </p>
     <p id="result-message-container"></p>
-    <?=require_once 'listComments.php'?>
+    <?php require_once 'listComments.php'?>
     <div id="single-marker">
         <div id="map"></div>
     </div>
