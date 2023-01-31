@@ -11,9 +11,10 @@
 <body>
     <?php include 'header.php'; ?>
     <?= $html ?>
+    <script src="public/app.js"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=<?=$db_password = $_SERVER['ONMYWAY_GMAP_KEY'];?>&callback=initMap&v=weekly&libraries=geometry"
-      defer
+      defer§
     ></script>
 </body>
 </html>
