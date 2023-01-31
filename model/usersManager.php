@@ -3,7 +3,7 @@ include_once 'db.php';
 
 class Users extends Db {
 
-    public function addUsers($entry){
+    public static function addUsers($entry){
 
         $db = DB::connectDB();
 
@@ -18,7 +18,7 @@ class Users extends Db {
         $newEntry->execute([$entry['username'], $hashed_password, $entry['first_name'], $entry['last_name'], $entry['email'], date('Y-m-d H:i:s'), '0']);
     }
 
-    public function getUser($username){
+    public static function getUser($username){
         $db = DB::connectDB();
 
         $user = $db->prepare('SELECT username, password FROM users WHERE username = ?');
