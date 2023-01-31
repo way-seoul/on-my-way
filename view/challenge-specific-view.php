@@ -46,7 +46,7 @@ ob_start();
         <strong><?= $challenge['score'] ?> points</strong>
     </p>
     <p>Location: 
-        <strong><a href="<?= LIST_CHALLENGES_PATH ?>">
+        <strong><a href="<?= $listChallenges_path ?>">
             <?= $place['name'] ?>
         </strong></a> <!-- let's replace the link later with list of challenges on this spot -->
     </p>
