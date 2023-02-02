@@ -19,3 +19,8 @@ ONMYWAY_GMAP_KEY
 
 https://docs.google.com/document/d/1Sy6emsOmGmD7i18eFfcoFndc-_pVb8sVBVLDa16dNOQ/edit
 
+-
+admin account
+username: admin
+pw: 123
+
