@@ -7,6 +7,8 @@
     include_once "./controller/adminContr.class.php";
     include_once "./controller/usersContr.class.php";
     include_once "./controller/challengeContr.class.php";
+    include_once './controller/placeContr.class.php';
+
 
     $action = $_GET['action'] ?? '';
 
@@ -26,11 +28,17 @@
         case 'list-challenges':
             ChallengeContr::listChallenges();
             break;
+        case 'edit-challenge':
+            ChallengeContr::editChallenges();
+            break;
         case 'challenge-specific':
             ChallengeContr::showChallengeInfo();
             break;
         case "add-place":
-            include './controller/add-place.php';
+            PlaceContr::addPlace();
+        //     break;
+        // case "list-places":
+        //     PlaceContr::listPlaces();
             break;
         case 'login':
             UsersContr::loginUser();

@@ -1,5 +1,8 @@
 <?php
-include './model/adminManager.php';
+include_once './model/adminManager.php';
+include_once './model/challengeManager.php';
+include_once './model/placeManager.php';
+
 
 class AdminContr {
     public static function admin(){
@@ -24,6 +27,25 @@ class AdminContr {
             $id = $_POST['id'];
             $reset_password = '0000';
             $manager->resetUserPassword($reset_password, $id);
+        }
+
+        // ********************************************* list challenges
+        $c_manager = new ChallengeManager();
+        $p_manager = new PlaceManager();
+        $challenges = $c_manager->getChallDataForAdmin();
+        
+        if(isset($_POST['delete-chll']) && $_POST['delete-chll']!= '') {
+            $c_manager->deleteChallenge($_POST['delete-chll']);
+        } 
+
+        // ********************************************* list locations
+        $places = $c_manager->getPlacesForAdmin();
+        // $challenges = $c_manager->getChallenges($places[$i]["id"]);
+        if(isset($_POST['delete-Place']) && $_POST['delete-Place']!='') {
+            $delete_msg = $c_manager->deletePlace($_POST['delete-Place']);
+            if($delete_msg == 1) {
+                header('Location:' . ADMIN_PATH);
+            }
         }
 
         include './view/adminView.php';

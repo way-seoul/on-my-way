@@ -5,7 +5,7 @@
 ?>
 
 <h1><?= $h1 ?></h1>
-<form action="<?= $addPlace_path ?>" method="POST">
+<form action="<?= ADD_PLACE_PATH ?>" method="POST">
     <label for="place_name">Place Name: </label>
     <input type="text" name="name" id="place_name" 
         placeholder="Name it!" value="<?= isset($prefill) ? $prefill['name']:'' ?>"
