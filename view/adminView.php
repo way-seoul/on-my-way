@@ -5,12 +5,6 @@
 
 <h1>Dashboard</h1>
 
-<div class="btn">
-    <button type="button">
-    <a href="<?= LOGIN_PATH ?>">Log Out</a>
-    </button>
-</div>
-
 <h2>Manage Users</h2>
 
 <table border="1" style="margin-bottom: 15rem;">
