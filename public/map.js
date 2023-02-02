@@ -1,13 +1,12 @@
 
-//TO LOAD GOOGLE MAP, THIS PAGE MUST RECEIVE THE FOLLOWING VARIABLES!
-// mapOptions =  { zoom: xxx, center: {lat: xx, lng: xx}}
-// mapMarkers =  [{'name': xxx, 'lat': xxx, 'lng': xxx}]
+//-------------------------------------------------------//
+//This code is re-used across each page using the GMAP API
+//For the page to work ensure the following variables are made available in the global scope:
+//mapOptions =  { zoom: xxx, center: {lat: xx, lng: xx}}
+//mapMarkers =  [{'name': xxx, 'lat': xxx, 'lng': xxx}, etc, etc]
+//-------------------------------------------------------//
 
-console.log('MAP MAP MAP');
-
-//Google Map API show multiple locations on one map
 function initMap() {
-    // The map, centered at wcoding
     const map = new google.maps.Map(document.getElementById("map"), mapOptions);
     setMarkers(map);
 }
@@ -23,7 +22,4 @@ function setMarkers(map) {
     }
 }
 
-function googleMap() {
-    console.log('gooogle mappp');
-}
 
