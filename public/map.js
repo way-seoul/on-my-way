@@ -3,6 +3,8 @@
 // mapOptions =  { zoom: xxx, center: {lat: xx, lng: xx}}
 // mapMarkers =  [{'name': xxx, 'lat': xxx, 'lng': xxx}]
 
+console.log('MAP MAP MAP');
+
 //Google Map API show multiple locations on one map
 function initMap() {
     // The map, centered at wcoding
@@ -21,4 +23,7 @@ function setMarkers(map) {
     }
 }
 
-window.initMap = initMap;
+function googleMap() {
+    console.log('gooogle mappp');
+}
+
