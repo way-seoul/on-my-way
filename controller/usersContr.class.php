@@ -11,7 +11,6 @@ Class UsersContr extends Users{
     }
 
     public static function loginUser(){
-        $logged_in = false;
 
         if(isset($_POST['login_button']) || isset($_POST['login_button_header']) && ($_POST['username'] || $_POST['username_header']) !== '' && ($_POST['password'] || $_POST['password_header']) !== ''){
             $user = new Users();
@@ -38,11 +37,12 @@ Class UsersContr extends Users{
                 echo "<script>alert('Incorrect username or password!')</script>";
             }
             
-            $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
+        }
 
-            if($logged_in){
-                header('location: index.php?action=home');
-            }
+        $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
+
+        if($logged_in){
+            header('location: index.php?action=home');
         }
         
         include_once './view/loginView.php';
