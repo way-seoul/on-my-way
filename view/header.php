@@ -7,13 +7,14 @@
     <nav id="menu">
         <ul>
             <li><a href="<?= ROOT ?>" style="<?= $action == '' ? $highlight:'' ?>">On My Way</a></li>
-            <li><a href="<?= CREATE_CHALLENGE_PATH ?>" style="<?= $action == 'create-challenge' ? $highlight:'' ?>">Add challenge</a></li>
-            <!-- if loggedin then show this -->
+            <li><a href="<?= LIST_CHALLENGES_PATH ?>" style ="<?= $action == '' ? $hightlight:'' ?>">Challenges</a></li>
+            <?php if(isset($_SESSION['logged_in'])){ ?>
+                <li><a href="<?= CREATE_CHALLENGE_PATH ?>" style="<?= $action == 'create-challenge' ? $highlight:'' ?>">Add challenge</a></li>
                 <li><a href="<?= USER_PROFILE_PATH ?>" style="<?= $action == 'my-profile' ? $highlight:'' ?>">See My Profile</a></li>
-            <!-- end if -->
-            <!-- if the user is admin == true, let's delete this link later and just send the admin directly to admin page -->
-                <li><a href="<?= ADMIN_PATH ?>" style="<?= $action == 'admin' ? $highlight:'' ?>">Admin</a></li>
-            <!-- end if -->
+                <?php if(isset($_SESSION['logged_in']) && $_SESSION['admin'] == true ){?>
+                    <li><a href="<?= ADMIN_PATH ?>" style="<?= $action == 'admin' ? $highlight:'' ?>">Admin</a></li>
+                <?php } ?>
+            <?php } ?>
         </ul>
     </nav>
     <?php if(!isset($_SESSION['user'])){?>

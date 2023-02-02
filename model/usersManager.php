@@ -21,7 +21,7 @@ class Users extends Db {
     public static function getUser($username){
         $db = DB::connectDB();
 
-        $user = $db->prepare('SELECT username, password FROM users WHERE username = ?');
+        $user = $db->prepare('SELECT username, password, id, admin FROM users WHERE username = ?');
         $user->execute([$username]);
         return $user->fetch();
     }
