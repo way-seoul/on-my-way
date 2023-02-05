@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
+    <link rel="icon" type="image/x-icon" href="public/image/favicon.ico">
     <script defer src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" href="public/styles.css" />
 </head>
