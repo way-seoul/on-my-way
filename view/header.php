@@ -17,22 +17,23 @@
             <?php endif ?>
         </ul>
     </nav>
-    <form method="POST" id="login-box">
-        <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
-            if(!isset($_POST['log_out'])) {?>
-                <span>
-                    Hi <strong><?= $_SESSION['user'] ?></strong>!
-                </span>
-                <button type="submit" name="log_out">LOG OUT</button>
-            <?php }else {
-                session_unset();
-                session_destroy();
-                header('Location: index.php?action=');
-            }
-        } else {?>
-            <a href="<?= LOGIN_PATH ?>" style="margin-right:20px;">log in</a>
-        <?php } ?>
-    </form>
+    <?php if(!isset($_SESSION['user'])){?>
+        <form method="POST" action="<?= LOGIN_PATH ?>">
+            <input type="text" name="username_header" placeholder="Username" required>
+            <input type="password" name="password_header" placeholder="Password" required>
+            <button name="login_button_header">Log In</button>
+        </form>
+    <?php }else if(isset($_SESSION['user']) && !isset($_POST['log_out'])){ ?>
+        <form method="POST" id="login-box">
+            <span>
+                Hi <strong><?= $_SESSION['user'] ?></strong>!
+            </span>
+            <button type="submit" name="log_out">LOG OUT</button>
+    <?php }else if(isset($_POST['log_out'])){
+        session_unset();
+        session_destroy();
+        header('Location: index.php?action=');
+    ?>
+    <?php } ?>
+        </form>
 </header>
-
-

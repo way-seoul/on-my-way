@@ -16,10 +16,10 @@ Class UsersContr extends Users{
     public static function loginUser(){
         $logged_in = false;
 
-        if(isset($_POST['login_button']) && $_POST['username'] !== '' && $_POST['password'] !== ''){
+        if(isset($_POST['login_button']) || isset($_POST['login_button_header']) && ($_POST['username'] || $_POST['username_header']) !== '' && ($_POST['password'] || $_POST['password_header']) !== ''){
             $user = new Users();
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            $username = $_POST['username'] ?? $_POST['username_header'];
+            $password = $_POST['password'] ?? $_POST['password_header'];
             
             $user_info = $user->getUser($username);
             $verified_password = password_verify($password, $user_info['password']);
@@ -45,7 +45,7 @@ Class UsersContr extends Users{
                 else header('location: index.php?action=admin');
             }
         }
-
+        
         include_once './view/loginView.php';
     }
 }
