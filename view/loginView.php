@@ -3,8 +3,10 @@
     ob_start();
 ?>
 <div class="login_div">
+    <img class="login_pic" src="public/image/loginPic.jpg" alt="login pic">
     <div class="login_header">
-        <h1>USER LOGIN</h1>
+        <h1>WELCOME BACK!</h1>
+        <h2>LOG IN</h2>
     </div>
     <div class="login_form_top">
         <form method="POST" action="">
@@ -26,15 +28,13 @@
         </form>
     </div>
     <div class="login_footer">
-        <div class="forgot_password">
-            <p><a href="">Forgot Password?</a></p>
-        </div>
         <div class="sign_up_link">
             <p>Don't have an account? <a href="<?= REGISTER_PATH ?>">Sign up</a></p>
         </div>
     </div>
+    <div class="on_my_way">ON MY WAY</div>
 </div>
 <?php
     $html = ob_get_clean();
-    include 'template.php';
+    include 'non-logged-in-template.php';
 ?>

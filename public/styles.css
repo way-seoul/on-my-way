@@ -1,4 +1,179 @@
-body{
+/* Login Page CSS */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Eastman-Bold';
+    src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Bold-trial.otf) format("Opentype");
+}
+
+@font-face {
+    font-family: 'Eastman';
+    src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Medium-trial.otf) format("Opentype");
+}
+
+.login_pic {
+    width: 50%;
+    height: 100%;
+    float: right;
+    object-fit: cover;
+} 
+
+.login_div {
+    background-color: #a86446;
+    margin: 0;
+    width: auto;
+    height: 100%;
+}
+
+.login_header {
+    text-align: center;
+    font-family: 'Eastman-Bold';
+    color: #f9f3e5;
+    position: relative;
+    top: 28%;
+    font-size: 28px;
+}
+
+.login_header > h1 {
+    margin-bottom: 5px;
+}
+
+.login_header > h2 {
+    margin-top: 5px;
+}
+
+.login_form_top, .login_footer {
+    font-family: 'Eastman';
+    color: #f9f3e5;
+    position: relative;
+    top: 28%;
+    left: 10%;
+    font-size: large;
+}
+
+.username_input, .password_input, .email_input, .firstname_input, .lastname_input {
+    border:1px solid transparent;
+    border-radius: 30px;
+    width: 400px;
+    height: 20px;
+    background-color: #f9f3e5; 
+    margin-top: 3px;
+}
+
+.login_username, .login_password {
+    margin-top: 10px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #83b8a1;
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: #83b8a1;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+color: #83b8a1;
+}
+
+.login_button, .register_button {
+    border:1px solid transparent;
+    border-radius: 30px;
+    width: 100px;
+    height: 40px;
+    background-color: #5c8271; 
+    color: #f9f3e5;
+    margin-top: 25px;
+    font-family: 'Eastman-Bold';
+    font-size: large;
+}
+
+.login_footer {
+    display:flex;
+    position: relative;
+    top: 22%;
+    left: 18%;
+}
+
+.sign_up_link > p > a, .register_link > p > a {
+    text-decoration: underline;
+    color: #f9f3e5;
+    font-family: 'Eastman';
+}
+
+.on_my_way {
+    position: absolute;
+    top: 45%;
+    right: 15%;
+    font-family: 'Eastman-Bold';
+    color: #f9f3e5;
+    font-size: 55px;
+    z-index: 20;
+}
+
+/* Register Page CSS */
+
+.register_pic {
+    width: 50%;
+    height: 100%;
+    float: left;
+    object-fit: cover;
+} 
+
+.register_div {
+    background-color: #a86446;
+    margin: 0;
+    width: auto;
+    height: 100%;
+}
+
+.register_header {
+    text-align: center;
+    font-family: 'Eastman-Bold';
+    color: #f9f3e5;
+    position: relative;
+    top: 15%;
+    font-size: 28px;
+}
+
+.on_my_way_register {
+    position: absolute;
+    top: 45%;
+    left: 15%;
+    font-family: 'Eastman-Bold';
+    color: #f9f3e5;
+    font-size: 55px;
+    z-index: 20;
+}
+
+.register_form_top, .register_footer {
+    font-family: 'Eastman';
+    color: #f9f3e5;
+    position: relative;
+    top: 15%;
+    right: -10%;
+    font-size: large;
+}
+
+.signup_username, .signup_password, .signup_email, .firstname, .lastname {
+    margin-top: 10px;
+}
+
+.register_footer {
+    display:flex;
+    position: relative;
+    top: 9%;
+    left: 18%;
+}
+
+
+/* body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: auto;
     background-color: antiquewhite;
@@ -21,10 +196,10 @@ a {
     color: #FF5078;
     text-decoration: none;
     font-size: large;
-}
+} */
 
 /* Log-in page*/
-html, body {
+/* html, body {
     margin: 0;
 }
 
@@ -78,7 +253,7 @@ html, body {
     display: inline-block;
     width: 210px;
     text-align: center;
-}
+} */
 /**/
 
 header {
