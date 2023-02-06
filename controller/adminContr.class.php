@@ -17,9 +17,6 @@ class AdminContr {
             // delete user
             $id = $_POST['id'];
             $manager->deleteUser($id);
-        }elseif (isset($_POST['add'])) {
-            // add user
-            $manager->addUsers($_POST);
         }
         
         $users = $manager->listUsers();
@@ -82,5 +79,20 @@ class AdminContr {
         $user = $admin_edit_manager->showEntry($id);
 
         include './view/adminEditView.php';
+    }
+
+    public static function adminAdd() {
+        $manager = new Admin();
+
+        if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
+        if(!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) header('location: ' . ROOT . 'home');
+
+        if(isset($_POST['add'])){
+            $manager->addUsers($_POST);
+        }
+
+        $fromAdmin = 1;
+        include_once './view/registerView.php';
+
     }
 }

@@ -19,6 +19,9 @@
         case 'admin_edit': 
             AdminContr::adminEdit();
             break;
+        case 'admin_register':
+            AdminContr::adminAdd();
+            break;
         case 'register':
             UsersContr::registerUser();
             break;

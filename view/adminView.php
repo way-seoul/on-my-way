@@ -6,7 +6,7 @@
 <h1>Dashboard</h1>
 
 <h2>Users</h2>
-<a href="<?= REGISTER_PATH ?>&from=admin"
+<a href="<?= ROOT ?>admin_register"
     style="display:block; background-color:black; width:fit-content; padding: 10px; margin: 5px;"
 >Add Users ></a>
 

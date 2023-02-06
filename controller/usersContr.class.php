@@ -3,9 +3,6 @@ include './model/usersManager.php';
 
 Class UsersContr extends Users{
     public static function registerUser(){
-        if(isset($_GET['from']) && $_GET['from']=='admin'){
-            $fromAdmin = 1;
-        }
         if(isset($_POST['add'])){
             UsersContr::addUsers($_POST);
         }
