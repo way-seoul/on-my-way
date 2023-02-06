@@ -10,18 +10,19 @@ class Users extends Db {
         //hash password
         $password=$entry["password"];
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $entry['admin'] = isset($entry['admin']) ? $entry['admin']:'0';
 
         $newEntry = $db->prepare('
             INSERT INTO users (username, password, first_name, last_name, email, created_date, admin)
             VALUES (?, ?, ?, ?, ?, ?, ?)
         ');
-        $newEntry->execute([$entry['username'], $hashed_password, $entry['first_name'], $entry['last_name'], $entry['email'], date('Y-m-d H:i:s'), '0']);
+        $newEntry->execute([$entry['username'], $hashed_password, $entry['first_name'], $entry['last_name'], $entry['email'], date('Y-m-d H:i:s'), $entry['admin']]);
     }
 
     public static function getUser($username){
         $db = DB::connectDB();
 
-        $user = $db->prepare('SELECT username, password FROM users WHERE username = ?');
+        $user = $db->prepare('SELECT username, password, admin FROM users WHERE username = ?');
         $user->execute([$username]);
         return $user->fetch();
     }
@@ -67,7 +68,19 @@ class Users extends Db {
     public function getLeadingTenUsers() {
         // for the leader board on the HOMEPAGE
         $db = DB::connectDB();
-        $leaders = $db->query('SELECT * FROM users ORDER BY points_total DESC LIMIT 10');
+        $leaders = $db->query(
+            'SELECT 
+                users.username,
+                users.points_total,
+                GROUP_CONCAT(challenges.name) AS challenges
+            FROM users
+            LEFT JOIN user_challenge_r
+                ON users.id = user_challenge_r.user_id
+            LEFT JOIN challenges
+                ON challenges.id = user_challenge_r.challenge_id
+            GROUP BY users.id
+            ORDER BY points_total DESC LIMIT 10;'
+        );
         $leaders = $leaders->fetchAll();
         return $leaders;
     }

@@ -5,6 +5,10 @@ require_once 'model/challengeManager.php';
 
 class PlaceContr {
     public static function addPlace(){
+        if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
+        if(!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) header('location: ' . ROOT . 'home');
+
+
         $c_manager = new ChallengeManager();
         $invalidInput = false; //TODO this should be edited to be delivered to other file
 

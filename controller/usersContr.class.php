@@ -3,6 +3,9 @@ include './model/usersManager.php';
 
 Class UsersContr extends Users{
     public static function registerUser(){
+        if(isset($_GET['from']) && $_GET['from']=='admin'){
+            $fromAdmin = 1;
+        }
         if(isset($_POST['add'])){
             UsersContr::addUsers($_POST);
         }
@@ -29,14 +32,17 @@ Class UsersContr extends Users{
                 
                 $_SESSION['logged_in'] = true;
                 $_SESSION['user'] = $verified_username;
+                $_SESSION['admin'] = $user_info['admin'];
             }else if($validated == false){
                 echo "<script>alert('Incorrect username or password!')</script>";
             }
             
             $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
+            $is_admin = (isset($_SESSION['admin']) && $_SESSION['admin'] == 1);
 
             if($logged_in){
-                header('location: index.php?action=home');
+                if(!$is_admin) header('location: index.php?action=home');
+                else header('location: index.php?action=admin');
             }
         }
 

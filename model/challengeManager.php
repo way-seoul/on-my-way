@@ -102,6 +102,7 @@ class ChallengeManager extends Db {
     public function deleteChallenge($challenge_id)
     {
         $this->delete('challenges', $challenge_id);
+        return 1;
     }
 
    
@@ -192,10 +193,13 @@ class ChallengeManager extends Db {
                 challenges.score, 
                 challenges.created_date, 
                 challenges.updated_date, 
-                COUNT(user_challenge_r.id) as user_count 
+                COUNT(user_challenge_r.id) as user_count,
+                COUNT(challenge_comments.id) as comment_count
             FROM challenges 
             LEFT JOIN user_challenge_r 
                 ON user_challenge_r.challenge_id = challenges.id 
+            LEFT JOIN challenge_comments
+            	ON challenges.id = challenge_comments.challenge_id
             GROUP BY challenges.id;'
         );
         $challenges = $challenges->fetchAll();
@@ -208,7 +212,7 @@ class ChallengeManager extends Db {
             'SELECT 
                 places.id,
                 places.name,
-                CONCAT("(", places.latitude, ", ", places.longitude, ")") AS location,
+                CONCAT(places.latitude, ",", places.longitude) AS location,
                 GROUP_CONCAT(challenges.name) AS challenges
             FROM places
             LEFT JOIN challenges 

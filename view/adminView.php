@@ -6,7 +6,7 @@
 <h1>Dashboard</h1>
 
 <h2>Users</h2>
-<a href="<?= REGISTER_PATH ?>"
+<a href="<?= REGISTER_PATH ?>&from=admin"
     style="display:block; background-color:black; width:fit-content; padding: 10px; margin: 5px;"
 >Add Users ></a>
 
@@ -44,20 +44,7 @@
     </tbody>
 </table>
 
-<!-- <h2>Add Users</h2>
-
-<form method="POST" action="" style="margin-top: 3rem;">
-    <div>
-        User Name <input type="text" name="username"/><br>
-        Password <input type="text" name="password"/><br>
-        Email <input type="text" name="email"/><br>
-        First Name <input type="text" name="first_name"/><br>
-        Last Name <input type="text" name="last_name"/><br>
-    </div>
-    <div>
-        <button type="submit" name="add" value="add">Add A New User</button>
-    </div>
-</form> -->
+<?php include_once 'view/leaderboardView.php'; ?>
 
 <br><br>
 
@@ -65,6 +52,9 @@
 <a href="<?= CREATE_CHALLENGE_PATH ?>"
     style="display:block; background-color:black; width:fit-content; padding: 10px; margin: 5px;"
 >Add a Challenge ></a>
+<a href="<?= LIST_CHALLENGES_PATH ?>"
+    style="display:block; background-color:black; width:fit-content; padding: 10px; margin: 5px;"
+>See User View of Challenges List ></a>
 
 <form action="<?= ADMIN_PATH ?>" method="POST">
     <table border="1">
@@ -76,6 +66,7 @@
                 <th>Conditions</th>
                 <th>Points</th>
                 <th>Accomplished Users</th>
+                <th>Comments</th>
                 <!-- <th>Creator</th> -->
                 <th>Created Date</th>
                 <th>Updated Date</th>
@@ -85,13 +76,14 @@
         </thead>
         <tbody>
             <?php foreach ($challenges as $challenge) { ?>
-            <tr>
+            <tr id="ch-<?= $challenge['name'] ?>">
                 <td><?= $challenge['id']; ?></td>
                 <td><a href="<?= CHALLENGE_PATH ?>&id=<?= $challenge['id']; ?>"><?= $challenge['name']; ?></a></td>
                 <td><?= $challenge['content']; ?></td>
                 <td><?= $challenge['conditions']; ?></td>
                 <td><?= $challenge['score']; ?></td>
                 <td><?= $challenge['user_count']; ?></td>
+                <td><?= $challenge['comment_count']; ?></td>
                 <td><?= $challenge['created_date']; ?></td>
                 <td><?= $challenge['updated_date']; ?></td>
                 <td>
@@ -126,8 +118,19 @@
             <tr>
                 <td><?= $place['id']; ?></td>
                 <td><?= $place['name']; ?></td>
-                <td><?= $place['location'] ?></td>
-                <td><?= $place['challenges'] ?></td>
+                <td><a href="https://www.google.com/maps/search/<?= $place['location'] ?>" target="_blank">On Google Maps ></a></td>
+                <td>
+                    <?php if($place['challenges'] != ''): ?>
+                        <ol>
+                        <?php 
+                            $p_challenges = stringToArray($place['challenges']); 
+                            for ($i=0;$i<count($p_challenges);$i++):
+                        ?>
+                            <li><a href="#ch-<?= $p_challenges[$i] ?>"><?= $p_challenges[$i] ?></a></li>
+                            <?php endfor ?>
+                        </ol>
+                    <?php endif ?>
+                </td>
                 <td><button type="submit" name="delete-Place" value="<?= $place['id'] ?>">DELETE</button></td>
             </tr>
         </tbody>

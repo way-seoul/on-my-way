@@ -36,9 +36,6 @@
             break;
         case "add-place":
             PlaceContr::addPlace();
-        //     break;
-        // case "list-places":
-        //     PlaceContr::listPlaces();
             break;
         case 'login':
             UsersContr::loginUser();

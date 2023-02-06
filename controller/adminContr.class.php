@@ -6,6 +6,8 @@ include_once './model/placeManager.php';
 
 class AdminContr {
     public static function admin(){
+        if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
+        if(!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) header('location: ' . ROOT . 'home');
         
         //Delete user
         //prepare data
@@ -31,16 +33,18 @@ class AdminContr {
 
         // ********************************************* list challenges
         $c_manager = new ChallengeManager();
-        $p_manager = new PlaceManager();
         $challenges = $c_manager->getChallDataForAdmin();
         
         if(isset($_POST['delete-chll']) && $_POST['delete-chll']!= '') {
-            $c_manager->deleteChallenge($_POST['delete-chll']);
+            $delete_msg = $c_manager->deleteChallenge($_POST['delete-chll']);
+            if($delete_msg == 1) {
+                header('Location:' . ADMIN_PATH);
+            }
         } 
 
         // ********************************************* list locations
         $places = $c_manager->getPlacesForAdmin();
-        // $challenges = $c_manager->getChallenges($places[$i]["id"]);
+
         if(isset($_POST['delete-Place']) && $_POST['delete-Place']!='') {
             $delete_msg = $c_manager->deletePlace($_POST['delete-Place']);
             if($delete_msg == 1) {
@@ -48,10 +52,18 @@ class AdminContr {
             }
         }
 
+        function stringToArray($string) {
+            // return an array from string exploding by , 
+            return explode(',', $string);
+        }
+        
         include './view/adminView.php';
     }
 
     public static function adminEdit(){
+        if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
+        if(!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) header('location: ' . ROOT . 'home');
+
         //prepare data
         $admin_edit_manager = new Admin();
 
