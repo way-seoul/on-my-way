@@ -1,5 +1,6 @@
 
 
+
 body * {
     /* background-color: var(--light-orange); */
     color: var(--brown);
@@ -20,29 +21,27 @@ body * {
     height: 30%;
 }
 
-div.page-container {
+div.container-md {
     margin: 5vh auto;
     width: 90vw;
     height: 80vh;
-    display: grid;
-    grid-template-columns: 40% 60%;
+    /* display: grid'*/
     column-gap: 3%;
-    grid-template-rows: auto;
-    grid-template-areas: 
-        "info map";
 }
 
-div.content-container {
-    grid-area: info;
-    width: 100%;
+div.row {
     height: 100%;
 }
 
-div#info-links-container {
-    height: 50%;
-    margin-top: 5%;
+div.content-container {
+    height: 100%;
 }
 
+/* div#info-links-container {
+    height: 50%;
+    margin-top: 5%;
+} */
+/* 
 div#info-links-container a {
     font-weight: bold;
     padding: 5px;
@@ -79,9 +78,10 @@ div#join-container {
     margin-top: 40%;
     height: 20%;
 }
+*/
 
 div#map {
-    grid-area: map;
+    height: 100%;
     border-radius: 40px;
 }
 

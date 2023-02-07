@@ -107,9 +107,9 @@ header {
  * Always set the map height explicitly to define the size of the div element
  * that contains the map. 
  */
- #map {
+ /* #map {
     height: 70%;
-  }
+  } */
   
   /* 
    * Optional: Makes the sample page fill the window. 
@@ -124,11 +124,11 @@ body {
     height: 400px; 
     width: 100vw; 
 }
-
+/* 
 #map {
     height: 100%; 
     width: 100%; 
-}
+} */
 
 #challenge {
     width: fit-content;
