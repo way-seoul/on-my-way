@@ -28,7 +28,7 @@ ob_start();
       defer>
 </script>
 <div class="container-md">
-    <div class="row gx-3">
+    <div class="row gx-5">
         <div class="content-containr col-12 col-sm-4">
             <div id="info-links-container">
                 <div id="sign-up-login-links">

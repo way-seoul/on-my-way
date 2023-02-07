@@ -21,11 +21,11 @@ body * {
     height: 30%;
 }
 
+
 div.container-md {
     margin: 5vh auto;
-    width: 90vw;
+    width: 95vw;
     height: 80vh;
-    /* display: grid'*/
     column-gap: 3%;
 }
 
@@ -33,15 +33,10 @@ div.row {
     height: 100%;
 }
 
-div.content-container {
-    height: 100%;
-}
-
-/* div#info-links-container {
-    height: 50%;
+div#info-links-container {
+    height: 70%;
     margin-top: 5%;
-} */
-/* 
+} 
 div#info-links-container a {
     font-weight: bold;
     padding: 5px;
@@ -75,10 +70,10 @@ div#app-info > hr {
 
 
 div#join-container {
-    margin-top: 40%;
+    margin-top: 10%;
     height: 20%;
 }
-*/
+
 
 div#map {
     height: 100%;

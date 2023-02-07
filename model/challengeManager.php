@@ -102,6 +102,7 @@ class ChallengeManager extends Db {
     public function deleteChallenge($challenge_id)
     {
         $this->delete('challenges', $challenge_id);
+        return 1;
     }
 
    
@@ -169,5 +170,58 @@ class ChallengeManager extends Db {
             'id' => $id
         ]);
     }
+
+    public function getNumUsersAccomplished($challenge_id) {
+        $db = $this->connectDB();
+        $accomplished = $db->prepare(
+            "SELECT COUNT(user_id) AS count_users FROM `user_challenge_r` WHERE challenge_id =:id;"
+        );
+        $accomplished->execute(['id' => $challenge_id]); 
+        $accomplished = $accomplished->fetch();
+        
+        return $accomplished['count_users'];
+    }
+
+    public function getChallDataForAdmin() {
+        $db = $this->connectDB();
+        $challenges = $db->query(
+            'SELECT 
+                challenges.id, 
+                challenges.name, 
+                challenges.content, 
+                challenges.conditions, 
+                challenges.score, 
+                challenges.created_date, 
+                challenges.updated_date, 
+                COUNT(user_challenge_r.id) as user_count,
+                COUNT(challenge_comments.id) as comment_count
+            FROM challenges 
+            LEFT JOIN user_challenge_r 
+                ON user_challenge_r.challenge_id = challenges.id 
+            LEFT JOIN challenge_comments
+            	ON challenges.id = challenge_comments.challenge_id
+            GROUP BY challenges.id;'
+        );
+        $challenges = $challenges->fetchAll();
+        return $challenges;
+    }
+
+    public function getPlacesForAdmin() {
+        $db = $this->connectDB();
+        $places = $db->query(
+            'SELECT 
+                places.id,
+                places.name,
+                CONCAT(places.latitude, ",", places.longitude) AS location,
+                GROUP_CONCAT(challenges.name) AS challenges
+            FROM places
+            LEFT JOIN challenges 
+                ON challenges.place_id = places.id
+            GROUP BY places.id;'
+        );
+        $places = $places->fetchAll();
+        return $places;
+    }
 }
+
 
