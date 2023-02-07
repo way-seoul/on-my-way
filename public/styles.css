@@ -16,27 +16,30 @@ body {
     src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Medium-trial.otf) format("Opentype");
 }
 
-.login_pic {
-    width: 50%;
+.login_pic, .register_pic {
+    position: absolute;
+    width: 100%;
     height: 100%;
-    float: right;
-    object-fit: cover;
 } 
 
-.login_div {
+.login_div, .register_div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
     background-color: #a86446;
     margin: 0;
     width: auto;
     height: 100%;
 }
 
-.login_header {
+.login_header, .register_header {
     text-align: center;
     font-family: 'Eastman-Bold';
     color: #f9f3e5;
-    position: relative;
-    top: 28%;
     font-size: 28px;
+    margin-top: 10%;
 }
 
 .login_header > h1 {
@@ -47,12 +50,9 @@ body {
     margin-top: 5px;
 }
 
-.login_form_top, .login_footer {
+.login_form_top, .login_footer, .register_form_top, .register_footer {
     font-family: 'Eastman';
     color: #f9f3e5;
-    position: relative;
-    top: 28%;
-    left: 10%;
     font-size: large;
 }
 
@@ -65,7 +65,7 @@ body {
     margin-top: 3px;
 }
 
-.login_username, .login_password {
+.login_username, .login_password, .signup_username, .signup_password, .signup_email, .firstname, .lastname {
     margin-top: 10px;
 }
 
@@ -75,11 +75,11 @@ body {
 }
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-color: #83b8a1;
+    color: #83b8a1;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-color: #83b8a1;
+    color: #83b8a1;
 }
 
 .login_button, .register_button {
@@ -94,11 +94,9 @@ color: #83b8a1;
     font-size: large;
 }
 
-.login_footer {
-    display:flex;
-    position: relative;
-    top: 22%;
-    left: 18%;
+.login_footer, .register_footer {
+    display: inline-block;
+    margin-bottom: 10%;
 }
 
 .sign_up_link > p > a, .register_link > p > a {
@@ -108,69 +106,52 @@ color: #83b8a1;
 }
 
 .on_my_way {
-    position: absolute;
-    top: 45%;
-    right: 15%;
+    position: relative;
     font-family: 'Eastman-Bold';
     color: #f9f3e5;
     font-size: 55px;
-    z-index: 20;
 }
+
 
 /* Register Page CSS */
 
-.register_pic {
-    width: 50%;
-    height: 100%;
-    float: left;
-    object-fit: cover;
-} 
 
-.register_div {
+/* .register_div {
     background-color: #a86446;
     margin: 0;
     width: auto;
     height: 100%;
-}
+} */
 
-.register_header {
+/* .register_header {
     text-align: center;
     font-family: 'Eastman-Bold';
     color: #f9f3e5;
     position: relative;
     top: 15%;
     font-size: 28px;
-}
+} */
 
-.on_my_way_register {
-    position: absolute;
-    top: 45%;
-    left: 15%;
-    font-family: 'Eastman-Bold';
-    color: #f9f3e5;
-    font-size: 55px;
-    z-index: 20;
-}
 
-.register_form_top, .register_footer {
+/* .register_form_top, .register_footer {
     font-family: 'Eastman';
     color: #f9f3e5;
     position: relative;
     top: 15%;
     right: -10%;
     font-size: large;
-}
+} */
 
-.signup_username, .signup_password, .signup_email, .firstname, .lastname {
+/* .signup_username, .signup_password, .signup_email, .firstname, .lastname {
     margin-top: 10px;
-}
+} */
 
-.register_footer {
+/* .register_footer {
     display:flex;
     position: relative;
     top: 9%;
     left: 18%;
-}
+} */
 
 
 /* body{
