@@ -39,40 +39,45 @@ class ChallengeContr {
         if(isset($_POST['delete']) && $_POST['delete']!= '') {
             $c_manager->deleteChallenge($_POST['delete']);
         } 
+        require_once 'view/placelistView.php';
+    }
 
-        if(isset($_POST['edit'])) {
-            $challengeId = $_POST['edit'];
-            //POPULATE EDIT FORM WITH EXISTING DATA FOR THAT CHALLENGE
-            $challengeData = $c_manager->getChallengeData($challengeId);
-            $existingPlaces = $p_manager->retrievePlaces();
-            $action = 'list-challenges';
-            $btnName = 'edit-challenge';
-            $btnText = 'Edit Challenge';
-            $name = $challengeData['name'];
-            $content = $challengeData['content'];
-            $conditions = $challengeData['conditions'];
-            $score = $challengeData['score'];
-            $edit_place_id = $challengeData['place_id'];
-            $backBtn = "<a href='" . LIST_CHALLENGES_PATH . "'>Back To Challenges</a>";
+    public static function editChallenges(){
+        if(!isset($_SESSION['logged_in'])) header('location: index.php?action=');
 
-            //Update existing Challenges
-            if(isset($_POST['edit-challenge'])) {
-                $cleanData = $c_manager->validateData($_POST);
-                if($cleanData) {
-                    $c_manager->updateChallenge($cleanData);
-                    $formMsg = 'Record Updated!';
-                } else {
-                    $formMsg = 'Form Validation Failed!';
-                }
+        $c_manager = new ChallengeManager();
+        $p_manager = new PlaceManager();
+
+        // if(isset($_POST['edit'])) {
+        // $challengeId = $_POST['edit'];
+        $challengeId = $_GET['id'];
+
+        //POPULATE EDIT FORM WITH EXISTING DATA FOR THAT CHALLENGE
+        $challengeData = $c_manager->getChallengeData($challengeId);
+        $existingPlaces = $p_manager->retrievePlaces();
+        $action = 'edit-challenge&id='. $challengeId;
+        $btnName = 'edit-challenge';
+        $btnText = 'Edit Challenge';
+        $name = $challengeData['name'];
+        $content = $challengeData['content'];
+        $conditions = $challengeData['conditions'];
+        $score = $challengeData['score'];
+        $edit_place_id = $challengeData['place_id'];
+        $backBtn = "<a href='" . ADMIN_PATH . "'>Go Back</a>";
+    
+        //Update existing Challenges
+        if(isset($_POST['edit-challenge'])) {
+            $cleanData = $c_manager->validateData($_POST);
+            if($cleanData) {
+                $c_manager->updateChallenge($cleanData);
+                $formMsg = 'Record Updated!';
+            } else {
+                $formMsg = 'Form Validation Failed!';
             }
-
-            //4 Populate the existing form with data for that place
-            require_once 'view/challenge-form.php';
-
-        } else {
-            //THIS IT THE DEFAULT LIST VIEW WHICH SHOWS UNLESS THE EDIT BUTTON IS CLICKED!
-            require_once 'view/placelistView.php';
         }
+
+        //4 Populate the existing form with data for that place
+        require_once 'view/challenge-form.php';
     }
 
     public static function showChallengeInfo(){

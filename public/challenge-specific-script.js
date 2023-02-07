@@ -16,6 +16,7 @@ window.onload = function () {
         return
     }
 }
+
 onTheSpot.addEventListener('click', async () => {
     navigator.geolocation.getCurrentPosition(getUserLocation);
 })

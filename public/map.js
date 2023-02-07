@@ -17,7 +17,8 @@ function setMarkers(map) {
         console.log(mapMarkers);
         new google.maps.Marker({
         position: {lat: marker.lat, lng: marker.lng},
-        map: map
+        map: map,
+        title: 'Location: ' + marker.name
         });
     }
 }
