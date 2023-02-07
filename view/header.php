@@ -7,14 +7,14 @@
     <nav id="menu">
         <ul>
             <li><a href="<?= ROOT ?>" style="<?= $action == '' ? $highlight:'' ?>">On My Way</a></li>
-            <li><a href="<?= LIST_CHALLENGES_PATH ?>" style ="<?= $action == '' ? $hightlight:'' ?>">Challenges</a></li>
-            <?php if(isset($_SESSION['logged_in'])){ ?>
-                <li><a href="<?= CREATE_CHALLENGE_PATH ?>" style="<?= $action == 'create-challenge' ? $highlight:'' ?>">Add challenge</a></li>
+            <li><a href="<?= LIST_CHALLENGES_PATH ?>" style="<?= $action == 'list-challenges' ? $highlight:'' ?>">Challenges</a></li>
+            <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
                 <li><a href="<?= USER_PROFILE_PATH ?>" style="<?= $action == 'my-profile' ? $highlight:'' ?>">See My Profile</a></li>
-                <?php if(isset($_SESSION['logged_in']) && $_SESSION['admin'] == true ){?>
-                    <li><a href="<?= ADMIN_PATH ?>" style="<?= $action == 'admin' ? $highlight:'' ?>">Admin</a></li>
-                <?php } ?>
-            <?php } ?>
+            <?php endif ?>
+            <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']
+                        && isset($_SESSION['admin']) && $_SESSION['admin'] == 1): ?>
+                <li><a href="<?= ADMIN_PATH ?>" style="<?= $action == 'admin' ? $highlight:'' ?>">Admin</a></li>
+            <?php endif ?>
         </ul>
     </nav>
     <?php if(!isset($_SESSION['user'])){?>

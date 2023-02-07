@@ -5,9 +5,12 @@
 
 <h1>Dashboard</h1>
 
-<h2>Manage Users</h2>
+<h2>Users</h2>
+<a href="<?= ROOT ?>admin_register"
+    style="display:block; background-color:black; width:fit-content; padding: 10px; margin: 5px;"
+>Add Users ></a>
 
-<table border="1" style="margin-bottom: 15rem;">
+<table border="1">
     <thead>
         <tr>
             <th>ID</th>
@@ -31,7 +34,7 @@
                     <td><?= $user['last_name']; ?></td>
                     <td><?= $user['email']; ?></td>
                     <td><?= $user['created_date']; ?></td>
-                    <td><?= $user['admin']; ?></td>
+                    <td><?= $user['admin']==1 ? "YES":"NO"; ?></td>
                     <td><a href="<?= ADMIN_EDIT_PATH ?>&id=<?=$user['id']?>">Edit</a></td>
                     <td><button type="button" class="delete-user" name="delete"
                     data-id="<?= $user['id'] ?>">Delete</button></td>
@@ -41,27 +44,101 @@
     </tbody>
 </table>
 
-<h2>Add Users</h2>
+<?php include_once 'view/leaderboardView.php'; ?>
 
-<form method="POST" action="" style="margin-top: 3rem;">
-    <div>
-        User Name <input type="text" name="username"/><br>
-        Password <input type="text" name="password"/><br>
-        Email <input type="text" name="email"/><br>
-        First Name <input type="text" name="first_name"/><br>
-        Last Name <input type="text" name="last_name"/><br>
-    </div>
-    <div>
-        <button type="submit" name="add" value="add">Add A New User</button>
-    </div>
+<br><br>
+
+<h2>Challenges</h2>
+<a href="<?= CREATE_CHALLENGE_PATH ?>"
+    style="display:block; background-color:black; width:fit-content; padding: 10px; margin: 5px;"
+>Add a Challenge ></a>
+<a href="<?= LIST_CHALLENGES_PATH ?>"
+    style="display:block; background-color:black; width:fit-content; padding: 10px; margin: 5px;"
+>See User View of Challenges List ></a>
+
+<form action="<?= ADMIN_PATH ?>" method="POST">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Challenge Name</th>
+                <th>Content</th>
+                <th>Conditions</th>
+                <th>Points</th>
+                <th>Accomplished Users</th>
+                <th>Comments</th>
+                <!-- <th>Creator</th> -->
+                <th>Created Date</th>
+                <th>Updated Date</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($challenges as $challenge) { ?>
+            <tr id="ch-<?= $challenge['name'] ?>">
+                <td><?= $challenge['id']; ?></td>
+                <td><a href="<?= CHALLENGE_PATH ?>&id=<?= $challenge['id']; ?>"><?= $challenge['name']; ?></a></td>
+                <td><?= $challenge['content']; ?></td>
+                <td><?= $challenge['conditions']; ?></td>
+                <td><?= $challenge['score']; ?></td>
+                <td><?= $challenge['user_count']; ?></td>
+                <td><?= $challenge['comment_count']; ?></td>
+                <td><?= $challenge['created_date']; ?></td>
+                <td><?= $challenge['updated_date']; ?></td>
+                <td>
+                    <a href="<?= EDIT_CHALLENGE_PATH ?>&id=<?=$challenge['id']?>">Edit</a>
+                </td>
+                <td><button type="submit" name="delete-chll" value="<?= $challenge['id']; ?>">DELETE</button></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 </form>
 
-<h2>Manage Challenges</h2>
-<a href="<?= LIST_CHALLENGES_PATH ?>">Challenges List page</a> <!-- this is for convenience -->
-<table>
-    
-</table>
-<!-- list of challenges: Add/Edit/Delete Challenges -->
+<br><br>
+
+<h2>Locations</h2>
+<a href="<?= ADD_PLACE_PATH ?>"
+    style="display:block; background-color:black; width:fit-content; padding: 10px; margin: 5px;"
+>Add a Location ></a>
+<form action="<?= ADMIN_PATH ?>" method="POST">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Place Name</th>
+                <th>Location</th>
+                <th>Challenges</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($places as $place) { ?>
+            <tr>
+                <td><?= $place['id']; ?></td>
+                <td><?= $place['name']; ?></td>
+                <td><a href="https://www.google.com/maps/search/<?= $place['location'] ?>" target="_blank">On Google Maps ></a></td>
+                <td>
+                    <?php if($place['challenges'] != ''): ?>
+                        <ol>
+                        <?php 
+                            $p_challenges = stringToArray($place['challenges']); 
+                            for ($i=0;$i<count($p_challenges);$i++):
+                        ?>
+                            <li><a href="#ch-<?= $p_challenges[$i] ?>"><?= $p_challenges[$i] ?></a></li>
+                            <?php endfor ?>
+                        </ol>
+                    <?php endif ?>
+                </td>
+                <td><button type="submit" name="delete-Place" value="<?= $place['id'] ?>">DELETE</button></td>
+            </tr>
+        </tbody>
+        <?php } ?>
+    </table>
+</form>
+<br><br>
+
 
 <?php 
     $html = ob_get_clean();
