@@ -5,7 +5,7 @@
 <header>
     <nav id="menu">
         <ul>
-            <li><a href="<?= ROOT ?>" style="<?= $_GET['action'] == 'home'||'' ? $highlight:'' ?>">On My Way</a></li>
+            <li><a href="<?= ROOT ?>" style="<?= $_GET['action'] == 'home'|| $_GET['action'] == '' ? $highlight:'' ?>">On My Way</a></li>
             <li><a href="<?= LIST_CHALLENGES_PATH ?>" style="<?= $_GET['action'] == 'list-challenges' ? $highlight:'' ?>">Challenges</a></li>
             <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
                 <li><a href="<?= USER_PROFILE_PATH ?>" style="<?= $_GET['action'] == 'my-profile' ? $highlight:'' ?>">See My Profile</a></li>
