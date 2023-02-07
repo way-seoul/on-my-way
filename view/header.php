@@ -7,8 +7,8 @@
     <nav id="menu">
         <ul>
             <li><a href="<?= ROOT ?>" style="<?= $action == '' ? $highlight:'' ?>">On My Way</a></li>
+            <li><a href="<?= LIST_CHALLENGES_PATH ?>" style="<?= $action == 'list-challenges' ? $highlight:'' ?>">Challenges</a></li>
             <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
-                <li><a href="<?= LIST_CHALLENGES_PATH ?>" style="<?= $action == 'list-challenges' ? $highlight:'' ?>">Challenges</a></li>
                 <li><a href="<?= USER_PROFILE_PATH ?>" style="<?= $action == 'my-profile' ? $highlight:'' ?>">See My Profile</a></li>
             <?php endif ?>
             <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']

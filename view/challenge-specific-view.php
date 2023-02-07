@@ -9,6 +9,7 @@ ob_start();
 <!-- DEFINE GLOBAL VARS NEEDED IN CHALLENGE-SPECIFIC SCRIPT.. -->
 <script>
     let placeLoc = { lat: <?= $coord['lat'] ?>, lng: <?= $coord['lng']?> };
+    let placeName = '<?= $place['name'] ?>';
     let userID = <?=$userID?>;
     let score = <?=$challenge['score']?>;
     let challID = <?=$challenge['id']?>
@@ -30,9 +31,9 @@ ob_start();
         <strong><?= $challenge['score'] ?> points</strong>
     </p>
     <p>Location: 
-        <strong><a href="<?= $listChallenges_path ?>">
+        <strong><a href="<?= LIST_CHALLENGES_PATH ?>">
             <?= $place['name'] ?>
-        </strong></a> <!-- let's replace the link later with list of challenges on this spot -->
+        </strong></a>
     </p>
     <p id="result-message-container"></p>
     <?php require_once 'listComments.php'?>

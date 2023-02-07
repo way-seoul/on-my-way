@@ -81,8 +81,9 @@ INSERT INTO places (id, name, latitude, longitude) VALUES
 (2, 'sample place2', '37.537053744792225', '126.896220113787990');
  
 INSERT INTO users (id, username, password, first_name, last_name, email, created_date, admin) VALUES
-(1, 'hyeonju', '$2y$10$E3J2qsyWmibYHsqOUt6c1uh2J1zSwR1Cw9aLOon3EFYsbNsnYWkJC', 'Hyeonju', 'Choe', 'test@test.com', '2023-01-09 12:47:36', 0),
-(2, 'Hyeonju', '$2y$10$RApN4G45YhDzX/3SOG.7R.geMTAm/ohR0pMI0gPbG1n889EZUeRBa', 'Hyeonju', 'Choe', 'test@test.com', '2023-01-10 12:16:56', 0);
+(1, 'admin', '$2y$10$gfk0EJM6FXUIipBlE8p4EOAR49YziUCZ7wC8D/uvLwea/ANCD0PoC', 'admin', 'kim', 'admin@admin.com', '2023-02-02 20:00:00', 1),
+(2, 'hyeonju', '$2y$10$E3J2qsyWmibYHsqOUt6c1uh2J1zSwR1Cw9aLOon3EFYsbNsnYWkJC', 'Hyeonju', 'Choe', 'test@test.com', '2023-01-09 12:47:36', 0),
+(3, 'Hyeonju', '$2y$10$RApN4G45YhDzX/3SOG.7R.geMTAm/ohR0pMI0gPbG1n889EZUeRBa', 'Hyeonju', 'Choe', 'test@test.com', '2023-01-10 12:16:56', 0);
  
 INSERT INTO user_challenge_r (id, user_id, challenge_id) VALUES
 (1, 1, 5);

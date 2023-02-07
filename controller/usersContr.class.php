@@ -11,7 +11,6 @@ Class UsersContr extends Users{
     }
 
     public static function loginUser(){
-        $logged_in = false;
 
         if(isset($_POST['login_button']) || isset($_POST['login_button_header']) && ($_POST['username'] || $_POST['username_header']) !== '' && ($_POST['password'] || $_POST['password_header']) !== ''){
             $user = new Users();
@@ -26,10 +25,13 @@ Class UsersContr extends Users{
             if($validated == true){
                 
                 $verified_username = $user_info['username'];
+                $verified_user_id = $user_info['id'];
+                $verified_admin = $user_info['admin'];
                 
                 $_SESSION['logged_in'] = true;
+                $_SESSION['user_id'] = $verified_user_id;
+                $_SESSION['admin'] = $verified_admin;
                 $_SESSION['user'] = $verified_username;
-                $_SESSION['admin'] = $user_info['admin'];
             }else if($validated == false){
                 echo "<script>alert('Incorrect username or password!')</script>";
             }

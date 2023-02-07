@@ -28,7 +28,7 @@ map = new google.maps.Map(document.getElementById("map"), {
 const marker = new google.maps.Marker({
     position: placeLoc,
     map: map,
-    title: "Port Dodong"
+    title: 'Location: ' + placeName
 });
 
 }
