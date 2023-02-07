@@ -1,4 +1,4 @@
-/* Login Page CSS */
+/* Login Page & Register Page CSS */
 html,
 body {
     height: 100%;
@@ -65,7 +65,11 @@ body {
     margin-top: 3px;
 }
 
-.login_username, .login_password, .signup_username, .signup_password, .signup_email, .firstname, .lastname {
+.admin_input {
+    margin-top: 3px;
+}
+
+.login_username, .login_password, .signup_username, .signup_password, .signup_email, .firstname, .lastname, .admin {
     margin-top: 10px;
 }
 
@@ -112,46 +116,6 @@ body {
     font-size: 55px;
 }
 
-
-/* Register Page CSS */
-
-
-/* .register_div {
-    background-color: #a86446;
-    margin: 0;
-    width: auto;
-    height: 100%;
-} */
-
-/* .register_header {
-    text-align: center;
-    font-family: 'Eastman-Bold';
-    color: #f9f3e5;
-    position: relative;
-    top: 15%;
-    font-size: 28px;
-} */
-
-
-/* .register_form_top, .register_footer {
-    font-family: 'Eastman';
-    color: #f9f3e5;
-    position: relative;
-    top: 15%;
-    right: -10%;
-    font-size: large;
-} */
-
-/* .signup_username, .signup_password, .signup_email, .firstname, .lastname {
-    margin-top: 10px;
-} */
-
-/* .register_footer {
-    display:flex;
-    position: relative;
-    top: 9%;
-    left: 18%;
-} */
 
 
 /* body{

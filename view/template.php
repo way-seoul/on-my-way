@@ -6,16 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
     <link rel="icon" type="image/x-icon" href="public/image/favicon.ico">
-    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" href="public/styles.css" />
 </head>
 <body>
     <?php include 'header.php'; ?>
     <?= $html ?>
-    <script src="public/app.js"></script>
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=<?=$db_password = $_SERVER['ONMYWAY_GMAP_KEY'];?>&callback=initMap&v=weekly&libraries=geometry"
-      defer§
-    ></script>
 </body>
 </html>

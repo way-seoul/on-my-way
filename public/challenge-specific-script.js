@@ -6,6 +6,7 @@ const onTheSpot = document.getElementById('onspot');
 const resultMsg = document.getElementById('result-message-container');
 let userLoc = {};
 
+
 window.onload = function () {
     //Check if browser supports geolocation......
     if (navigator.geolocation) {
@@ -16,57 +17,43 @@ window.onload = function () {
     }
 }
 
-function initMap() {
+onTheSpot.addEventListener('click', async () => {
+    navigator.geolocation.getCurrentPosition(getUserLocation);
+})
 
-map = new google.maps.Map(document.getElementById("map"), {
-    center: placeLoc,
-    zoom: 15,
-    disableDefaultUI: true,
-    zoomControl: false,
-});
-
-const marker = new google.maps.Marker({
-    position: placeLoc,
-    map: map,
-    title: "Port Dodong"
-});
-
-}
-
-window.initMap = initMap;
+onTheSpot.addEventListener('mouseover', () => {
+    onTheSpot.style.cursor = 'pointer';
+})
 
 const getUserLocation = async (position) => {
     userLoc.lat = await position.coords.latitude;
     userLoc.lng = await position.coords.longitude
+    resultMsg.innerText = '';
     let challengeAchieved = await didUserPassChallenge();
     if(!challengeAchieved) {
         resultMsg.innerText += 'Sorry you didn\'t meet the conditions needed to achieve the challenge';
         return;
+    } else {
+        //USER ACHIEVED CHALLENGE SO TRY TO UPDATE THE DB
+        let dbUpdated = await addResultToDB();
+        console.log(dbUpdated);
+        //Then display msg to user..
+        resultMsg.innerText += dbUpdated.msg;
     }
-    //USER ACHIEVED CHALLENGE SO TRY TO UPDATE THE DB
-    let dbUpdated = await addResultToDB();
-    console.log(dbUpdated);
-    //Then display msg to user..
-    resultMsg.innerText += dbUpdated.msg;
 }
 
 const didUserPassChallenge = async () => {
-    console.log(placeLoc.lat, placeLoc.lng);
     let place = new google.maps.LatLng(
         placeLoc.lat,
         placeLoc.lng
     );
-    console.log(userLoc.lat, userLoc.lng);
     let user = new google.maps.LatLng(
         userLoc.lat,
         userLoc.lng
     );
-    //Returns Distance In Meters
     let dist = google.maps.geometry.spherical.computeDistanceBetween(place, user);
-    console.log('THE DISTANCE IN METRES IS : ', dist);
     resultMsg.innerHTML = `Your distance from the place is ${dist} metres. <br>`;
-    //CONDITIONS WILL ALSO NEED TO BE PASSED ONCE ADDED TO DB
-    //FOR NOW.. Set to true by default....
+    //CONDITIONS WILL ALSO NEED TO BE PASSED ONCE ADDED TO DB..FOR NOW.. Set to true by default....
     let conditions = true;
     if(dist <= maxDistance && conditions) {
         return true;
@@ -96,11 +83,4 @@ const addResultToDB = async () => {
     }
 }
 
-onTheSpot.addEventListener('click', async () => {
-    navigator.geolocation.getCurrentPosition(getUserLocation);
-})
-
-onTheSpot.addEventListener('mouseover', () => {
-    onTheSpot.style.cursor = 'pointer';
-})
 

@@ -9,6 +9,7 @@
         <div class="on_my_way">ON MY WAY</div>
     </div>
 
+
     <div class="col-12 col-md-6">
         <div class="register_div">
             <div class="register_header">
@@ -26,7 +27,7 @@
                         <div class="password_label">
                             <label for="password">Password</label>
                         </div>
-                        <input class="password_input" type="text" name="password" placeholder="Enter password" size="60">
+                        <input class="password_input" type="text" name="password" placeholder="Enter password" size="60" value="<?= (isset($fromAdmin) && $fromAdmin == 1) ? "0000":'' ?>">
                     </div>
                     <div class="signup_email">
                         <div class="email_label">
@@ -46,14 +47,28 @@
                         </div>
                         <input class="lastname_input" type="text" name="last_name" placeholder="Enter last name" size="60">
                     </div>
-                    <div class="register_button_div">
-                        <button class="register_button" type="submit" name="add" value="add">REGISTER</button>
-                        <div class="register_footer">
-                            <div class="register_link">
-                                <p>Already have an account? <a href="<?= LOGIN_PATH ?>">Log In</a></p>
+                    <div class="admin">
+                        <div class="admin_label">
+                            <label for="admin">Admin?</label>
+                        </div>
+                        <?php if(isset($fromAdmin) && $fromAdmin == 1): ?> 
+                            <input class="admin_input" type="radio" name="admin" id="yes" value="1">
+                            <label for="yes">YES</label>
+                            <input class="admin_input" type="radio" name="admin" id="no" value="0">
+                            <label for="no">NO</label>
+                        <?php endif?>
+                    </div>
+
+                    <?php if(!isset($fromAdmin)): ?>
+                        <div class="register_button_div">
+                            <button class="register_button" type="submit" name="add" value="add">REGISTER</button>
+                            <div class="register_footer">
+                                <div class="register_link">
+                                    <p>Already have an account? <a href="<?= LOGIN_PATH ?>">Log In</a></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endif ?>
                 </form>
             </div>
 
@@ -61,12 +76,14 @@
         </div>
         
     </div>
+
 </div>
+
 
 <?php 
     $html = ob_get_clean();
     include 'non-logged-in-template.php';
     if(session_status() === PHP_SESSION_ACTIVE && isset($_SESSION['user'])){
-        header('Location: index.php?action=create-challenge');
+        //header('Location: index.php?action=create-challenge');
     }
 ?>
