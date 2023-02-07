@@ -2,6 +2,8 @@
 $title = 'ON MY WAY | WELCOME';
 ob_start();
 ?>
+<link rel="stylesheet" href="public/app.css">
+<link rel="stylesheet" href="public/preview.css">
 <script>
     //Common JavaSript Variables which will be used in map.js
     //For Preview Page: Set map defaults to Wcoding
@@ -25,11 +27,26 @@ ob_start();
       src="https://maps.googleapis.com/maps/api/js?key=<?=$db_password = $_SERVER['ONMYWAY_GMAP_KEY'];?>&callback=initMap&v=weekly&libraries=geometry"
       defer>
 </script>
-<h1>Welcome to On My Way</h1>
-<h2><a href="<?= REGISTER_PATH ?>">Join Now</a></h2>
-<h3>Please click here to <a href="<?= LOGIN_PATH ?>">log in</a> / <a href="<?= REGISTER_PATH ?>">register</a></h3>
-<div id="map"></div>
-<?php
-$html = ob_get_clean(); 
-include 'template.php'; // and call the variable from the template
-?>
+<div class="page-container">
+    <div class="content-container">
+        <div id="info-links-container">
+            <div id="sign-up-login-links">
+                <a href="<?= REGISTER_PATH ?>">SIGN UP | </a>
+                <a href="<?= LOGIN_PATH ?>">LOGIN</a>
+            </div>
+            <div id="app-info">
+                <h1>On My Way</h1> 
+                <p>This is an entertainment app that encourages people to walk out to explore nature and landmarks.</p>
+                <hr>
+            </div>
+        </div>
+        <div id="join-container">
+            <a id="join-link" href="<?= REGISTER_PATH ?>">Join Now</a>
+        </div>
+    </div>
+    <div id="map"></div>
+    <?php
+    $html = ob_get_clean(); 
+    include 'template.php'; // and call the variable from the template
+    ?>
+</div>

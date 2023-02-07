@@ -1,0 +1,88 @@
+
+
+body * {
+    /* background-color: var(--light-orange); */
+    color: var(--brown);
+    font-size: 1rem;
+    margin: 0px;
+    padding: 0px;
+}
+
+#join-link {
+    color: var(--white);
+    background-color: var(--dark-green);
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 5px;
+    text-align: center;
+    width: 60%;
+    height: 30%;
+}
+
+div.page-container {
+    margin: 5vh auto;
+    width: 90vw;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    column-gap: 3%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "info map";
+}
+
+div.content-container {
+    grid-area: info;
+    width: 100%;
+    height: 100%;
+}
+
+div#info-links-container {
+    height: 50%;
+    margin-top: 5%;
+}
+
+div#info-links-container a {
+    font-weight: bold;
+    padding: 5px;
+}
+
+div#app-info {
+    margin-top: 20%;
+}
+
+div#app-info > * {
+    margin: 30px 0px 30px 0px;
+    text-align: left;
+}
+
+div#app-info > h1 {
+    font-size: 2.5rem;
+}
+
+div#app-info > p {
+    display: inline-block;
+    width: 70%;
+    font-size: 1.4rem;
+}
+
+div#app-info > hr {
+    display: inline-block;
+    width: 70%;
+    border: 0.5px solid var(--brown);
+}
+
+
+
+div#join-container {
+    margin-top: 40%;
+    height: 20%;
+}
+
+div#map {
+    grid-area: map;
+    border-radius: 40px;
+}
+
+
