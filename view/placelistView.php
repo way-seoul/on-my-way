@@ -4,6 +4,13 @@ $title = 'ON MY WAY | ' . $h1;
 ob_start();
 ?>
 <script src="./public/responsive_search_bar.js" defer></script>
+<script>
+    let locations = [];
+    <?php foreach($places as $place): ?>
+        locations.push(['<?= $place['name'] ?>', <?= $place['latitude'] ?>, <?= $place['longitude'] ?>])
+    <?php endforeach ?>
+</script>
+
 <h1><?= $h1 ?></h1>
 
 <!--NEW CONTENT: Responsive Search Bar-->
@@ -21,7 +28,6 @@ ob_start();
     ?>
     <details open>
         <summary><?= $places[$i]["name"] ?></summary>
-        <!-- <button type="submit" name="delete-Place" value="<?= $places[$i]['id'] ?>">DELETE THE PLACE</button> -->
         <ul>
             <?php foreach($challenges as $challenge): ?>
             <li>
@@ -32,6 +38,8 @@ ob_start();
     </details>
     <?php endfor ?>
 </div>
+<div id="logged-in-map"></div>
+<div id="map"></div>
 
 
 <?php
