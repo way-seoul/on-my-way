@@ -3,30 +3,33 @@ include './model/adminManager.php';
 
 class AdminContr {
     public static function admin(){
-        
-        //Delete user
-        //prepare data
-        $manager = new Admin();
-        
-        if (isset($_POST['delete'])) {
-            // delete user
-            $id = $_POST['id'];
-            $manager->deleteUser($id);
-        }elseif (isset($_POST['add'])) {
-            // add user
-            $manager->addUsers($_POST);
+        if(!isset($_SESSION['logged_in'])){ // Validate if logged in user is an admin in the condition later.
+            header('location: index.php?action=');
+        }else{
+            //Delete user
+            //prepare data
+            $manager = new Admin();
+            
+            if (isset($_POST['delete'])) {
+                // delete user
+                $id = $_POST['id'];
+                $manager->deleteUser($id);
+            }elseif (isset($_POST['add'])) {
+                // add user
+                $manager->addUsers($_POST);
+            }
+            
+            $users = $manager->listUsers();
+            
+            //Reset password
+            if(isset($_POST['reset'])){
+                $id = $_POST['id'];
+                $reset_password = '0000';
+                $manager->resetUserPassword($reset_password, $id);
+            }
+    
+            include './view/adminView.php';
         }
-        
-        $users = $manager->listUsers();
-        
-        //Reset password
-        if(isset($_POST['reset'])){
-            $id = $_POST['id'];
-            $reset_password = '0000';
-            $manager->resetUserPassword($reset_password, $id);
-        }
-
-        include './view/adminView.php';
     }
 
     public static function adminEdit(){
