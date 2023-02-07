@@ -47,17 +47,20 @@
                         </div>
                         <input class="lastname_input" type="text" name="last_name" placeholder="Enter last name" size="60">
                     </div>
-                    <div class="admin">
-                        <div class="admin_label">
-                            <label for="admin">Admin?</label>
-                        </div>
-                        <?php if(isset($fromAdmin) && $fromAdmin == 1): ?> 
+                    <?php if(isset($fromAdmin) && $fromAdmin == 1): ?> 
+                        <div class="admin">
+                            <div class="admin_label">
+                                <label for="admin">Admin?</label>
+                            </div>
                             <input class="admin_input" type="radio" name="admin" id="yes" value="1">
                             <label for="yes">YES</label>
                             <input class="admin_input" type="radio" name="admin" id="no" value="0">
                             <label for="no">NO</label>
-                        <?php endif?>
-                    </div>
+                        </div>
+                        <div class="register_button_div">
+                            <button class="register_button" type="submit" name="add" value="add">REGISTER</button>
+                        </div>
+                    <?php endif?>
 
                     <?php if(!isset($fromAdmin)): ?>
                         <div class="register_button_div">
