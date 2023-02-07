@@ -2,6 +2,7 @@
     $title = 'ON MY WAY | DASHBOARD';
     ob_start();
 ?>
+<script src="public/user.js" defer></script>
 
 <h1>Dashboard</h1>
 

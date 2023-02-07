@@ -5,11 +5,33 @@ ob_start();
 ?>
 <script src="./public/responsive_search_bar.js" defer></script>
 <script>
-    let locations = [];
+    let mapOptions = {
+        disableDefaultUI: true,
+        zoom: 13,
+        center: 
+            { 
+                lat: 37.53622850959400, lng: 126.894975568805080 
+            }
+    };
+
+    let mapMarkers = [];
     <?php foreach($places as $place): ?>
-        locations.push(['<?= $place['name'] ?>', <?= $place['latitude'] ?>, <?= $place['longitude'] ?>])
+        mapMarkers.push(
+            {
+                name: '<?= $place['name'] ?>', 
+                lat: <?= $place['latitude'] ?>, 
+                lng: <?= $place['longitude'] ?>
+            }
+        )
     <?php endforeach ?>
 </script>
+<script src="public/map.js" defer></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=<?=$db_password = $_SERVER['ONMYWAY_GMAP_KEY'];?>&callback=initMap&v=weekly&libraries=geometry"
+      defer>
+</script>
+
 
 <h1><?= $h1 ?></h1>
 
@@ -38,7 +60,6 @@ ob_start();
     </details>
     <?php endfor ?>
 </div>
-<div id="logged-in-map"></div>
 <div id="map"></div>
 
 

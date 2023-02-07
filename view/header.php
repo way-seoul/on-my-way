@@ -1,7 +1,7 @@
 <?php
     $highlight = 'color:white; font-weight:bolder';
+    $_GET['action'] = $_GET['action'] ?? '';
 ?>
-
 <header>
     <nav id="menu">
         <ul>
