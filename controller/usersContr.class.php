@@ -32,17 +32,17 @@ Class UsersContr extends Users{
                 $_SESSION['user_id'] = $verified_user_id;
                 $_SESSION['admin'] = $verified_admin;
                 $_SESSION['user'] = $verified_username;
-
             }else if($validated == false){
                 echo "<script>alert('Incorrect username or password!')</script>";
             }
             
-        }
+            $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
+            $is_admin = (isset($_SESSION['admin']) && $_SESSION['admin'] == 1);
 
-        $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
-
-        if($logged_in){
-            header('location: index.php?action=home');
+            if($logged_in){
+                if(!$is_admin) header('location: index.php?action=home');
+                else header('location: index.php?action=admin');
+            }
         }
         
         include_once './view/loginView.php';

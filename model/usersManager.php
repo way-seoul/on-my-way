@@ -63,4 +63,25 @@ class Users extends Db {
             'challenge_id' => $challenge_id
         ]);
     }
+
+    public function getLeadingTenUsers() {
+        // for the leader board on the HOMEPAGE
+        $db = DB::connectDB();
+        $leaders = $db->query(
+            'SELECT 
+                users.username,
+                users.points_total,
+                GROUP_CONCAT(challenges.name) AS challenges
+            FROM users
+            LEFT JOIN user_challenge_r
+                ON users.id = user_challenge_r.user_id
+            LEFT JOIN challenges
+                ON challenges.id = user_challenge_r.challenge_id
+            GROUP BY users.id
+            ORDER BY points_total DESC LIMIT 10;'
+        );
+        $leaders = $leaders->fetchAll();
+        return $leaders;
+    }
+
 }
