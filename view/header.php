@@ -1,18 +1,17 @@
 <?php
     $highlight = 'color:white; font-weight:bolder';
-    $username = 'username';
 ?>
 
 <header>
     <nav id="menu">
         <ul>
-            <li><a href="<?= ROOT ?>" style="<?= $action == '' ? $highlight:'' ?>">On My Way</a></li>
-            <li><a href="<?= LIST_CHALLENGES_PATH ?>" style ="<?= $action == '' ? $hightlight:'' ?>">Challenges</a></li>
+            <li><a href="<?= ROOT ?>" style="<?= $_GET['action'] == 'home'||'' ? $highlight:'' ?>">On My Way</a></li>
+            <li><a href="<?= LIST_CHALLENGES_PATH ?>" style ="<?= $_GET['action'] == 'list-challenges' ? $highlight:'' ?>">Challenges</a></li>
             <?php if(isset($_SESSION['logged_in'])){ ?>
-                <li><a href="<?= CREATE_CHALLENGE_PATH ?>" style="<?= $action == 'create-challenge' ? $highlight:'' ?>">Add challenge</a></li>
-                <li><a href="<?= USER_PROFILE_PATH ?>" style="<?= $action == 'my-profile' ? $highlight:'' ?>">See My Profile</a></li>
+                <li><a href="<?= CREATE_CHALLENGE_PATH ?>" style="<?= $_GET['action'] == 'create-challenge' ? $highlight:'' ?>">Add challenge</a></li>
+                <li><a href="<?= USER_PROFILE_PATH ?>" style="<?= $_GET['action'] == 'my-profile' ? $highlight:'' ?>">See My Profile</a></li>
                 <?php if(isset($_SESSION['logged_in']) && $_SESSION['admin'] == true ){?>
-                    <li><a href="<?= ADMIN_PATH ?>" style="<?= $action == 'admin' ? $highlight:'' ?>">Admin</a></li>
+                    <li><a href="<?= ADMIN_PATH ?>" style="<?= $_GET['action'] == 'admin' ? $highlight:'' ?>">Admin</a></li>
                 <?php } ?>
             <?php } ?>
         </ul>
