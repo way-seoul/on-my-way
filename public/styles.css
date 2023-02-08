@@ -264,14 +264,23 @@ h1, h2, h3, h4, h5 {
 }
 
 .container.list-view {
+    /* font-family: 'Eastman'; */
 }
 
-.list-view h1 {
+.list-view h1,
+.admin-view h1
+{
     font-family: 'Eastman-Bold';
     margin: 30px 10px 15px;
 }
 
-.search-box input {
+.admin-view h2{
+    font-family: 'Eastman-Bold';
+    margin: auto 10px;
+}
+
+.search-box input,
+.add-btn {
     border: transparent;
     border-radius: 30px;
     width: 50%;
@@ -313,7 +322,9 @@ details ol li {
     margin: 5px 0;
 }
 
-.list-box a {
+.list-box a,
+.add-btn a 
+{
     color: #f9f3e5;
     text-decoration: none;
 }
@@ -330,4 +341,29 @@ details ol li {
 
 #multi-marker > #map {
     border-radius: 15px;
+}
+
+.admin-title > .col-6 {
+    width: fit-content;
+}
+
+.add-btn {
+    width: fit-content;
+    padding: 10px 25px;
+    display: inline-block;
+}
+
+.add-btn:hover {
+    cursor: pointer;
+}
+
+#leaders {
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #5c8271;
+    color: #f9f3e5;
+}
+#leaders h2 {
+    color: #f9f3e5;
 }
