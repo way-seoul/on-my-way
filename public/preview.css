@@ -1,8 +1,4 @@
-
-
-
 body * {
-    /* background-color: var(--light-orange); */
     color: var(--brown);
     font-size: 1rem;
     margin: 0px;
@@ -18,7 +14,7 @@ body * {
     border-radius: 5px;
     text-align: center;
     width: 60%;
-    height: 30%;
+    /* height: 30%; */
 }
 
 
@@ -33,22 +29,35 @@ div.row {
     height: 100%;
 }
 
-div#info-links-container {
-    height: 70%;
-    margin-top: 5%;
-} 
+.content-container {
+    min-height: 50%;
+    background-color: aquamarine;
+}
+
+.map-container {
+    min-height: 50%;
+    background-color: yellow;
+}
+
+div#map {
+    height: 100%;
+    border-radius: 40px;
+}
+
 div#info-links-container a {
     font-weight: bold;
     padding: 5px;
 }
 
-div#app-info {
-    margin-top: 20%;
+div#join-container {
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
+
 div#app-info > * {
-    margin: 30px 0px 30px 0px;
     text-align: left;
+    margin: 10px;
 }
 
 div#app-info > h1 {
@@ -68,16 +77,13 @@ div#app-info > hr {
 }
 
 
-
-div#join-container {
-    margin-top: 10%;
-    height: 20%;
+@media only screen and (max-width: 768px) {
+    div#app-info > h1 {
+        font-size: 2.5rem;
+    }
+    div#app-info > p {
+        display: inline-block;
+        width: 70%;
+        font-size: 1rem;
+    }
 }
-
-
-div#map {
-    height: 100%;
-    border-radius: 40px;
-}
-
-

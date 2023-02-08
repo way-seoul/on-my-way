@@ -29,7 +29,7 @@ ob_start();
 </script>
 <div class="container-md">
     <div class="row gx-5">
-        <div class="content-containr col-12 col-sm-4">
+        <div class="content-container col-12 col-md-4">
             <div id="info-links-container">
                 <div id="sign-up-login-links">
                     <a href="<?= REGISTER_PATH ?>">SIGN UP | </a>
@@ -45,7 +45,7 @@ ob_start();
                 <a id="join-link" href="<?= REGISTER_PATH ?>">Join Now</a>
             </div>
         </div>
-        <div class="col-12 col-sm-8">
+        <div class="map-container col-12 col-sm-8">
             <div id="map"></div>
         </div>
     </div>
