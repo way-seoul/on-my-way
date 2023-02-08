@@ -1,0 +1,25 @@
+
+/* Whole bootstrap container */
+div.container-md {
+
+}
+
+/* Container for left-hand-column. About 40% of contsiner width. */
+div.content-container {
+
+}
+
+/* Title takes up roughly 50% of left-hand column */
+div.title {
+
+}
+
+/* Controls take up collectively roughly bottom 50% of left-hand column */
+div.controls {
+
+}
+
+/* Should take up whole height of right-hand column. Right column about 60% of container-width */
+div.map-container {
+
+}

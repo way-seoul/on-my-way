@@ -2,11 +2,14 @@
 $title = 'ON MY WAY | WELCOME';
 ob_start();
 ?>
+<link rel="stylesheet" href="public/app.css">
+<link rel="stylesheet" href="public/home-view.css">
 <script>
      //Common JavaSript Variables which will be used in map.js
     //For Home Page: Set to Wcoding by defulat
     //NOTE: THESE VALUES WILL BE OVERWRITTEN ONCE THE USER SHARES THEIR LOCATION!
     let mapOptions = {
+        disableDefaultUI: true,
         zoom: 16,
         center: 
             { 
@@ -26,16 +29,27 @@ ob_start();
       src="https://maps.googleapis.com/maps/api/js?key=<?=$db_password = $_SERVER['ONMYWAY_GMAP_KEY'];?>&callback=initMap&v=weekly&libraries=geometry"
       defer>
 </script>
-<h1>Welcome to On My Way</h1>
-<h2>Please view existing places on our map</h2>
-<h5>In Order To Use Our App, you must share your location</h5>
-<button id="get-location">
-    Click To Share Location
-</button>
-<div>
-    <p id="resultMessageContainer"></p>
+<div class="container-md">
+    <div class="row gx-5">
+        <div class="content-container">
+            <div class="title">
+                <h1>Welcome to On My Way</h1>
+            </div>
+            <div class="controls">
+                <button id="get-location">
+                    Click To Share Location
+                </button>
+                <h5>In Order To Use Our App, you must share your location</h5>
+                <div>
+                    <p id="resultMessageContainer"></p>
+                </div>
+            </div>
+        </div>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+    </div>
 </div>
-<div id="map"></div>
 <?php
     $html = ob_get_clean(); // give the code into a variable
     include 'template.php'; // and call the variable from the template

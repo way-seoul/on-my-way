@@ -4,6 +4,35 @@ $title = 'ON MY WAY | ' . $h1;
 ob_start();
 ?>
 <script src="./public/responsive_search_bar.js" defer></script>
+<script>
+    let mapOptions = {
+        disableDefaultUI: true,
+        zoom: 13,
+        center: 
+            { 
+                lat: 37.53622850959400, lng: 126.894975568805080 
+            }
+    };
+
+    let mapMarkers = [];
+    <?php foreach($places as $place): ?>
+        mapMarkers.push(
+            {
+                name: '<?= $place['name'] ?>', 
+                lat: <?= $place['latitude'] ?>, 
+                lng: <?= $place['longitude'] ?>
+            }
+        )
+    <?php endforeach ?>
+</script>
+<script src="public/map.js" defer></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=<?=$db_password = $_SERVER['ONMYWAY_GMAP_KEY'];?>&callback=initMap&v=weekly&libraries=geometry"
+      defer>
+</script>
+
+
 <h1><?= $h1 ?></h1>
 
 <!--NEW CONTENT: Responsive Search Bar-->
@@ -21,7 +50,6 @@ ob_start();
     ?>
     <details open>
         <summary><?= $places[$i]["name"] ?></summary>
-        <!-- <button type="submit" name="delete-Place" value="<?= $places[$i]['id'] ?>">DELETE THE PLACE</button> -->
         <ul>
             <?php foreach($challenges as $challenge): ?>
             <li>
@@ -32,6 +60,7 @@ ob_start();
     </details>
     <?php endfor ?>
 </div>
+<div id="map"></div>
 
 
 <?php

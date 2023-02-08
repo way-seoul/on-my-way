@@ -8,6 +8,7 @@ ob_start();
     //Common JavaSript Variables which will be used in map.js
     //For Preview Page: Set map defaults to Wcoding
     let mapOptions = {
+        disableDefaultUI: true,
         zoom: 16,
         center: 
             { 
@@ -51,6 +52,6 @@ ob_start();
     </div>
     <?php
     $html = ob_get_clean(); 
-    include 'template.php'; // and call the variable from the template
+    include 'non-logged-in-template.php';
     ?>
 </div>

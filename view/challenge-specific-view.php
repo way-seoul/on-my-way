@@ -9,7 +9,6 @@ ob_start();
 <!-- DEFINE GLOBAL VARS NEEDED IN CHALLENGE-SPECIFIC SCRIPT & map.js. -->
 <script>
     let placeLoc = { lat: <?= $coord['lat'] ?>, lng: <?= $coord['lng']?> };
-    let placeName = '<?= $place['name'] ?>';
     let userID = <?=$userID?>;
     let score = <?=$challenge['score']?>;
     let challID = <?=$challenge['id']?>;
@@ -22,7 +21,7 @@ ob_start();
     let mapMarkers =
     [
         {
-            name: 'Place Location', 
+            name: '<?= $place['name'] ?>', 
             lat: <?=$coord['lat']?>, 
             lng: <?=$coord['lng']?>
         }
