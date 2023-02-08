@@ -56,11 +56,14 @@ defer>
         </strong></a>
     </p>
     <p id="result-message-container"></p>
-    <?php require_once 'listComments.php'?>
-    <div id="single-marker">
-        <div id="map"></div>
-    </div>
 </div>
+<div id="single-marker">
+    <div id="map"></div>
+</div>
+<div>
+    <button>COMPLETE THE CHALLENGE</button>
+</div>
+<?php require_once 'listComments.php'?>
 
 <?php
     $html = ob_get_clean(); // give the code into a variable

@@ -12,7 +12,7 @@ Class UsersContr extends Users{
 
     public static function loginUser(){
 
-        if(isset($_POST['login_button']) || isset($_POST['login_button_header']) && ($_POST['username'] || $_POST['username_header']) !== '' && ($_POST['password'] || $_POST['password_header']) !== ''){
+        if(isset($_POST['login_button']) || isset($_POST['login_button_header']) && (isset($_POST['username']) || isset($_POST['username_header'])) !== '' && (isset($_POST['password']) || isset($_POST['password_header'])) !== ''){
             $user = new Users();
             $username = $_POST['username'] ?? $_POST['username_header'];
             $password = $_POST['password'] ?? $_POST['password_header'];
