@@ -4,6 +4,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #f9f3e5;
 }
 
 @font-face {
@@ -227,24 +228,6 @@ header {
     text-decoration: underline;
 }
 
-/* Google Map API */
-/* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
- #map {
-    height: 70%;
-  }
-  
-  /* 
-   * Optional: Makes the sample page fill the window. 
-   */
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 #single-marker {
     height: 400px; 
     width: 100vw; 
@@ -265,4 +248,86 @@ body {
     padding: 10px;
     background-color: #FFD750;
     text-align: center;
+}
+
+
+/* FROM HJ */
+h1, h2, h3, h4, h5 {
+    color: #a86446;
+}
+
+.register_header > h1, 
+.register_header > h2,
+.login_header > h1, 
+.login_header > h2 {
+    color: #f9f3e5
+}
+
+.container.list-view {
+}
+
+.list-view h1 {
+    font-family: 'Eastman-Bold';
+    margin: 30px 10px 15px;
+}
+
+.search-box input {
+    border: transparent;
+    border-radius: 30px;
+    width: 50%;
+    height: fit-content;
+    padding: 5px;
+    padding-left: 20px;
+    margin: 10px;
+    background-color: #a86446;
+    color: #f9f3e5;
+    font-weight: bold;
+}
+
+.search-box input::placeholder {
+    color: rgba(249, 243, 229, 0.8);
+}
+
+.search-box button {
+    border: transparent;
+    background-color: transparent;
+    color: #a86446;
+    font-weight: bold;
+}
+
+.list-box {
+    border-radius: 15px;
+    width: -webkit-fill-available;
+    height: fit-content;
+    padding: 25px;
+    margin: 10px;
+    background-color: #5c8271;
+    color: #f9f3e5;
+}
+
+details ol {
+    margin: 10px 0 0 0;
+}
+
+details ol li {
+    margin: 5px 0;
+}
+
+.list-box a {
+    color: #f9f3e5;
+    text-decoration: none;
+}
+
+.list-box a:hover {
+    text-decoration: underline;
+}
+
+#multi-marker {
+    border-radius: 15px;
+    height: 65vh;
+    margin: 10px 0;
+}
+
+#multi-marker > #map {
+    border-radius: 15px;
 }
