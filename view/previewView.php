@@ -45,7 +45,7 @@ ob_start();
                 <a id="join-link" href="<?= REGISTER_PATH ?>">Join Now</a>
             </div>
         </div>
-        <div class="map-container col-12 col-sm-8">
+        <div class="map-container col-12 col-md-8">
             <div id="map"></div>
         </div>
     </div>

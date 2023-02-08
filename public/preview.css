@@ -5,17 +5,6 @@ body * {
     padding: 0px;
 }
 
-#join-link {
-    color: var(--white);
-    background-color: var(--dark-green);
-    display: flex;
-    align-items:center;
-    justify-content:center;
-    border-radius: 5px;
-    text-align: center;
-    width: 60%;
-    /* height: 30%; */
-}
 
 
 div.container-md {
@@ -31,17 +20,19 @@ div.row {
 
 .content-container {
     min-height: 50%;
-    background-color: aquamarine;
 }
 
 .map-container {
     min-height: 50%;
-    background-color: yellow;
 }
 
 div#map {
     height: 100%;
     border-radius: 40px;
+}
+
+div#info-links-container {
+    margin-top: 20px;
 }
 
 div#info-links-container a {
@@ -50,14 +41,26 @@ div#info-links-container a {
 }
 
 div#join-container {
-    margin-top: 30px;
+    margin-top: 150px;
     margin-bottom: 20px;
 }
 
+#join-link {
+    color: var(--white);
+    background-color: var(--dark-green);
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 5px;
+    text-align: center;
+    width: 60%;
+    height: 50px;
+}
 
 div#app-info > * {
     text-align: left;
     margin: 10px;
+    padding: 5px;
 }
 
 div#app-info > h1 {
@@ -73,17 +76,12 @@ div#app-info > p {
 div#app-info > hr {
     display: inline-block;
     width: 70%;
+    padding: 0px;
     border: 0.5px solid var(--brown);
 }
 
-
-@media only screen and (max-width: 768px) {
-    div#app-info > h1 {
-        font-size: 2.5rem;
+  @media only screen and (max-width: 1000px) {
+    div#join-container {
+        margin-top: 75px;
     }
-    div#app-info > p {
-        display: inline-block;
-        width: 70%;
-        font-size: 1rem;
-    }
-}
+  }
