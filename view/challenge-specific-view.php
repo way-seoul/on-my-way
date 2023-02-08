@@ -9,7 +9,6 @@ ob_start();
 <!-- DEFINE GLOBAL VARS NEEDED IN CHALLENGE-SPECIFIC SCRIPT & map.js. -->
 <script>
     let placeLoc = { lat: <?= $coord['lat'] ?>, lng: <?= $coord['lng']?> };
-    let placeName = '<?= $place['name'] ?>';
     let userID = <?=$userID?>;
     let score = <?=$challenge['score']?>;
     let challID = <?=$challenge['id']?>;
@@ -22,7 +21,7 @@ ob_start();
     let mapMarkers =
     [
         {
-            name: 'Place Location', 
+            name: '<?= $place['name'] ?>', 
             lat: <?=$coord['lat']?>, 
             lng: <?=$coord['lng']?>
         }
@@ -36,32 +35,33 @@ ob_start();
 src="https://maps.googleapis.com/maps/api/js?key=<?=$db_password = $_SERVER['ONMYWAY_GMAP_KEY'];?>&callback=initMap&v=weekly&libraries=geometry"
 defer>
 </script>
-<h1><?= $challenge['name'] ?></h1>
-<button id="onspot">
-    I'm ON the SPOT!
-</button>
-<div id="challenge">
-    <p>Description: 
-        <?= $challenge['content'] ?>
-    </p>
-    <p>Extra conditions: 
-        <?= ($challenge['conditions'] == null || $challenge['conditions'] == "") ? "none":$challenge['conditions']?>
-    </p>
-    <p>Rewards: 
-        <strong><?= $challenge['score'] ?> points</strong>
-    </p>
-    <p>Location: 
-        <strong><a href="<?= LIST_CHALLENGES_PATH ?>">
-            <?= $place['name'] ?>
-        </strong></a>
-    </p>
+<div id="challenge-specific-title">
+    <h1><?= $challenge['name'] ?></h1>
+</div>
+<div id="challenge-specific-description-box">
+    <div class="rewards">
+        <p>REWARDS</p>
+        <p><?= $challenge['score'] ?> points</p>
+    </div>
+    <div class="description">
+        <p>DESCRIPTION</p>
+        <p><?= $challenge['content'] ?></p>
+    </div>
+    <div class="conditions">
+        <p>CONDITIONS</p>
+        <p><?= ($challenge['conditions'] == null || $challenge['conditions'] == "") ? "none":$challenge['conditions']?></p>
+    </div>
+    <div class="location">
+        <p>LOCATION</p>
+        <p><a href="<?= LIST_CHALLENGES_PATH ?>"><?= $place['name'] ?></a></p>
+    </div>
     <p id="result-message-container"></p>
 </div>
 <div id="single-marker">
     <div id="map"></div>
 </div>
 <div>
-    <button>COMPLETE THE CHALLENGE</button>
+    <button id="onspot">COMPLETE THE CHALLENGE!</button>
 </div>
 <?php require_once 'listComments.php'?>
 

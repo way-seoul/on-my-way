@@ -1,4 +1,206 @@
-body{
+/* HTML, BODY, FONT */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f3e5;
+}
+
+@font-face {
+    font-family: 'Eastman-Bold';
+    src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Bold-trial.otf) format("Opentype");
+}
+
+@font-face {
+    font-family: 'Eastman';
+    src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Medium-trial.otf) format("Opentype");
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f3e5;
+    color: #a86446;
+    font-family: 'Eastman';
+}
+
+#menu ul {
+    display: flex;
+    list-style-type: none;
+}
+#menu ul li {
+    padding-right: 60px;
+}
+
+#menu ul li a {
+    color: #a86446;
+}
+
+#menu ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Login Page & Register Page CSS */
+
+.login_pic, .register_pic {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+} 
+
+.login_div, .register_div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    background-color: #a86446;
+    margin: 0;
+    width: auto;
+    height: 100%;
+}
+
+.login_header, .register_header {
+    text-align: center;
+    font-family: 'Eastman-Bold';
+    color: #f9f3e5;
+    font-size: 28px;
+    margin-top: 10%;
+}
+
+.login_header > h1 {
+    margin-bottom: 5px;
+}
+
+.login_header > h2 {
+    margin-top: 5px;
+}
+
+.login_form_top, .login_footer, .register_form_top, .register_footer {
+    font-family: 'Eastman';
+    color: #f9f3e5;
+    font-size: large;
+}
+
+.username_input, .password_input, .email_input, .firstname_input, .lastname_input {
+    border:1px solid transparent;
+    border-radius: 30px;
+    width: 400px;
+    height: 20px;
+    background-color: #f9f3e5; 
+    margin-top: 3px;
+}
+
+.admin_input {
+    margin-top: 3px;
+}
+
+.login_username, .login_password, .signup_username, .signup_password, .signup_email, .firstname, .lastname, .admin {
+    margin-top: 10px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #83b8a1;
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #83b8a1;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #83b8a1;
+}
+
+.login_button, .register_button {
+    border:1px solid transparent;
+    border-radius: 30px;
+    width: 100px;
+    height: 40px;
+    background-color: #5c8271; 
+    color: #f9f3e5;
+    margin-top: 25px;
+    font-family: 'Eastman-Bold';
+    font-size: large;
+}
+
+.login_footer, .register_footer {
+    display: inline-block;
+    margin-bottom: 10%;
+}
+
+.sign_up_link > p > a, .register_link > p > a {
+    text-decoration: underline;
+    color: #f9f3e5;
+    font-family: 'Eastman';
+}
+
+.on_my_way {
+    position: relative;
+    font-family: 'Eastman-Bold';
+    color: #f9f3e5;
+    font-size: 55px;
+}
+
+/* CHALLENGE SPECIFIC PAGE */
+
+#challenge-specific-title {
+    margin-left: 40px;
+    font-family: 'Eastman-bold';
+    color: #a86446;
+    width: 300px;
+}
+
+#challenge-specific-description-box {
+    margin-left: 40px;
+    padding: 30px;
+    width: 450px;
+    height: 400px;
+    background-color: #5c8271;
+    color: #f9f3e5;
+    font-family: 'Eastman';
+}
+
+#challenge-specific-description-box > div > p:first-child {
+    font-family: 'Eastman-bold';
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#challenge-specific-comments-section {
+    background-color: #a86446;
+}
+
+#challenge-specific-comment-box {
+    display: inline;
+    text-align: center;
+    width: 700px;
+    margin: 60px;
+}
+
+#comment_content {
+    resize: none;
+    border-radius: 15px;
+    width: 700px;
+    height: 150px;
+    background-color: #f9f3e5;
+}
+
+.challenge-specific-comment {
+    border-radius: 15px;
+    background-color: #f9f3e5;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 70vw;
+}
+
+/* body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: auto;
     background-color: #f9f3e5;
@@ -21,10 +223,10 @@ a {
     color: #FF5078;
     text-decoration: none;
     font-size: large;
-}
+} */
 
 /* Log-in page*/
-html, body {
+/* html, body {
     margin: 0;
 }
 
@@ -78,34 +280,8 @@ html, body {
     display: inline-block;
     width: 210px;
     text-align: center;
-}
-/**/
+} */
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f9f3e5;
-    color: #a86446;
-}
-
-#menu ul {
-    display: flex;
-    list-style-type: none;
-}
-#menu ul li {
-    padding-right: 40px;
-}
-
-#menu ul li a {
-    color: #a86446;
-
-}
-
-#menu ul li a:hover {
-    /* color: white; */
-    text-decoration: underline;
-}
 
 /* Google Map API */
 /* 

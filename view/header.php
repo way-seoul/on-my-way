@@ -1,5 +1,5 @@
 <?php
-    $highlight = 'font-weight:bolder';
+    $highlight = 'font-family: Eastman-bold';
     $_GET['action'] = $_GET['action'] ?? '';
 ?>
 <header>
