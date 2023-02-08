@@ -7,6 +7,7 @@ ob_start();
     //For Home Page: Set to Wcoding by defulat
     //NOTE: THESE VALUES WILL BE OVERWRITTEN ONCE THE USER SHARES THEIR LOCATION!
     let mapOptions = {
+        disableDefaultUI: true,
         zoom: 16,
         center: 
             { 

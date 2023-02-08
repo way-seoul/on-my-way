@@ -6,6 +6,7 @@ ob_start();
     //Common JavaSript Variables which will be used in map.js
     //For Preview Page: Set map defaults to Wcoding
     let mapOptions = {
+        disableDefaultUI: true,
         zoom: 16,
         center: 
             { 
