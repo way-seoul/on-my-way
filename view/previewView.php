@@ -43,7 +43,7 @@ ob_start();
                 </div>
             </div>
             <div id="join-container">
-                <a id="join-link" href="<?= REGISTER_PATH ?>">Join Now</a>
+                <a class="green-btn" href="<?= REGISTER_PATH ?>">Join Now</a>
             </div>
         </div>
         <div class="map-container col-12 col-md-8">

@@ -31,21 +31,21 @@ ob_start();
 </script>
 <div class="container-md">
     <div class="row gx-5">
-        <div class="content-container">
+        <div class="content-container col-12 col-md-5">
             <div class="title">
                 <h1>Welcome to On My Way</h1>
             </div>
             <div class="controls">
-                <button id="get-location">
+                <button class="green-btn" id="get-location">
                     Click To Share Location
                 </button>
-                <h5>In Order To Use Our App, you must share your location</h5>
+                <p>In Order To Use Our App, you must share your location</p>
                 <div>
                     <p id="resultMessageContainer"></p>
                 </div>
             </div>
         </div>
-        <div class="map-container">
+        <div class="map-container col-12 col-md-7">
             <div id="map"></div>
         </div>
     </div>
