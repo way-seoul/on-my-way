@@ -519,6 +519,7 @@ details ol li {
 
 .form-box textarea {
     border-radius: 17px;
+    min-height: 80px;
 }
 
 
