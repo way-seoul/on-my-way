@@ -87,7 +87,7 @@ body {
     color: #83b8a1;
 }
 
-.login_button, .register_button {
+.login_button, .register_button, .submit-btn {
     border:1px solid transparent;
     border-radius: 30px;
     width: 100px;
@@ -267,25 +267,31 @@ h1, h2, h3, h4, h5 {
 }
 
 .list-view h1,
-.admin-view h1
+.admin-view h1,
+.form-view h1,
+.admin-view h2,
+.form-view h2
 {
-    font-family: 'Eastman-Bold';
+    /* font-family: 'Eastman-Bold'; */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
     margin: 30px 0 15px;
 }
 
-.admin-view h2{
-    font-family: 'Eastman-Bold';
+.admin-view h2,
+.form-view h2 {
     margin: auto;
 }
 
 .search-box input,
-.add-btn {
+.add-btn,
+.form-box input,
+.form-box textarea {
     border: transparent;
     border-radius: 30px;
-    width: 50%;
+    /* width: 50%; */
     height: fit-content;
-    padding: 5px;
-    padding-left: 20px;
+    padding: 5px 20px;
     margin: 10px 0;
     background-color: #a86446;
     color: #f9f3e5;
@@ -296,7 +302,8 @@ h1, h2, h3, h4, h5 {
     color: rgba(249, 243, 229, 0.8);
 }
 
-.search-box button {
+.search-box button,
+.form-view label {
     border: transparent;
     background-color: transparent;
     color: #a86446;
@@ -440,8 +447,80 @@ details ol li {
 }
 
 /********************************* FROM HJ 2 *************************************/
+.form-view label {
+    display: block;
+
+}
+
+.fill-vp {
+    height: 70vh;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-view .form-map-img {
+    background: url(./image/loginPic.jpg) center center / cover;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+#phase2-rp {
+    margin: auto;
+    color: #f9f3e5;
+}
+
+#phase2-rp h2 {
+    color: #f9f3e5;
+}
+
+.form-box input,
+.form-box textarea {
+    width: -webkit-fill-available;
+    margin: 5px 0 22px;
+}
+
+.form-box input.invalid {
+    margin-bottom: 0;
+}
+    
+.invalid + p {
+    padding:0;
+    margin: 2px 0;
+    /* margin-bottom:10px; */
+    color:red;
+    font-size:14px;
+    text-align:center;
+}
+
+.form-box .fields {
+    height: 90px;
+}
+
+.submit-btn {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 25px;
+    margin-top: 20px;
+}
 
 
+.back-btn {
+    font-weight: bold;
+    color: #5c8271;
+    margin: 20px 5px;
+}
+
+.back-btn a {
+    color: #5c8271;
+    text-decoration: none;
+}
+
+.form-box textarea {
+    border-radius: 17px;
+}
 
 
 /********************************* FROM HJ ends *************************************/
+
