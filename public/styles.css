@@ -251,7 +251,7 @@ header {
 }
 
 
-/* FROM HJ */
+/********************************* FROM HJ *************************************/
 h1, h2, h3, h4, h5 {
     color: #a86446;
 }
@@ -259,7 +259,10 @@ h1, h2, h3, h4, h5 {
 .register_header > h1, 
 .register_header > h2,
 .login_header > h1, 
-.login_header > h2 {
+.login_header > h2,
+.admin-table,
+.admin-table-btn .icon
+{
     color: #f9f3e5
 }
 
@@ -325,6 +328,7 @@ details ol li {
     text-decoration: none;
     display: inline-block;
     width: -webkit-fill-available;
+    overflow-wrap: break-word;
 }
 
 .list-box a:hover {
@@ -332,7 +336,7 @@ details ol li {
 }
 
 #multi-marker {
-    border-radius: 15px;
+    /* border-radius: 15px; */
     height: 65vh;
     margin: 10px 0;
 }
@@ -341,27 +345,98 @@ details ol li {
     border-radius: 15px;
 }
 
-.admin-title > .col-6 {
-    width: fit-content;
+.admin-section {
+    margin-bottom: 30px;
+}
+
+.admin-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .add-btn {
     width: fit-content;
     padding: 10px 25px;
     display: inline-block;
+    margin-left: 20px;
 }
 
 .add-btn:hover {
     cursor: pointer;
 }
 
-#leaders {
-    margin: 30px auto;
-    padding: 20px;
-    border-radius: 15px;
-    background-color: #5c8271;
-    color: #f9f3e5;
+.admin-section .list-box {
+    overflow-x: scroll;
 }
+
+.admin-table {
+    border-collapse: unset;
+    margin: auto;
+    width: max-content;
+}
+
+.admin-table th {
+    text-align: center;
+}
+
+.admin-table td {
+    padding-top: 10px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.admin-table td {
+    vertical-align: top;
+}
+
+.admin-table ol {
+    margin: 0;
+}
+
+.admin-table a {
+    color: #f9f3e5;
+    text-decoration: none;
+    font-weight: bold;
+    width: unset;
+}
+
+.admin-table a:hover {
+    text-decoration: underline;
+}
+
+.admin-table-btn {
+    border:0;
+    background:none;
+    display: inline-block;
+    padding: 0 2px;
+}
+
+.add-btn .icon,
+.admin-table-btn .icon {
+    width: 18px;
+    display: inline-block;
+}
+
+#leaders {
+    border: 10px #83b8a1 solid;
+}
+
 #leaders h2 {
     color: #f9f3e5;
+    text-align: center;
+    margin-bottom: 10px;
 }
+
+.truncateTxt {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/********************************* FROM HJ *************************************/
