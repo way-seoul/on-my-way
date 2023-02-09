@@ -263,20 +263,16 @@ h1, h2, h3, h4, h5 {
     color: #f9f3e5
 }
 
-.container.list-view {
-    /* font-family: 'Eastman'; */
-}
-
 .list-view h1,
 .admin-view h1
 {
     font-family: 'Eastman-Bold';
-    margin: 30px 10px 15px;
+    margin: 30px 0 15px;
 }
 
 .admin-view h2{
     font-family: 'Eastman-Bold';
-    margin: auto 10px;
+    margin: auto;
 }
 
 .search-box input,
@@ -287,7 +283,7 @@ h1, h2, h3, h4, h5 {
     height: fit-content;
     padding: 5px;
     padding-left: 20px;
-    margin: 10px;
+    margin: 10px 0;
     background-color: #a86446;
     color: #f9f3e5;
     font-weight: bold;
@@ -309,7 +305,7 @@ h1, h2, h3, h4, h5 {
     width: -webkit-fill-available;
     height: fit-content;
     padding: 25px;
-    margin: 10px;
+    margin: 10px 0;
     background-color: #5c8271;
     color: #f9f3e5;
 }
@@ -327,6 +323,8 @@ details ol li {
 {
     color: #f9f3e5;
     text-decoration: none;
+    display: inline-block;
+    width: -webkit-fill-available;
 }
 
 .list-box a:hover {

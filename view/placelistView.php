@@ -36,18 +36,18 @@ ob_start();
     <h1 class="list-title"><?= $h1 ?></h1>
     <div class="row">
         <!--NEW CONTENT: Responsive Search Bar-->
-        <div class="search-box col-6">
+        <div class="search-box col-md-6 col-12">
             <form id="search_form">
                 <input id="search" type="text" class="input" placeholder="search..."/>
                 <button id="clear" type="button" class="clear-results">CLEAR</button>
             </form>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-12">
         </div>
 
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6 col-12">
             <div id="challenges">
                 <?php if(isset($delete_msg)): ?> 
                 <p style="font-size:1.1em; margin-bottom:10px;color:red;"><?= $delete_msg ?></p>
@@ -70,7 +70,7 @@ ob_start();
             </div>
         </div>
 
-        <div class="col-6" id="multi-marker">
+        <div class="col-md-6 col-12" id="multi-marker">
             <div id="map"></div>
         </div>
 
