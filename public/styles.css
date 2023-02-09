@@ -1,4 +1,4 @@
-/* HTML, BODY, FONT */
+/* Login Page & Register Page CSS */
 html,
 body {
     height: 100%;
@@ -15,33 +15,6 @@ body {
 @font-face {
     font-family: 'Eastman';
     src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Medium-trial.otf) format("Opentype");
-}
-
-/* HEADER */
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f9f3e5;
-    color: #a86446;
-    font-family: 'Eastman';
-}
-
-#menu ul {
-    display: flex;
-    list-style-type: none;
-}
-#menu ul li {
-    padding-right: 60px;
-}
-
-#menu ul li a {
-    color: #a86446;
-}
-
-#menu ul li a:hover {
-    text-decoration: underline;
 }
 
 /* Login Page & Register Page CSS */
@@ -145,24 +118,53 @@ header {
     color: #f9f3e5;
     font-size: 55px;
 }
+/* NOAH */
+
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f3e5;
+    color: #a86446;
+    font-family: 'Eastman';
+}
+
+#menu ul {
+    display: flex;
+    list-style-type: none;
+}
+#menu ul li {
+    padding-right: 60px;
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: #a86446;
+}
+
+#menu ul li a:hover {
+    text-decoration: underline;
+}
 
 /* CHALLENGE SPECIFIC PAGE */
 
 #challenge-specific-title {
-    margin-left: 40px;
+    margin: 30px 0 15px;
     font-family: 'Eastman-bold';
     color: #a86446;
     width: 300px;
 }
 
 #challenge-specific-description-box {
-    margin-left: 40px;
-    padding: 30px;
-    width: 450px;
-    height: 400px;
+    border-radius: 15px;
+    width: -webkit-fill-available;
+    height: fit-content;
+    padding: 25px;
+    margin: 10px 0;
     background-color: #5c8271;
     color: #f9f3e5;
-    font-family: 'Eastman';
 }
 
 #challenge-specific-description-box > div > p:first-child {
@@ -199,6 +201,33 @@ header {
     padding: 20px;
     width: 70vw;
 }
+
+#single-marker {
+    margin: 10px 0;
+}
+
+#single-marker > #map {
+    border-radius: 15px;
+}
+
+#onspot_container {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#onspot {
+    width: 450px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #5c8271;
+    color: #f9f3e5;
+    text-align: center;
+}
+
+/* NOAH (END) */
 
 /* body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -281,30 +310,7 @@ a {
     width: 210px;
     text-align: center;
 } */
-
-
-/* Google Map API */
-/* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
- */
- #map {
-    height: 70%;
-  }
-  
-  /* 
-   * Optional: Makes the sample page fill the window. 
-   */
-html,
-body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-#single-marker {
-    height: 400px; 
-    width: 100vw; 
-}
+/**/
 
 #map {
     height: 100%; 
@@ -315,10 +321,193 @@ body {
     width: fit-content;
 }
 
-#onspot {
-    width: fit-content;
+
+/********************************* FROM HJ *************************************/
+h1, h2, h3, h4, h5 {
+    color: #a86446;
+}
+
+.register_header > h1, 
+.register_header > h2,
+.login_header > h1, 
+.login_header > h2,
+.admin-table,
+.admin-table-btn .icon
+{
+    color: #f9f3e5
+}
+
+.list-view h1,
+.admin-view h1
+{
+    font-family: 'Eastman-Bold';
+    margin: 30px 0 15px;
+}
+
+.admin-view h2{
+    font-family: 'Eastman-Bold';
+    margin: auto;
+}
+
+.search-box input,
+.add-btn {
+    border: transparent;
+    border-radius: 30px;
+    width: 50%;
     height: fit-content;
-    padding: 10px;
-    background-color: #FFD750;
+    padding: 5px;
+    padding-left: 20px;
+    margin: 10px 0;
+    background-color: #a86446;
+    color: #f9f3e5;
+    font-weight: bold;
+}
+
+.search-box input::placeholder {
+    color: rgba(249, 243, 229, 0.8);
+}
+
+.search-box button {
+    border: transparent;
+    background-color: transparent;
+    color: #a86446;
+    font-weight: bold;
+}
+
+.list-box {
+    border-radius: 15px;
+    width: -webkit-fill-available;
+    height: fit-content;
+    padding: 25px;
+    margin: 10px 0;
+    background-color: #5c8271;
+    color: #f9f3e5;
+}
+
+details ol {
+    margin: 10px 0 0 0;
+}
+
+details ol li {
+    margin: 5px 0;
+}
+
+.list-box a,
+.add-btn a 
+{
+    color: #f9f3e5;
+    text-decoration: none;
+    display: inline-block;
+    width: -webkit-fill-available;
+    overflow-wrap: break-word;
+}
+
+.list-box a:hover {
+    text-decoration: underline;
+}
+
+#multi-marker {
+    /* border-radius: 15px; */
+    height: 65vh;
+    margin: 10px 0;
+}
+
+#multi-marker > #map {
+    border-radius: 15px;
+}
+
+.admin-section {
+    margin-bottom: 30px;
+}
+
+.admin-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-btn {
+    width: fit-content;
+    padding: 10px 25px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.add-btn:hover {
+    cursor: pointer;
+}
+
+.admin-section .list-box {
+    overflow-x: scroll;
+}
+
+.admin-table {
+    border-collapse: unset;
+    margin: auto;
+    width: max-content;
+}
+
+.admin-table th {
     text-align: center;
 }
+
+.admin-table td {
+    padding-top: 10px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.admin-table td {
+    vertical-align: top;
+}
+
+.admin-table ol {
+    margin: 0;
+}
+
+.admin-table a {
+    color: #f9f3e5;
+    text-decoration: none;
+    font-weight: bold;
+    width: unset;
+}
+
+.admin-table a:hover {
+    text-decoration: underline;
+}
+
+.admin-table-btn {
+    border:0;
+    background:none;
+    display: inline-block;
+    padding: 0 2px;
+}
+
+.add-btn .icon,
+.admin-table-btn .icon {
+    width: 18px;
+    display: inline-block;
+}
+
+#leaders {
+    border: 10px #83b8a1 solid;
+}
+
+#leaders h2 {
+    color: #f9f3e5;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.truncateTxt {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/********************************* FROM HJ *************************************/

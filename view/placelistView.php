@@ -1,5 +1,5 @@
 <?php
-$h1 = 'CHALLENGE LIST';
+$h1 = 'Challenge List';
 $title = 'ON MY WAY | ' . $h1;
 ob_start();
 ?>
@@ -32,35 +32,52 @@ ob_start();
       defer>
 </script>
 
+<div class="container list-view">
+    <h1 class="list-title"><?= $h1 ?></h1>
+    <div class="row">
+        <!--NEW CONTENT: Responsive Search Bar-->
+        <div class="search-box col-md-6 col-12">
+            <form id="search_form">
+                <input id="search" type="text" class="input" placeholder="search..."/>
+                <button id="clear" type="button" class="clear-results">CLEAR</button>
+            </form>
+        </div>
+        <div class="col-md-6 col-12">
+        </div>
 
-<h1><?= $h1 ?></h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div id="challenges">
+                <?php if(isset($delete_msg)): ?> 
+                <p style="font-size:1.1em; margin-bottom:10px;color:red;"><?= $delete_msg ?></p>
+                <?php endif ?>
+                <?php for($i = 0; $i<count($places); $i++): 
+                    $challenges = $c_manager->getChallenges($places[$i]["id"]);    
+                ?>
+                <details open class="list-box">
+                    <summary>Location <?= $i+1 . ": " . $places[$i]["name"] ?></summary>
+                    <ol>
+                        <?php foreach($challenges as $challenge): ?>
+                        <li>
+                            <a href="<?= CHALLENGE_PATH ?>&id=<?= $challenge['id']?>">
+                            <?= $challenge["name"] . ' >' ?>
+                        </a></li>
+                        <?php endforeach ?>
+                    </ol>
+                </details>
+                <?php endfor ?>
+            </div>
+        </div>
 
-<!--NEW CONTENT: Responsive Search Bar-->
-<form id="search_form">
-    <input id="search" type="text" class="input" placeholder="search..."/>
-    <button id="clear" type="button" class="clear-results">clear</button>
-</form>
+        <div class="col-md-6 col-12" id="multi-marker">
+            <div id="map"></div>
+        </div>
 
-<div id="challenges">
-    <?php if(isset($delete_msg)): ?> 
-    <p style="font-size:1.1em; margin-bottom:10px;color:red;"><?= $delete_msg ?></p>
-    <?php endif ?>
-    <?php for($i = 0; $i<count($places); $i++): 
-        $challenges = $c_manager->getChallenges($places[$i]["id"]);    
-    ?>
-    <details open>
-        <summary><?= $places[$i]["name"] ?></summary>
-        <ul>
-            <?php foreach($challenges as $challenge): ?>
-            <li>
-                <a href="<?= CHALLENGE_PATH ?>&id=<?= $challenge['id']?>"><?= $challenge["name"] . ' >' ?></a>
-            </li>
-            <?php endforeach ?>
-        </ul>
-    </details>
-    <?php endfor ?>
+    </div>
 </div>
 <div id="map"></div>
+
 
 
 <?php

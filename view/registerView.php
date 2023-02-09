@@ -54,7 +54,7 @@
                             </div>
                             <input class="admin_input" type="radio" name="admin" id="yes" value="1">
                             <label for="yes">YES</label>
-                            <input class="admin_input" type="radio" name="admin" id="no" value="0">
+                            <input class="admin_input" type="radio" name="admin" id="no" value="0" checked>
                             <label for="no">NO</label>
                         </div>
                         <div class="register_button_div">
