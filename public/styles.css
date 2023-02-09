@@ -286,7 +286,8 @@ h1, h2, h3, h4, h5 {
 .search-box input,
 .add-btn,
 .form-box input,
-.form-box textarea {
+.form-box textarea,
+.form-box select {
     border: transparent;
     border-radius: 30px;
     /* width: 50%; */
@@ -476,7 +477,8 @@ details ol li {
 }
 
 .form-box input,
-.form-box textarea {
+.form-box textarea,
+.form-box select {
     width: -webkit-fill-available;
     margin: 5px 0 22px;
 }

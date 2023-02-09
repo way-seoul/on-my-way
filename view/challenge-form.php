@@ -46,6 +46,7 @@
                 <div class="fields">
                     <label for="name">Select Location: </label>
                     <select name="place_id" id="name">
+                        <option value="0">=== SELECT ===</option>
                         <?php
                         foreach($existingPlaces as $place) {
                             if(isset($edit_place_id)) {
