@@ -34,6 +34,9 @@ ob_start();
                     </div>
                 </form>
             </div>
+            <!-- Google login div -->
+            <div id="firebaseui-auth-container"></div>
+            <div id="loader">Loading...</div>
         </div>
     </div>
     <!-- right block for the picture & the text -->

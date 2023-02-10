@@ -15,6 +15,7 @@ For this project, please define your username/password/GMAP on your Apache confi
 ONMYWAY_DB_USERNAME
 ONMYWAY_DB_PASSWORD
 ONMYWAY_GMAP_KEY
+ONMYWAY_GLOGIN_KEY
 =======
 
 https://docs.google.com/document/d/1Sy6emsOmGmD7i18eFfcoFndc-_pVb8sVBVLDa16dNOQ/edit
