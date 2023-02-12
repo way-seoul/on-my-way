@@ -1,5 +1,5 @@
 var config = {
-    apiKey: "AIzaSyCslhUusShZezF857DM_oeMWkJqMnkNaDo",
+    apiKey: "<?= $_SERVER['ONMYWAY_GLOGIN_KEY'] ?>",
     authDomain: "wc-students-access.firebaseapp.com",
 };
 firebase.initializeApp(config);
@@ -8,26 +8,11 @@ firebase.initializeApp(config);
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 ui.start('#firebaseui-auth-container', {
-    signInOptions: [
-        {
-            provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-            signInMethod: firebase.auth.EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
-          },
-          {
-            provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            signInMethod: firebase.auth.GoogleAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
-          }
-    ],
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID
+  ],
 });
 
-// Is there an email link sign-in?
-if (ui.isPendingRedirect()) {
-    ui.start('#firebaseui-auth-container', uiConfig);
-  }
-// This can also be done via:
-if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
-ui.start('#firebaseui-auth-container', uiConfig);
-}
 
 // Initialize the FirebaseUI Widget using Firebase.
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -40,25 +25,27 @@ var uiConfig = {
         // or whether we leave that to developer to handle.
         return true;
       },
-      uiShown: function() {
-        // The widget is rendered.
-        // Hide the loader.
-        document.getElementById('loader').style.display = 'none';
-      }
     },
-    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    // Will use popup for Indentity Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
-    signInSuccessUrl: '<url-to-redirect-to-on-success>',
+    signInSuccessUrl: '<?= HOME_PATH ?>',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    ],
-    // Terms of service url.
-    tosUrl: '<your-tos-url>',
-    // Privacy policy url.
-    privacyPolicyUrl: '<your-privacy-policy-url>'
+    ]
 };
 
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
+
+//Manage users
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User is signed in
+    var uid = user.uid;
+    var username = user.displayName;
+    var email = user.email;
+  } else {
+    // User is signed out
+  }
+});

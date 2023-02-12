@@ -28,7 +28,7 @@ ob_start();
                         <button class="login_button" type="submit" name="login_button">Log In</button>
                         <div class="login_footer">
                             <div class="sign_up_link">
-                                <p>Don't have an account? <a href="<?= REGISTER_PATH ?>">Sign up</a></p>
+                                <p id="register_button">Don't have an account? <a href="<?= REGISTER_PATH ?>">Sign up</a></p>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,6 @@ ob_start();
             </div>
             <!-- Google login div -->
             <div id="firebaseui-auth-container"></div>
-            <div id="loader">Loading...</div>
         </div>
     </div>
     <!-- right block for the picture & the text -->

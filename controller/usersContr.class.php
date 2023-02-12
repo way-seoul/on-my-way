@@ -40,8 +40,8 @@ Class UsersContr extends Users{
             $is_admin = (isset($_SESSION['admin']) && $_SESSION['admin'] == 1);
 
             if($logged_in){
-                if(!$is_admin) header('location: index.php?action=home');
-                else header('location: index.php?action=admin');
+                if(!$is_admin) header('location: '. ROOT);
+                else header('location: '. ADMIN_PATH);
             }
         }
         
