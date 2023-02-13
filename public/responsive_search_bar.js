@@ -2,15 +2,7 @@
 const searchForm = document.getElementById('search_form');
 const searchInput = document.getElementById('search');
 const clearBtn = document.getElementById('clear');
-const resultsContainer = document.querySelectorAll('div#challenges > form > details');
-
-
-//BASIC FILTERING LOGIC BASED ON USER SUPPLIED SEARCH VAL FOR EACH PLACE!..
-//1) IF PLACE FOUND, ALL CHALLENGES ASSOCIATED WITH THAT PLACE WILL BE RETURNED BY DEFAULT.
-//2) IF PLACE NOT FOUND, CHECK EACH CHALLENGE INDIVIDUALLY 
-//3) IF ANY CHALLENGES ARE FOUND, SHOW PLACE ALONG WITH ALL CHALLENGES WHICH WERE FOUND
-//4_ IF NO CHALLENGES WERE FOUND HIDE THE PLACE!
-
+const resultsContainer = document.querySelectorAll('div#challenges > details');
 
 clearBtn.addEventListener('click', () => {
     showAllResults();
@@ -32,15 +24,17 @@ const filterResults = (searchVal) => {
     for(let i=0; i<resultsContainer.length; i++) {
         let place = resultsContainer[i];
         let placeNameTxt = resultsContainer[i].firstElementChild.textContent.toLowerCase();
-        console.log(searchVal, '    ', placeNameTxt);
         if(placeNameTxt.indexOf(searchVal) > -1) {
             place.style.display = 'block';
             //PLACE NAME FOUND SO ALL CHALLENGES ASSOCIATED WITH THAT PLACE SHOULD BE DISPLAYED
             showAllChallenges(place);
         } else {
-            let matchingChallenge = filterChallenges(place, searchVal);
-            if(!matchingChallenge) place.style.display = 'none';
-        } 
+            if(filterChallenges(place, searchVal)) {
+                place.style.display = 'block';
+            } else {
+                place.style.display = 'none';
+            } 
+        }
     }
 } 
 
