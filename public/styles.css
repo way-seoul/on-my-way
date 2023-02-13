@@ -1,3 +1,13 @@
+
+/*Theme Colors*/
+:root {
+    --brown: #a86446;
+    --dark-green: #5c8271;
+    --light-green: #83b8a1;
+    --light-orange: hsl(42, 62%, 94%);
+    --white: #ffffff;
+  }
+  
 /* Login Page & Register Page CSS */
 html,
 body {
@@ -125,11 +135,6 @@ body {
     background-color: antiquewhite;
 }
 
-h1 {
-    width: 100%;
-    border: 1px solid black;
-    background-color: antiquewhite;
-}
 
 button {
     margin-right: 10px;
@@ -228,14 +233,10 @@ header {
     text-decoration: underline;
 }
 
+
 #single-marker {
     height: 400px; 
     width: 100vw; 
-}
-
-#map {
-    height: 100%; 
-    width: 100%; 
 }
 
 #challenge {
