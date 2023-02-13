@@ -10,7 +10,8 @@ class ChallengeContr {
         $challenges = new ChallengeManager();
         $places = new PlaceManager();
         $action = 'create-challenge';
-        $btnText = 'Add A New Challenge';
+        // $btnText = 'Add A New Challenge';
+        $btnText = 'Save';
         $btnName = 'add-challenge';
 
         //IF POST ARR IS SET - THEN FORM HAS BEEN SUBMITTED
@@ -39,7 +40,7 @@ class ChallengeContr {
         if(isset($_POST['delete']) && $_POST['delete']!= '') {
             $c_manager->deleteChallenge($_POST['delete']);
         } 
-        require_once 'view/placelistView.php';
+        require_once 'view/listChallengesView.php';
     }
 
     public static function editChallenges(){
@@ -57,13 +58,14 @@ class ChallengeContr {
         $existingPlaces = $p_manager->retrievePlaces();
         $action = 'edit-challenge&id='. $challengeId;
         $btnName = 'edit-challenge';
-        $btnText = 'Edit Challenge';
+        // $btnText = 'Edit Challenge';
+        $btnText = 'Done';
         $name = $challengeData['name'];
         $content = $challengeData['content'];
         $conditions = $challengeData['conditions'];
         $score = $challengeData['score'];
         $edit_place_id = $challengeData['place_id'];
-        $backBtn = "<a href='" . ADMIN_PATH . "'>Go Back</a>";
+        $backBtn = "<a href='" . ADMIN_PATH . "'>← Go Back</a>";
     
         //Update existing Challenges
         if(isset($_POST['edit-challenge'])) {
