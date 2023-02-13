@@ -1,6 +1,6 @@
 <?php 
     $title = 'ON MY WAY | EDIT THE USER';
-    $admin_check = isset($user['admin']) && $user['admin'] == 1 ? 'checked':"";
+    $admin_check = isset($user['admin']) && $user['admin'] == 1 ? 1:0;
     ob_start();
 ?>
 
@@ -31,9 +31,9 @@
                 <div class="fields">
                     <label>Admin: </label>
                     <div id="exception">
-                        <input class="radio" type="radio" name="admin" id="yes" value="1" <?= $admin_check ?>>
+                        <input class="radio" type="radio" name="admin" id="yes" value="1" <?= $admin_check == 1? 'checked':""?>>
                         <label for="yes">YES</label>
-                        <input class="radio" type="radio" name="admin" id="no" value="0">
+                        <input class="radio" type="radio" name="admin" id="no" value="0"  <?= $admin_check == 0? 'checked':""?>>
                         <label for="no">NO</label>
                     </div>
                 </div>
