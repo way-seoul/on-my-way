@@ -18,21 +18,26 @@
     </nav>
     <?php if(!isset($_SESSION['user'])){?>
         <form method="POST" action="<?= LOGIN_PATH ?>">
-            <input type="text" name="username_header" placeholder="Username" required>
-            <input type="password" name="password_header" placeholder="Password" required>
+            <input class="username_header" type="text" name="username_header" placeholder="Username" required>
+            <input class="password_header" type="password" name="password_header" placeholder="Password" required>
             <button name="login_button_header">LOG IN</button>
         </form>
     <?php }else if(isset($_SESSION['user']) && !isset($_POST['log_out'])){ ?>
-        <form method="POST" id="login-box">
-            <span>
-                Hi <strong><?= $_SESSION['user'] ?></strong>!
-            </span>
-            <button type="submit" name="log_out">LOG OUT</button>
-    <?php }else if(isset($_POST['log_out'])){
-        session_unset();
-        session_destroy();
-        header('Location: index.php?action=');
-    ?>
-    <?php } ?>
-        </form>
+        <div>
+            <input type="checkbox" id="profile_toggle">
+            <label id="profile_toggle_label" for="profile_toggle"><img src="./public/image/favicon.ico" alt="profile"></label>
+            <ul id="profile_ul">
+                <li>
+                    <form method="POST" id="login-box">
+                        <button id="logout_button" type="submit" name="log_out">LOG OUT</button>
+                <?php }else if(isset($_POST['log_out'])){
+                    session_unset();
+                    session_destroy();
+                    header('Location: index.php?action=');
+                ?>
+                <?php } ?>
+                    </form>                   
+                </li>
+            </ul>
+        </div>
 </header>

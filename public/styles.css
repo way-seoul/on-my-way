@@ -129,6 +129,7 @@ header {
     background-color: #f9f3e5;
     color: #a86446;
     font-family: 'Eastman';
+    height: 70px;
 }
 
 #menu ul {
@@ -148,6 +149,37 @@ header {
     text-decoration: underline;
 }
 
+#profile_toggle {
+    display: none;
+}
+
+#profile_toggle_label {
+    width: 100px;
+    text-align: center;
+}
+
+#profile_ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+}
+
+#profile_ul li {
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#profile_toggle:checked ~ ul {
+    display: block;
+}
+
+#logout_button {
+    border: 0;
+    color: #5c8271;
+    background-color: #f9f3e5;
+}
 /* CHALLENGE SPECIFIC PAGE */
 
 #challenge-specific-title {
@@ -179,33 +211,63 @@ header {
 }
 
 #challenge-specific-comment-box {
-    /* display: inline; */
-    text-align: center;
-    width: 700px;
-    margin: 60px;
+    width: 100%;
+    padding: 30px;
+}
+
+.comment_form {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    justify-content: center;
 }
 
 .comment_content {
     resize: none;
     border-radius: 15px;
-    width: 700px;
+    width: 800px;
     height: 150px;
     padding: 10px;
+    color: #5c8271;
     background-color: #f9f3e5;
     font-family: 'Eastman';
 }
 
-#add_comment {
+.add_comment {
+    border: 0;
     border-radius: 15px;
     width: 80px;
     height: 40px;
+    margin-left: 20px;
+    font-family: 'Eastman';
+    color: #5c8271;;
+}
+
+.comment_user {
+    color: #5c8271;
+    font-family: 'Eastman';
+}
+
+.delete_comment_form {
+    width: 85vw;
+    text-align: right;
+}
+
+.delete_comment {
+    border: 0;
+    border-radius: 15px;
+    color: #5c8271;
+    background-color: #f9f3e5;
+    font-family: 'Eastman';
 }
 
 .challenge-specific-comment {
     border-radius: 15px;
     background-color: #f9f3e5;
+    color: #5c8271;
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
     padding: 20px;
     width: 70vw;
 }
