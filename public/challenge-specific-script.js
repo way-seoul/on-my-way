@@ -1,4 +1,3 @@
-
 const getLocationBtn = document.getElementById('get-location');
 //DIST IN METRES - places further from user location  will not show on map
 const maxDistance = 1000;

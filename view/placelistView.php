@@ -3,7 +3,7 @@ $h1 = 'Challenge List';
 $title = 'ON MY WAY | ' . $h1;
 ob_start();
 ?>
-<script src="./public/responsive_search_bar.js" defer></script>
+<script src="public/responsive_search_bar.js" defer></script>
 <script>
     let mapOptions = {
         disableDefaultUI: true,
