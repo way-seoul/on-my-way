@@ -149,6 +149,14 @@ header {
     text-decoration: underline;
 }
 
+#login_button_header {
+    font-family: 'Eastman';
+    color: #f9f3e5;
+    background-color: #5c8271;
+    border: 0;
+    border-radius: 5px;
+}
+
 #profile_toggle {
     display: none;
 }
@@ -162,9 +170,11 @@ header {
     display: none;
     list-style: none;
     position: absolute;
+    right: 0;
 }
 
 #profile_ul li {
+    margin-top: 5px;
     height: 30px;
     width: 100px;
     text-align: center;
