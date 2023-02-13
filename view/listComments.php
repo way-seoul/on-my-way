@@ -4,8 +4,8 @@
     ?>
     <div id="challenge-specific-comment-box">
         <form action="<?=$path?>" method="post">
-            <textarea required id="comment_content" name="comment_content" cols="80" rows="5" placeholder="Leave a comment"></textarea>
-            <button name="add_comment" value="add_comment">Add a comment</button>
+            <textarea required class="comment_content" name="comment_content" cols="80" rows="5" placeholder="Leave a comment"></textarea>
+            <button id="add_comment" name="add_comment">SEND</button>
         </form>
     </div>
     <?php
