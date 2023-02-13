@@ -40,7 +40,7 @@ class ChallengeContr {
         if(isset($_POST['delete']) && $_POST['delete']!= '') {
             $c_manager->deleteChallenge($_POST['delete']);
         } 
-        require_once 'view/placelistView.php';
+        require_once 'view/listChallengesView.php';
     }
 
     public static function editChallenges(){
