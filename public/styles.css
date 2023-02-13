@@ -525,6 +525,13 @@ details ol li {
     min-height: 80px;
 }
 
+.form-view #exception .radio {
+    width: auto;
+}
+.form-view #exception label {
+    display: inline-block;
+    margin-right: 15px;
+}
 
 /********************************* FROM HJ ends *************************************/
 
