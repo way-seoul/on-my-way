@@ -41,11 +41,14 @@ class AdminContr {
 
         // ********************************************* list locations
         $places = $c_manager->getPlacesForAdmin();
+        $message_failure = "";
 
         if(isset($_POST['delete-Place']) && $_POST['delete-Place']!='') {
             $delete_msg = $c_manager->deletePlace($_POST['delete-Place']);
             if($delete_msg == 1) {
                 header('Location:' . ADMIN_PATH);
+            } else {
+                $message_failure = $delete_msg;
             }
         }
 

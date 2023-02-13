@@ -228,6 +228,7 @@
                     </form>
                 </table>
             </div>
+            <?= $message_failure ?>
         </div>
     </div>
 
