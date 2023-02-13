@@ -2,7 +2,7 @@
     $title = 'Create a New Challenge';
     ob_start();
 ?>
-
+<h1>HI! IS THIS USED? OR?</h1>
 <form action="<?= EDIT_CHALLENGE_PATH ?>" method="post">
     <!-- <select name="edit-challenge" id=""> -->
         <!----------- PHP LOOP HERE -------->

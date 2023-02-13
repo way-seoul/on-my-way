@@ -111,6 +111,7 @@ class ChallengeManager extends Db {
       foreach($data as $key => $value) {
         if($key == 'add-challenge' || $key == 'edit-challenge') continue;
         if(empty($value)) return false;
+        if($key == 'place_id' && $value == 0) return false;
         if($key == 'score' && !(is_numeric($value))) return false;
         $value = trim(htmlspecialchars($value));
       }
@@ -123,7 +124,7 @@ class ChallengeManager extends Db {
         VALUES (:name, :content, :conditions, :place_id, :score, :created_date)');
         $newChallenge->execute([
             'name' => $data['name'],
-            'content' => 'N/A for now', // let's add the input for this later
+            'content' => $data['content'],
             'conditions' => $data['conditions'],
             'place_id' => $data['place_id'],
             'score' => $data['score'],
