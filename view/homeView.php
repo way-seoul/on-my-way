@@ -2,7 +2,7 @@
 $title = 'ON MY WAY | WELCOME';
 ob_start();
 ?>
-<link rel="stylesheet" href="public/app.css">
+<link rel="stylesheet" href="public/prev-home.css">
 <link rel="stylesheet" href="public/home-view.css">
 <script>
      //Common JavaSript Variables which will be used in map.js
@@ -18,6 +18,7 @@ ob_start();
     };
     let mapMarkers =
     [
+        
         {name: 'Sample Place 1', lat: 37.53622850959400, lng: 126.894975568805080},
         {name: 'Sample Place 2', lat: 37.537053744792225, lng: 126.896220113787990}
     ]; 

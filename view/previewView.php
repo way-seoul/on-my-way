@@ -2,7 +2,7 @@
 $title = 'ON MY WAY | WELCOME';
 ob_start();
 ?>
-<link rel="stylesheet" href="public/app.css">
+<link rel="stylesheet" href="public/prev-home.css">
 <link rel="stylesheet" href="public/preview.css">
 <script>
     //Common JavaSript Variables which will be used in map.js
