@@ -3,6 +3,8 @@ include './model/usersManager.php';
 
 Class UsersContr extends Users{
     public static function registerUser(){
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) header('location: ' . ROOT);
+
         if(isset($_POST['add'])){
             UsersContr::addUsers($_POST);
         }
@@ -11,6 +13,7 @@ Class UsersContr extends Users{
     }
 
     public static function loginUser(){
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) header('location: ' . ROOT);
 
         if(isset($_POST['login_button']) || isset($_POST['login_button_header']) && ($_POST['username'] || $_POST['username_header']) !== '' && ($_POST['password'] || $_POST['password_header']) !== ''){
             $user = new Users();
