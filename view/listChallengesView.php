@@ -76,9 +76,6 @@ ob_start();
 
     </div>
 </div>
-<div id="map"></div>
-
-
 
 <?php
     $html = ob_get_clean(); // give the code into a variable
