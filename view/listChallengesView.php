@@ -77,8 +77,6 @@ ob_start();
     </div>
 </div>
 
-
-
 <?php
     $html = ob_get_clean(); // give the code into a variable
     include 'template.php'; // and call the variable from the template

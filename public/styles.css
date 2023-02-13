@@ -27,6 +27,8 @@ body {
     src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Medium-trial.otf) format("Opentype");
 }
 
+/* Login Page & Register Page CSS */
+
 .login_pic, .register_pic {
     position: absolute;
     width: 100%;
@@ -126,13 +128,201 @@ body {
     color: #f9f3e5;
     font-size: 55px;
 }
+/* NOAH */
 
+/* HEADER */
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f3e5;
+    color: #a86446;
+    font-family: 'Eastman';
+    height: 70px;
+}
+
+#menu ul {
+    display: flex;
+    list-style-type: none;
+}
+#menu ul li {
+    padding-right: 60px;
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: #a86446;
+}
+
+#menu ul li a:hover {
+    text-decoration: underline;
+}
+
+#login_button_header {
+    font-family: 'Eastman';
+    color: #f9f3e5;
+    background-color: #5c8271;
+    border: 0;
+    border-radius: 5px;
+}
+
+#profile_toggle {
+    display: none;
+}
+
+#profile_toggle_label {
+    width: 100px;
+    text-align: center;
+}
+
+#profile_ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    right: 0;
+}
+
+#profile_ul li {
+    margin-top: 5px;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#profile_toggle:checked ~ ul {
+    display: block;
+}
+
+#logout_button {
+    border: 0;
+    color: #5c8271;
+    background-color: #f9f3e5;
+}
+/* CHALLENGE SPECIFIC PAGE */
+
+#challenge-specific-title {
+    margin: 30px 0 15px;
+    font-family: 'Eastman-bold';
+    color: #a86446;
+    width: 300px;
+}
+
+#challenge-specific-description-box {
+    border-radius: 15px;
+    width: -webkit-fill-available;
+    height: fit-content;
+    padding: 25px;
+    margin: 10px 0;
+    background-color: #5c8271;
+    color: #f9f3e5;
+}
+
+#challenge-specific-description-box > div > p:first-child {
+    font-family: 'Eastman-bold';
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#challenge-specific-comments-section {
+    background-color: #a86446;
+}
+
+#challenge-specific-comment-box {
+    width: 100%;
+    padding: 30px;
+}
+
+.comment_form {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.comment_content {
+    resize: none;
+    border-radius: 15px;
+    width: 800px;
+    height: 150px;
+    padding: 10px;
+    color: #5c8271;
+    background-color: #f9f3e5;
+    font-family: 'Eastman';
+}
+
+.add_comment {
+    border: 0;
+    border-radius: 15px;
+    width: 80px;
+    height: 40px;
+    margin-left: 20px;
+    font-family: 'Eastman';
+    color: #5c8271;;
+}
+
+.comment_user {
+    color: #5c8271;
+    font-family: 'Eastman';
+}
+
+.delete_comment_form {
+    width: 85vw;
+    text-align: right;
+}
+
+.delete_comment {
+    border: 0;
+    border-radius: 15px;
+    color: #5c8271;
+    background-color: #f9f3e5;
+    font-family: 'Eastman';
+}
+
+.challenge-specific-comment {
+    border-radius: 15px;
+    background-color: #f9f3e5;
+    color: #5c8271;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 70vw;
+}
+
+#single-marker {
+    margin: 10px 0;
+}
+
+#single-marker > #map {
+    border-radius: 15px;
+}
+
+#onspot_container {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#onspot {
+    width: 450px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #5c8271;
+    color: #f9f3e5;
+    text-align: center;
+}
+
+/* NOAH (END) */
 
 /* body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: auto;
-    background-color: antiquewhite;
+    background-color: #f9f3e5;
 }
 
 
@@ -207,38 +397,6 @@ a {
 } */
 /**/
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: white;
-}
-
-#menu ul {
-    display: flex;
-    list-style-type: none;
-}
-#menu ul li {
-    padding-right: 15px;
-}
-
-#menu ul li a {
-    color: rgba(255, 255, 255, 0.75);
-
-}
-
-#menu ul li a:hover {
-    color: white;
-    text-decoration: underline;
-}
-
-
-#single-marker {
-    height: 400px; 
-    width: 100vw; 
-}
-
 #map {
     width: 100%;
     height: 100%;
@@ -246,14 +404,6 @@ header {
 
 #challenge {
     width: fit-content;
-}
-
-#onspot {
-    width: fit-content;
-    height: fit-content;
-    padding: 10px;
-    background-color: #FFD750;
-    text-align: center;
 }
 
 

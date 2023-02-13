@@ -35,31 +35,41 @@ ob_start();
 src="https://maps.googleapis.com/maps/api/js?key=<?=$db_password = $_SERVER['ONMYWAY_GMAP_KEY'];?>&callback=initMap&v=weekly&libraries=geometry"
 defer>
 </script>
-<h1><?= $challenge['name'] ?></h1>
-<button id="onspot">
-    I'm ON the SPOT!
-</button>
-<div id="challenge">
-    <p>Description: 
-        <?= $challenge['content'] ?>
-    </p>
-    <p>Extra conditions: 
-        <?= ($challenge['conditions'] == null || $challenge['conditions'] == "") ? "none":$challenge['conditions']?>
-    </p>
-    <p>Rewards: 
-        <strong><?= $challenge['score'] ?> points</strong>
-    </p>
-    <p>Location: 
-        <strong><a href="<?= LIST_CHALLENGES_PATH ?>">
-            <?= $place['name'] ?>
-        </strong></a>
-    </p>
-    <p id="result-message-container"></p>
-    <?php require_once 'listComments.php'?>
-    <div id="single-marker">
-        <div id="map"></div>
+<div class="container">
+    <div id="challenge-specific-title">
+        <h1><?= $challenge['name'] ?></h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-12">
+            <div id="challenge-specific-description-box">
+                <div class="rewards">
+                    <p>REWARDS</p>
+                    <p><?= $challenge['score'] ?> points</p>
+                </div>
+                <div class="description">
+                    <p>DESCRIPTION</p>
+                    <p><?= $challenge['content'] ?></p>
+                </div>
+                <div class="conditions">
+                    <p>CONDITIONS</p>
+                    <p><?= ($challenge['conditions'] == null || $challenge['conditions'] == "") ? "none":$challenge['conditions']?></p>
+                </div>
+                <div class="location">
+                    <p>LOCATION</p>
+                    <p><a href="<?= LIST_CHALLENGES_PATH ?>"><?= $place['name'] ?></a></p>
+                </div>
+                <p id="result-message-container"></p>
+            </div>
+        </div>
+        <div id="single-marker" class="col-md-8 col-12 text-center">
+            <div id="map"></div>
+        </div>
+    </div>
+    <div id="onspot_container">
+        <button id="onspot">COMPLETE THE CHALLENGE!</button>
     </div>
 </div>
+<?php require_once 'listComments.php'?>
 
 <?php
     $html = ob_get_clean(); // give the code into a variable
