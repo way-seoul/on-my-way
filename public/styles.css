@@ -1,3 +1,13 @@
+
+/*Theme Colors*/
+:root {
+    --brown: #a86446;
+    --dark-green: #5c8271;
+    --light-green: #83b8a1;
+    --light-orange: hsl(42, 62%, 94%);
+    --white: #ffffff;
+  }
+  
 /* Login Page & Register Page CSS */
 html,
 body {
