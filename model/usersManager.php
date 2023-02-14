@@ -23,6 +23,7 @@ class Users extends Db {
 
         $user = $db->prepare('SELECT username, password, id, admin FROM users WHERE username = ?');
         $user->execute([$username]);
+        
         return $user->fetch();
     }
 
