@@ -59,7 +59,7 @@ defer>
                 </div>
                 <div class="location">
                     <p>LOCATION</p>
-                    <p><a href="<?= LIST_CHALLENGES_PATH ?>"><?= $place['name'] ?></a></p>
+                    <p><a href="<?= LIST_CHALLENGES_PATH ?>&search=<?= $place['name'] ?>"><?= $place['name'] ?></a></p>
                 </div>
                 <p id="result-message-container"></p>
             </div>
