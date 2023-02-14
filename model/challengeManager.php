@@ -183,6 +183,22 @@ class ChallengeManager extends Db {
         return $accomplished['count_users'];
     }
 
+    public function hasUserCompletedChall($user_id, $challenge_id) {
+        $db = $this->connectDB();
+        $accomplished = $db->prepare(
+            "SELECT COUNT(id) as accomplished_count
+            FROM `user_challenge_r` 
+            WHERE challenge_id =:challenge_id 
+            AND user_id=:user_id;"
+        );
+        $accomplished->execute([
+            'challenge_id' => $challenge_id,
+            'user_id' => $user_id
+        ]); 
+        $accomplished = $accomplished->fetch();
+        return $accomplished['accomplished_count'];
+    }
+
     public function getChallDataForAdmin() {
         $db = $this->connectDB();
         $challenges = $db->query(

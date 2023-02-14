@@ -1,7 +1,7 @@
 <section class="comments">
     <h3>Comments:</h3>
     <?php
-    $path = CHALLENGE_PATH . '&id=' . $id;
+    $path = CHALLENGE_PATH . '&id=' . $challID;
     ?>
     <form action="<?=$path?>" method="post">
         <textarea required name="comment_content" id="comment_content" cols="80" rows="5" placeholder="Add a comment....."></textarea>
