@@ -11,7 +11,6 @@ Class HomeContr {
             print_r(json_encode($existingPlaces));
             die();
         }
-        
         include './view/homeView.php';
     }
 }
