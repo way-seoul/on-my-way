@@ -45,6 +45,15 @@ ob_start();
     </div>
 </div>
 
+<!-- Add firebase to the project from Google FirebaseUI -->
+<script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script>
+<script>
+    // Define api key & re-direct URL and make them readable thru JS
+    var googleLoginAPIKey = "<?= $_SERVER['ONMYWAY_GLOGIN_KEY']; ?>";
+    var redirectURL = "<?= ROOT ?>";
+</script>
+<script src="public/google-login.js"></script>
+
 <?php
 $html = ob_get_clean();
 include 'non-logged-in-template.php';

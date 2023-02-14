@@ -48,16 +48,8 @@ firebase.auth().onAuthStateChanged((user) => {
     let xhr = new XMLHttpRequest();
     xhr.open('POST', 'index.php?action=admin');
     xhr.send(formData);
-    console.log("test");
 
   } else {
     // User is signed out
-    const user = firebase.auth().currentUser;
-    user.delete().then(() => {
-      // User deleted.
-    }).catch((error) => {
-      // An error ocurred
-      // ...
-    });
   }
 });

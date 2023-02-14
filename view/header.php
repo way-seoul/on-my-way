@@ -28,12 +28,19 @@
                             <?php }else if(isset($_POST['log_out'])){
                                 session_unset();
                                 session_destroy();
-                            ?>
-                                //logout google users from firebase
-                                <script>var authResult = false;</script>
-                                <script src="public/google-login.js"></script>
-                                <?php 
-                                header('Location: index.php?action=');
+                                ?>
+                                <!-- Include FirebaseUI -->
+                                <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+                                <!-- Add firebase to the project from Google FirebaseUI -->
+                                <script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script>
+                                <script>
+                                    // Define api key & re-direct URL and make them readable thru JS
+                                    var googleLoginAPIKey = "<?= $_SERVER['ONMYWAY_GLOGIN_KEY']; ?>";
+                                    var redirectURL = "<?= ROOT ?>";
+                                </script>
+                                <script src ="public/google-logout.js"></script>
+                                <?php
+                                //header('Location: index.php?action=');
                                 ?>
                             <?php } ?>
                         </form>                   
