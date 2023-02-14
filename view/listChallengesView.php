@@ -3,7 +3,7 @@ $h1 = 'Challenge List';
 $title = 'ON MY WAY | ' . $h1;
 ob_start();
 ?>
-<script src="./public/responsive_search_bar.js" defer></script>
+<script src="public/responsive_search_bar.js" defer></script>
 <script>
     let mapOptions = {
         disableDefaultUI: true,
@@ -76,8 +76,6 @@ ob_start();
 
     </div>
 </div>
-
-
 
 <?php
     $html = ob_get_clean(); // give the code into a variable

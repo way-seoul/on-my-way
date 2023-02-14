@@ -1,4 +1,3 @@
-
 //DIST IN METRES - places further from user location  will not show on map
 const maxDistance = 1000;
 const onTheSpot = document.getElementById('onspot');
@@ -17,7 +16,7 @@ window.onload = function () {
     }
     if(userCompleteChallenge != 0) {
         resultMsg.innerText += 'You\'ve already completed the challenge! Try another one!';
-        onTheSpot.disabled = true;
+        onTheSpot.style.display = 'none';
     }
     body.style.visibility = 'visible';
 }
@@ -47,7 +46,7 @@ const getUserLocation = async (position) => {
         //Then display msg to user..
         resultMsg.innerText += dbUpdated.msg;
         resultMsg.innerText += '.\nYou just completed this challenge! Now try a different one!';
-        onTheSpot.disabled = true;
+        onTheSpot.style.display = 'none';
     }
 }
 

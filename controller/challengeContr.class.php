@@ -7,6 +7,8 @@ require_once 'model/usersManager.php';
 
 class ChallengeContr {
     public static function createChallenge(){
+        if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
+
         $challenges = new ChallengeManager();
         $places = new PlaceManager();
         $action = 'create-challenge';
@@ -33,6 +35,8 @@ class ChallengeContr {
     }
 
     public static function listChallenges(){
+        if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
+
         $c_manager = new ChallengeManager();
         $p_manager = new PlaceManager();
         $places = $c_manager->getPlaces();
@@ -40,11 +44,12 @@ class ChallengeContr {
         if(isset($_POST['delete']) && $_POST['delete']!= '') {
             $c_manager->deleteChallenge($_POST['delete']);
         } 
-        require_once 'view/placelistView.php';
+        require_once 'view/listChallengesView.php';
     }
 
     public static function editChallenges(){
-        if(!isset($_SESSION['logged_in'])) header('location: index.php?action=');
+        if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
+
 
         $c_manager = new ChallengeManager();
         $p_manager = new PlaceManager();
@@ -83,6 +88,8 @@ class ChallengeContr {
     }
 
     public static function showChallengeInfo(){
+        if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
+
         $userManager = new Users();
         $c_manager = new ChallengeManager();
         $comment_manager = new CommentManager();

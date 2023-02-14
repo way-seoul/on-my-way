@@ -1,6 +1,7 @@
 <?php
 
 require_once './model/db.php';
+include_once 'model/commentManager.php';
 
 class ChallengeManager extends Db {
 
@@ -101,8 +102,15 @@ class ChallengeManager extends Db {
 
     public function deleteChallenge($challenge_id)
     {
-        $this->delete('challenges', $challenge_id);
-        return 1;
+        // can't delete a challenge when there's a comment
+        $comment_manager = new CommentManager();
+        $comments = $comment_manager->getAllCommentsForChallenge($challenge_id);
+        if(empty($comments)) {
+            $this->delete('challenges', $challenge_id);
+            return 1;
+        } else {
+            return "Failed! You can't delete the challenge when there's a comment on it.";
+        }
     }
 
    
