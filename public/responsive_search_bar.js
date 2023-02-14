@@ -76,7 +76,7 @@ const filterChallenges = (place, searchVal) => {
     
 // show search result of url param
 if(search_key != '' && search_key.length > 0) {
-    filterResults(search_key)
+    filterResults(search_key);
 } else {
     showAllResults();
 }

@@ -51,15 +51,15 @@ defer>
                 </div>
                 <div class="description">
                     <p>DESCRIPTION</p>
-                    <p><?= $challenge['content'] ?></p>
+                    <p><?= ($challenge['content'] == null || $challenge['content'] == "") ? "-":$challenge['content']?></p>
                 </div>
                 <div class="conditions">
                     <p>CONDITIONS</p>
                     <p><?= ($challenge['conditions'] == null || $challenge['conditions'] == "") ? "none":$challenge['conditions']?></p>
                 </div>
-                <div class="location">
+                <div class="location" id="ch-sp-lo">
                     <p>LOCATION</p>
-                    <p><a href="<?= LIST_CHALLENGES_PATH ?>&search=<?= $place['name'] ?>"><?= $place['name'] ?></a></p>
+                    <p><a href="<?= LIST_CHALLENGES_PATH ?>&search=<?= $place['name'] ?>" title="See every challenge at <?= $place['name'] ?>"><?= $place['name'] ?> →</a></p>
                 </div>
                 <p id="result-message-container"></p>
             </div>
