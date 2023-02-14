@@ -1,6 +1,7 @@
 # ON MY WAY
 visit:: https://onmyway.razzi.dev/
 
+
 Concept
 -
 
@@ -8,20 +9,23 @@ This is an entertainment app that encourages people to walk out to explore natur
 
 The users can choose the CHALLENGE of the location, visit the location and get rewards by fulfilling some conditions.
 
-***
+
+Settings
+-
 
 For this project, please define your username/password/GMAP on your Apache configuration file (httpd.conf):
+
 
 ONMYWAY_DB_USERNAME
 ONMYWAY_DB_PASSWORD
 ONMYWAY_GMAP_KEY
 ONMYWAY_GLOGIN_KEY
-=======
 
-https://docs.google.com/document/d/1Sy6emsOmGmD7i18eFfcoFndc-_pVb8sVBVLDa16dNOQ/edit
 
+
+Amdin Login
 -
-admin account
-username: admin
-pw: 123
+
+- username: admin
+- pw: 123
 

@@ -161,6 +161,7 @@
                     </form>
                 </table>
             </div>
+            <?= $f_msg_deleteChll ?>
         </div>
     </div>
 
@@ -228,6 +229,7 @@
                     </form>
                 </table>
             </div>
+            <?= $f_msg_deletePlace ?>
         </div>
     </div>
 

@@ -1,3 +1,13 @@
+
+/*Theme Colors*/
+:root {
+    --brown: #a86446;
+    --dark-green: #5c8271;
+    --light-green: #83b8a1;
+    --light-orange: hsl(42, 62%, 94%);
+    --white: #ffffff;
+  }
+  
 /* Login Page & Register Page CSS */
 html,
 body {
@@ -19,10 +29,14 @@ body {
     src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Medium-trial.otf) format("Opentype");
 }
 
+
 @font-face {
     font-family: 'Sans Pro';
     src: url(../public/font/Sans-Pro/sourcesanspro/SourceSansPro-Light.ttf) format("Opentype");
 }
+
+/* Login Page & Register Page CSS */
+
 
 .login_pic, .register_pic {
     position: absolute;
@@ -95,7 +109,7 @@ body {
     color: #83b8a1;
 }
 
-.login_button, .register_button {
+.login_button, .register_button, .submit-btn {
     border:1px solid transparent;
     border-radius: 30px;
     width: 100px;
@@ -124,20 +138,203 @@ body {
     color: #f9f3e5;
     font-size: 55px;
 }
+/* NOAH */
 
+/* HEADER */
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f3e5;
+    color: #a86446;
+    font-family: 'Eastman';
+    height: 70px;
+}
+
+#menu ul {
+    display: flex;
+    list-style-type: none;
+}
+#menu ul li {
+    padding-right: 60px;
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: #a86446;
+}
+
+#menu ul li a:hover {
+    text-decoration: underline;
+}
+
+#login_button_header {
+    font-family: 'Eastman';
+    color: #f9f3e5;
+    background-color: #5c8271;
+    border: 0;
+    border-radius: 5px;
+}
+
+#profile_toggle {
+    display: none;
+}
+
+#profile_toggle_label {
+    width: 100px;
+    text-align: center;
+}
+
+#profile_ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    right: 0;
+}
+
+#profile_ul li {
+    margin-top: 5px;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#profile_toggle:checked ~ ul {
+    display: block;
+}
+
+#logout_button {
+    border: 0;
+    color: #5c8271;
+    background-color: #f9f3e5;
+}
+/* CHALLENGE SPECIFIC PAGE */
+
+#challenge-specific-title {
+    margin: 30px 0 15px;
+    font-family: 'Eastman-bold';
+    color: #a86446;
+    width: 300px;
+}
+
+#challenge-specific-description-box {
+    border-radius: 15px;
+    width: -webkit-fill-available;
+    height: fit-content;
+    padding: 25px;
+    margin: 10px 0;
+    background-color: #5c8271;
+    color: #f9f3e5;
+}
+
+#challenge-specific-description-box > div > p:first-child {
+    font-family: 'Eastman-bold';
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#challenge-specific-comments-section {
+    background-color: #a86446;
+}
+
+#challenge-specific-comment-box {
+    width: 100%;
+    padding: 30px;
+}
+
+.comment_form {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+.comment_content {
+    resize: none;
+    border-radius: 15px;
+    width: 800px;
+    height: 150px;
+    padding: 10px;
+    color: #5c8271;
+    background-color: #f9f3e5;
+    font-family: 'Eastman';
+}
+
+.add_comment {
+    border: 0;
+    border-radius: 15px;
+    width: 80px;
+    height: 40px;
+    margin-left: 20px;
+    font-family: 'Eastman';
+    color: #5c8271;;
+}
+
+.comment_user {
+    color: #5c8271;
+    font-family: 'Eastman';
+}
+
+.delete_comment_form {
+    width: 85vw;
+    text-align: right;
+}
+
+.delete_comment {
+    border: 0;
+    border-radius: 15px;
+    color: #5c8271;
+    background-color: #f9f3e5;
+    font-family: 'Eastman';
+}
+
+.challenge-specific-comment {
+    border-radius: 15px;
+    background-color: #f9f3e5;
+    color: #5c8271;
+    margin: 0 auto;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 70vw;
+}
+
+#single-marker {
+    margin: 10px 0;
+}
+
+#single-marker > #map {
+    border-radius: 15px;
+}
+
+#onspot_container {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#onspot {
+    width: 450px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #5c8271;
+    color: #f9f3e5;
+    text-align: center;
+}
+
+/* NOAH (END) */
 
 /* body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: auto;
-    background-color: antiquewhite;
+    background-color: #f9f3e5;
 }
 
-h1 {
-    width: 100%;
-    border: 1px solid black;
-    background-color: antiquewhite;
-}
 
 button {
     margin-right: 10px;
@@ -210,52 +407,13 @@ a {
 } */
 /**/
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: white;
-}
-
-#menu ul {
-    display: flex;
-    list-style-type: none;
-}
-#menu ul li {
-    padding-right: 15px;
-}
-
-#menu ul li a {
-    color: rgba(255, 255, 255, 0.75);
-
-}
-
-#menu ul li a:hover {
-    color: white;
-    text-decoration: underline;
-}
-
-#single-marker {
-    height: 400px; 
-    width: 100vw; 
-}
-
 #map {
-    height: 100%; 
-    width: 100%; 
+    width: 100%;
+    height: 100%;
 }
 
 #challenge {
     width: fit-content;
-}
-
-#onspot {
-    width: fit-content;
-    height: fit-content;
-    padding: 10px;
-    background-color: #FFD750;
-    text-align: center;
 }
 
 
@@ -275,25 +433,32 @@ h1, h2, h3, h4, h5 {
 }
 
 .list-view h1,
-.admin-view h1
+.admin-view h1,
+.form-view h1,
+.admin-view h2,
+.form-view h2
 {
-    font-family: 'Eastman-Bold';
+    /* font-family: 'Eastman-Bold'; */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
     margin: 30px 0 15px;
 }
 
-.admin-view h2{
-    font-family: 'Eastman-Bold';
+.admin-view h2,
+.form-view h2 {
     margin: auto;
 }
 
 .search-box input,
-.add-btn {
+.add-btn,
+.form-box input,
+.form-box textarea,
+.form-box select {
     border: transparent;
     border-radius: 30px;
-    width: 50%;
+    /* width: 50%; */
     height: fit-content;
-    padding: 5px;
-    padding-left: 20px;
+    padding: 5px 20px;
     margin: 10px 0;
     background-color: #a86446;
     color: #f9f3e5;
@@ -304,7 +469,8 @@ h1, h2, h3, h4, h5 {
     color: rgba(249, 243, 229, 0.8);
 }
 
-.search-box button {
+.search-box button,
+.form-view label {
     border: transparent;
     background-color: transparent;
     color: #a86446;
@@ -447,4 +613,90 @@ details ol li {
     text-overflow: ellipsis;
 }
 
-/********************************* FROM HJ *************************************/
+/********************************* FROM HJ 2 *************************************/
+.form-view label {
+    display: block;
+
+}
+
+.fill-vp {
+    height: 70vh;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-view .form-map-img {
+    background: url(./image/loginPic.jpg) center center / cover;
+    display: flex;
+    /* flex-direction: column; */
+}
+
+#phase2-rp {
+    margin: auto;
+    color: #f9f3e5;
+}
+
+#phase2-rp h2 {
+    color: #f9f3e5;
+}
+
+.form-box input,
+.form-box textarea,
+.form-box select {
+    width: -webkit-fill-available;
+    margin: 5px 0 22px;
+}
+
+.form-box input.invalid {
+    margin-bottom: 0;
+}
+    
+.invalid + p {
+    padding:0;
+    margin: 2px 0;
+    /* margin-bottom:10px; */
+    color:red;
+    font-size:14px;
+    text-align:center;
+}
+
+.form-box .fields {
+    height: 90px;
+}
+
+.submit-btn {
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 25px;
+    margin-top: 20px;
+}
+
+
+.back-btn {
+    font-weight: bold;
+    color: #5c8271;
+    margin: 20px 5px;
+}
+
+.back-btn a {
+    color: #5c8271;
+    text-decoration: none;
+}
+
+.form-box textarea {
+    border-radius: 17px;
+    min-height: 80px;
+}
+
+.form-view #exception .radio {
+    width: auto;
+}
+.form-view #exception label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/********************************* FROM HJ ends *************************************/
+

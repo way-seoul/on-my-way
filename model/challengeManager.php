@@ -1,6 +1,7 @@
 <?php
 
 require_once './model/db.php';
+include_once 'model/commentManager.php';
 
 class ChallengeManager extends Db {
 
@@ -101,8 +102,15 @@ class ChallengeManager extends Db {
 
     public function deleteChallenge($challenge_id)
     {
-        $this->delete('challenges', $challenge_id);
-        return 1;
+        // can't delete a challenge when there's a comment
+        $comment_manager = new CommentManager();
+        $comments = $comment_manager->getAllCommentsForChallenge($challenge_id);
+        if(empty($comments)) {
+            $this->delete('challenges', $challenge_id);
+            return 1;
+        } else {
+            return "Failed! You can't delete the challenge when there's a comment on it.";
+        }
     }
 
    
@@ -111,6 +119,7 @@ class ChallengeManager extends Db {
       foreach($data as $key => $value) {
         if($key == 'add-challenge' || $key == 'edit-challenge') continue;
         if(empty($value)) return false;
+        if($key == 'place_id' && $value == 0) return false;
         if($key == 'score' && !(is_numeric($value))) return false;
         $value = trim(htmlspecialchars($value));
       }
@@ -123,7 +132,7 @@ class ChallengeManager extends Db {
         VALUES (:name, :content, :conditions, :place_id, :score, :created_date)');
         $newChallenge->execute([
             'name' => $data['name'],
-            'content' => 'N/A for now', // let's add the input for this later
+            'content' => $data['content'],
             'conditions' => $data['conditions'],
             'place_id' => $data['place_id'],
             'score' => $data['score'],

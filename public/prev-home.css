@@ -1,0 +1,51 @@
+
+
+  div.container-md > * {
+    color: var(--brown);
+    font-size: 1rem;
+    margin: 0px;
+    padding: 0px;
+}
+
+  div.container-md {
+    margin: 5vh auto;
+    width: 95vw;
+    height: 80vh;
+    column-gap: 3%;
+}
+
+div#map {
+    height: 100%;
+    border-radius: 40px;
+}
+
+div.row {
+    height: 100%;
+}
+
+.content-container {
+    min-height: 50%;
+}
+
+.map-container {
+    min-height: 50%;
+}
+
+.green-btn {
+    color: var(--white);
+    background-color: var(--dark-green);
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 5px;
+    text-align: center;
+    width: 60%;
+    height: 50px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+  
+
+
