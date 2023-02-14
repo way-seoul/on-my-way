@@ -1,7 +1,11 @@
 //DIST IN METRES - places further from user location  will not show on map
 const maxDistance = 1000;
 const onTheSpot = document.getElementById('onspot');
+const completedMsg = document.getElementById('completed-container');
 const resultMsg = document.getElementById('result-message-container');
+const loadingImg = document.getElementById('loading-container');
+const popupBg = document.getElementsByClassName('popup-dim')[0];
+const popupClose = document.querySelector(".popup-box button");
 let userLoc = {};
 
 console.log(userCompleteChallenge);
@@ -15,13 +19,16 @@ window.onload = function () {
         return
     }
     if(userCompleteChallenge != 0) {
-        resultMsg.innerText += 'You\'ve already completed the challenge! Try another one!';
+        // completedMsg.innerText += 'You\'ve already completed the challenge! Try another one!';
+        completedMsg.innerHTML = '<hr><img src="https://www.onlygfx.com/wp-content/uploads/2018/04/completed-stamp-3.png" alt="completed-img" height="150"></img>';
         onTheSpot.style.display = 'none';
     }
     body.style.visibility = 'visible';
 }
 
 onTheSpot.addEventListener('click', async () => {
+    popupBg.style.display = "block";
+    loadingImg.innerHTML = '<img src="https://media.tenor.com/UnFx-k_lSckAAAAM/amalie-steiness.gif" alt="loading" class="loading-img">'
     navigator.geolocation.getCurrentPosition(getUserLocation);
 })
 
@@ -33,6 +40,7 @@ const getUserLocation = async (position) => {
     userLoc.lat = await position.coords.latitude;
     userLoc.lng = await position.coords.longitude
     resultMsg.innerText = '';
+    console.log(resultMsg);
     if(userCompleteChallenge != 0) {
         resultMsg.innerText += 'You\'ve already completed the challenge! Try another one!';
         return;
@@ -43,11 +51,19 @@ const getUserLocation = async (position) => {
         //USER ACHIEVED CHALLENGE SO TRY TO UPDATE THE DB
         let dbUpdated = await addResultToDB();
         console.log(dbUpdated);
+        console.log(dbUpdated.msg);
         //Then display msg to user..
-        resultMsg.innerText += dbUpdated.msg;
-        resultMsg.innerText += '.\nYou just completed this challenge! Now try a different one!';
+        resultMsg.innerText += dbUpdated.msg + ".";
+        console.log(resultMsg);
+        resultMsg.innerText += '\nYou just completed this challenge! Now try a different one!';
         onTheSpot.style.display = 'none';
+        completedMsg.innerHTML = '<hr><img src="https://www.onlygfx.com/wp-content/uploads/2018/04/completed-stamp-3.png" alt="completed-img" height="150"></img>';
     }
+    loadingImg.innerHTML='';
+    resultMsg.parentElement.style.visibility = 'visible';
+    window.addEventListener("click", () => {
+        popupBg.style.display="none";
+    })
 }
 
 const didUserPassChallenge = async () => {
@@ -60,7 +76,9 @@ const didUserPassChallenge = async () => {
         userLoc.lng
     );
     let dist = google.maps.geometry.spherical.computeDistanceBetween(place, user);
-    resultMsg.innerHTML = `Your distance from the place is ${dist} metres. <br>`;
+    console.log(dist);
+    resultMsg.innerText += `Your distance from the place is ${dist} metres.\n`;
+    console.log(resultMsg);
     //CONDITIONS WILL ALSO NEED TO BE PASSED ONCE ADDED TO DB..FOR NOW.. Set to true by default....
     let conditions = true;
     if(dist <= maxDistance && conditions) {
@@ -90,5 +108,3 @@ const addResultToDB = async () => {
         console.log(err);
     }
 }
-
-
