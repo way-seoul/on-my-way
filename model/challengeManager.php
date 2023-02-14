@@ -105,11 +105,17 @@ class ChallengeManager extends Db {
         // can't delete a challenge when there's a comment
         $comment_manager = new CommentManager();
         $comments = $comment_manager->getAllCommentsForChallenge($challenge_id);
-        if(empty($comments)) {
+        $accomplished = $this->getNumUsersAccomplished($challenge_id);
+
+        if(empty($comments) && empty($accomplished)) {
             $this->delete('challenges', $challenge_id);
             return 1;
         } else {
-            return "Failed! You can't delete the challenge when there's a comment on it.";
+            if(!empty($comments)) {
+                return "Failed! You can't delete the challenge when there's a comment on it.";
+            } else {
+                return "Failed! You can't delete the challenge when there's a user who's completed it.";
+            }
         }
     }
 
