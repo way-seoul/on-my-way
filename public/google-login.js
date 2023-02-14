@@ -52,5 +52,12 @@ firebase.auth().onAuthStateChanged((user) => {
 
   } else {
     // User is signed out
+    const user = firebase.auth().currentUser;
+    user.delete().then(() => {
+      // User deleted.
+    }).catch((error) => {
+      // An error ocurred
+      // ...
+    });
   }
 });

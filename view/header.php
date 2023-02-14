@@ -28,8 +28,13 @@
                             <?php }else if(isset($_POST['log_out'])){
                                 session_unset();
                                 session_destroy();
-                                header('Location: index.php?action=');
                             ?>
+                                //logout google users from firebase
+                                <script>var authResult = false;</script>
+                                <script src="public/google-login.js"></script>
+                                <?php 
+                                header('Location: index.php?action=');
+                                ?>
                             <?php } ?>
                         </form>                   
                     </li>
