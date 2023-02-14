@@ -1,10 +1,10 @@
-const getLocationBtn = document.getElementById('get-location');
 //DIST IN METRES - places further from user location  will not show on map
 const maxDistance = 1000;
 const onTheSpot = document.getElementById('onspot');
 const resultMsg = document.getElementById('result-message-container');
 let userLoc = {};
 
+console.log(userCompleteChallenge);
 
 window.onload = function () {
     //Check if browser supports geolocation......
@@ -14,6 +14,11 @@ window.onload = function () {
         console.log('Geolocation is not supported for this Browser/OS.');
         return
     }
+    if(userCompleteChallenge != 0) {
+        resultMsg.innerText += 'You\'ve already completed the challenge! Try another one!';
+        onTheSpot.style.display = 'none';
+    }
+    body.style.visibility = 'visible';
 }
 
 onTheSpot.addEventListener('click', async () => {
@@ -28,8 +33,10 @@ const getUserLocation = async (position) => {
     userLoc.lat = await position.coords.latitude;
     userLoc.lng = await position.coords.longitude
     resultMsg.innerText = '';
-    let challengeAchieved = await didUserPassChallenge();
-    if(!challengeAchieved) {
+    if(userCompleteChallenge != 0) {
+        resultMsg.innerText += 'You\'ve already completed the challenge! Try another one!';
+        return;
+    } else if(!didUserPassChallenge()) {
         resultMsg.innerText += 'Sorry you didn\'t meet the conditions needed to achieve the challenge';
         return;
     } else {
@@ -38,6 +45,8 @@ const getUserLocation = async (position) => {
         console.log(dbUpdated);
         //Then display msg to user..
         resultMsg.innerText += dbUpdated.msg;
+        resultMsg.innerText += '.\nYou just completed this challenge! Now try a different one!';
+        onTheSpot.style.display = 'none';
     }
 }
 

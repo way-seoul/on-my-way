@@ -1,6 +1,6 @@
 <section id="challenge-specific-comments-section">
     <?php
-    $path = CHALLENGE_PATH . '&id=' . $id;
+    $path = CHALLENGE_PATH . '&id=' . $challID;
     ?>
     <div id="challenge-specific-comment-box">
         <form class="comment_form" action="<?=$path?>" method="post">

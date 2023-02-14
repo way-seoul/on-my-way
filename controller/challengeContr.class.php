@@ -94,19 +94,19 @@ class ChallengeContr {
         $c_manager = new ChallengeManager();
         $comment_manager = new CommentManager();
 
-        //USER ID NEED TO BE PULLED DYNAMICALLY FROM SESSION LATER..
-        $userID = 1;
-        $id = $_GET['id'] ?? '';
+        $userID = $_SESSION['user_id'];
+        $challID = $_GET['id'] ?? '';
 
         //IF GET REQ WAS MADE FOR A SPECIFIC CHALL, THEN POPULATE PAGE WITH RELEVANT CHALLENGE INFO..
-        if($id) {
-            $challenge = $c_manager->getChallengeData($id);
+        if($challID) {
+            $challenge = $c_manager->getChallengeData($challID);
             $place = $c_manager->getPlace($challenge['place_id']);
+            $userCompleteChall = $c_manager->hasUserCompletedChall($userID, $challID);
         }
 
         if(isset($_POST['add_comment'])) {
             if(isset($_POST['comment_content'])) {
-                $newComment = $comment_manager->addComment($id, $_POST['comment_content']);
+                $newComment = $comment_manager->addComment($challID, $userID, $_POST['comment_content']);
             }
         }
 
@@ -143,8 +143,8 @@ class ChallengeContr {
                 );
             }
         }
-        if($id) {
-            $comments = $comment_manager->getAllCommentsForChallenge($id);
+        if($challID) {
+            $comments = $comment_manager->getAllCommentsForChallenge($challID);
             require_once 'view/challenge-specific-view.php';
         }
     }

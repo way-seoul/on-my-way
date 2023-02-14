@@ -4,12 +4,15 @@ $coord = array(
     "lat" => $place['latitude'],
     "lng" => $place['longitude']
 );
-ob_start();
 ?>
 <!-- DEFINE GLOBAL VARS NEEDED IN CHALLENGE-SPECIFIC SCRIPT & map.js. -->
 <script>
+    let body = document.querySelector('body');
+    //For better UX. Body shown once JS file loads.
+    body.style.visibility = 'hidden';
+    let userCompleteChallenge = <?=$userCompleteChall?>;
     let placeLoc = { lat: <?= $coord['lat'] ?>, lng: <?= $coord['lng']?> };
-    let userID = <?=$userID?>;
+    let userID = <?=$_SESSION['user_id']?>;
     let score = <?=$challenge['score']?>;
     let challID = <?=$challenge['id']?>;
     let mapOptions = {
