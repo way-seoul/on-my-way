@@ -80,12 +80,6 @@
             </div>
         </div>
 
-        <div>
-            <div class="list-box" id="leaders">
-                <?php include_once 'view/leaderboardView.php'; ?>
-            </div>
-        </div>
-
     </div>
 
 
@@ -207,7 +201,7 @@
                                     <?php if($place['challenges'] != ''): ?>
                                         <ol>
                                         <?php 
-                                            $p_challenges = stringToArray($place['challenges']); 
+                                            $p_challenges = explode(',', $place['challenges']); 
                                             for ($i=0;$i<count($p_challenges);$i++):
                                         ?>
                                             <li><a href="#ch-<?= $p_challenges[$i] ?>"><?= $p_challenges[$i] ?></a></li>

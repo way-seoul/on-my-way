@@ -55,11 +55,6 @@ class AdminContr {
             }
         }
 
-        function stringToArray($string) {
-            // return an array from string exploding by , 
-            return explode(',', $string);
-        }
-        
         include './view/adminView.php';
     }
 

@@ -7,6 +7,7 @@
         <ul>
             <li><a href="<?= ROOT ?>" style="<?= $_GET['action'] == 'home'|| $_GET['action'] == '' ? $highlight:'' ?>">ON MY WAY</a></li>
             <li><a href="<?= LIST_CHALLENGES_PATH ?>" style="<?= $_GET['action'] == 'list-challenges' || $_GET['action'] == 'challenge-specific' ? $highlight:'' ?>">CHALLENGES</a></li>
+            <li><a href="<?= LEADERS_PATH ?>" style="<?= $_GET['action'] == 'leader-board' ? $highlight:'' ?>">LEADER BOARD</a></li>
             <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
                 <li><a href="<?= USER_PROFILE_PATH ?>" style="<?= $_GET['action'] == 'my-profile' ? $highlight:'' ?>">MY PROFILE</a></li>
             <?php endif ?>

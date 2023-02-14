@@ -65,22 +65,40 @@ class Users extends Db {
         ]);
     }
 
-    public function getLeadingTenUsers() {
+    public function getLeadingUsers($how_many) {
         // for the leader board on the HOMEPAGE
         $db = DB::connectDB();
-        $leaders = $db->query(
+        $query =             
             'SELECT 
                 users.username,
                 users.points_total,
-                GROUP_CONCAT(challenges.name) AS challenges
+                GROUP_CONCAT(challenges.id) AS challenge_ids
+                -- GROUP_CONCAT(challenges.name) AS challenges
             FROM users
             LEFT JOIN user_challenge_r
                 ON users.id = user_challenge_r.user_id
             LEFT JOIN challenges
                 ON challenges.id = user_challenge_r.challenge_id
             GROUP BY users.id
-            ORDER BY points_total DESC LIMIT 10;'
-        );
+            ORDER BY points_total DESC LIMIT ' . $how_many;
+        $leaders = $db->query($query);
+
+        // $leaders = $db->prepare(
+        //     'SELECT 
+        //         users.username,
+        //         users.points_total,
+        //         GROUP_CONCAT(challenges.name) AS challenges
+        //     FROM users
+        //     LEFT JOIN user_challenge_r
+        //         ON users.id = user_challenge_r.user_id
+        //     LEFT JOIN challenges
+        //         ON challenges.id = user_challenge_r.challenge_id
+        //     GROUP BY users.id
+        //     ORDER BY points_total DESC LIMIT :num'
+        // );
+        // $leaders->execute([
+        //     'num' => $how_many
+        // ]);
         $leaders = $leaders->fetchAll();
         return $leaders;
     }
