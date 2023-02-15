@@ -21,7 +21,7 @@ class Users extends Db {
     public static function getUser($username){
         $db = DB::connectDB();
 
-        $user = $db->prepare('SELECT username, password, id, admin FROM users WHERE username = ?');
+        $user = $db->prepare('SELECT username, password, id, admin, email FROM users WHERE username = ?');
         $user->execute([$username]);
         
         return $user->fetch();
@@ -73,7 +73,6 @@ class Users extends Db {
                 users.username,
                 users.points_total,
                 GROUP_CONCAT(challenges.id) AS challenge_ids
-                -- GROUP_CONCAT(challenges.name) AS challenges
             FROM users
             LEFT JOIN user_challenge_r
                 ON users.id = user_challenge_r.user_id
@@ -83,22 +82,6 @@ class Users extends Db {
             ORDER BY points_total DESC LIMIT ' . $how_many;
         $leaders = $db->query($query);
 
-        // $leaders = $db->prepare(
-        //     'SELECT 
-        //         users.username,
-        //         users.points_total,
-        //         GROUP_CONCAT(challenges.name) AS challenges
-        //     FROM users
-        //     LEFT JOIN user_challenge_r
-        //         ON users.id = user_challenge_r.user_id
-        //     LEFT JOIN challenges
-        //         ON challenges.id = user_challenge_r.challenge_id
-        //     GROUP BY users.id
-        //     ORDER BY points_total DESC LIMIT :num'
-        // );
-        // $leaders->execute([
-        //     'num' => $how_many
-        // ]);
         $leaders = $leaders->fetchAll();
         return $leaders;
     }

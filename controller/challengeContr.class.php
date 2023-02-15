@@ -37,6 +37,8 @@ class ChallengeContr {
     public static function listChallenges(){
         if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
 
+        $search_param = isset($_GET['search']) ? $_GET['search']:'';
+
         $c_manager = new ChallengeManager();
         $p_manager = new PlaceManager();
         $places = $c_manager->getPlaces();
@@ -128,7 +130,7 @@ class ChallengeContr {
                 die(
                     json_encode(
                         [
-                            'msg' => 'Well Done You Completed The Challenge! Your new points total is ' . $userPointsTotal
+                            'msg' => 'Well Done You Completed The Challenge! Your new points total is ' . $userPointsTotal . '. Now try another challenge!'
                         ]
                     )
                 );

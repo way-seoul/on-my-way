@@ -1,6 +1,7 @@
 <?php
     session_start();
 
+    include_once "./controller/config.php";
     include_once "./controller/_paths.php";
     include_once "./controller/previewContr.class.php";
     include_once "./controller/homeContr.class.php";
