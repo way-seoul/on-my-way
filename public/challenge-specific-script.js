@@ -8,6 +8,7 @@ const popupClose = document.querySelector(".popup-box button");
 let userLoc = {};
 
 console.log(userCompleteChallenge);
+console.log(maxDistance);
 
 window.onload = function () {
     //Check if browser supports geolocation......
@@ -18,7 +19,6 @@ window.onload = function () {
         return
     }
     if(userCompleteChallenge != 0) {
-        // completedMsg.innerText += 'You\'ve already completed the challenge! Try another one!';
         completedMsg.innerHTML = '<hr><img src="https://www.onlygfx.com/wp-content/uploads/2018/04/completed-stamp-3.png" alt="completed-img" height="150"></img>';
         onTheSpot.style.display = 'none';
     }
@@ -43,12 +43,11 @@ const getUserLocation = async (position) => {
     if(userPassedChall) {
         let dbUpdated = await addResultToDB();
         console.log(dbUpdated);
-        resultMsg.innerText += dbUpdated.msg;
-        resultMsg.innerText += '.\nYou just completed this challenge! Now try a different one!';
+        resultMsg.innerHTML += dbUpdated.msg;
         onTheSpot.style.display = 'none';
         completedMsg.innerHTML = '<hr><img src="https://www.onlygfx.com/wp-content/uploads/2018/04/completed-stamp-3.png" alt="completed-img" height="150"></img>';
     } else {
-        resultMsg.innerText += 'Sorry you didn\'t meet the conditions needed to achieve the challenge';
+        resultMsg.innerHTML += 'Sorry you didn\'t meet the conditions needed to achieve the challenge';
     }
     loadingImg.innerHTML='';
     resultMsg.parentElement.style.visibility = 'visible';
@@ -68,7 +67,7 @@ const didUserPassChallenge = async () => {
     );
     let dist = google.maps.geometry.spherical.computeDistanceBetween(place, user);
     console.log(dist);
-    resultMsg.innerText += `Your distance from the place is ${dist} metres.\n`;
+    resultMsg.innerHTML += `Your distance from the place is ${dist} metres.\n`;
     console.log(resultMsg);
     //CONDITIONS WILL ALSO NEED TO BE PASSED ONCE ADDED TO DB..FOR NOW.. Set to true by default....
     let conditions = true;

@@ -130,7 +130,7 @@ class ChallengeContr {
                 die(
                     json_encode(
                         [
-                            'msg' => 'Well Done You Completed The Challenge! Your new points total is ' . $userPointsTotal
+                            'msg' => 'Well Done You Completed The Challenge! Your new points total is ' . $userPointsTotal . '. Now try another challenge!'
                         ]
                     )
                 );

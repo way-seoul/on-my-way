@@ -64,7 +64,6 @@ defer>
                     <p><a href="<?= LIST_CHALLENGES_PATH ?>&search=<?= $place['name'] ?>" title="See every challenge at <?= $place['name'] ?>"><?= $place['name'] ?> →</a></p>
                 </div>
                 <div id="completed-container"></div>
-                <!-- <p id="result-message-container"></p> -->
             </div>
         </div>
         <div id="single-marker" class="col-md-8 col-12 text-center">
