@@ -1,13 +1,12 @@
 <?php
 $title = 'ON MY WAY | WELCOME';
+
 ob_start();
 ?>
 <link rel="stylesheet" href="public/prev-home.css">
 <link rel="stylesheet" href="public/home-view.css">
 <script>
-     //Common JavaSript Variables which will be used in map.js
-    //For Home Page: Set to Wcoding by defulat
-    //NOTE: THESE VALUES WILL BE OVERWRITTEN ONCE THE USER SHARES THEIR LOCATION!
+    //Note these are default settings overwritten once user shares location
     let mapOptions = {
         disableDefaultUI: true,
         zoom: 16,
@@ -22,6 +21,7 @@ ob_start();
         {name: 'Sample Place 1', lat: 37.53622850959400, lng: 126.894975568805080},
         {name: 'Sample Place 2', lat: 37.537053744792225, lng: 126.896220113787990}
     ]; 
+    const maxDistance = <?=MAX_METRES_FROM_USER_TO_SHOW_PLACE_ON_MAP?>;
 </script>
 <script src="public/user-location-home.js" defer></script>
 <script src="public/map.js" defer></script>

@@ -7,6 +7,7 @@ $coord = array(
 ?>
 <!-- DEFINE GLOBAL VARS NEEDED IN CHALLENGE-SPECIFIC SCRIPT & map.js. -->
 <script>
+    const maxDistance = <?=MAX_METRES_FROM_PLACE_FOR_USER_TO_ACHIEVE_CHALLENGE?>;
     let body = document.querySelector('body');
     //For better UX. Body shown once JS file loads.
     body.style.visibility = 'hidden';

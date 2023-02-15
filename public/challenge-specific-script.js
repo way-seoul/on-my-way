@@ -1,5 +1,4 @@
-//DIST IN METRES - places further from user location  will not show on map
-const maxDistance = 1000;
+
 const onTheSpot = document.getElementById('onspot');
 const resultMsg = document.getElementById('result-message-container');
 let userLoc = {};
