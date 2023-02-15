@@ -7,6 +7,7 @@
         <ul>
             <li><a href="<?= ROOT ?>" style="<?= $_GET['action'] == 'home'|| $_GET['action'] == '' ? $highlight:'' ?>">ON MY WAY</a></li>
             <li><a href="<?= LIST_CHALLENGES_PATH ?>" style="<?= $_GET['action'] == 'list-challenges' || $_GET['action'] == 'challenge-specific' ? $highlight:'' ?>">CHALLENGES</a></li>
+            <li><a href="<?= LEADERS_PATH ?>" style="<?= $_GET['action'] == 'leader-board' ? $highlight:'' ?>">LEADER BOARD</a></li>
             <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
             <?php endif ?>
             <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']
@@ -36,8 +37,20 @@
                             <?php }else if(isset($_POST['log_out'])){
                                 session_unset();
                                 session_destroy();
-                                header('Location: index.php?action=');
-                            ?>
+                                ?>
+                                <!-- Include FirebaseUI -->
+                                <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+                                <!-- Add firebase to the project from Google FirebaseUI -->
+                                <script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script>
+                                <script>
+                                    // Define api key & re-direct URL and make them readable thru JS
+                                    var googleLoginAPIKey = "<?= $_SERVER['ONMYWAY_GLOGIN_KEY']; ?>";
+                                    var redirectURL = "<?= ROOT ?>";
+                                </script>
+                                <script src ="public/google-logout.js"></script>
+                                <?php
+                                //header('Location: index.php?action=');
+                                ?>
                             <?php } ?>
                         </form>                   
                     </li>

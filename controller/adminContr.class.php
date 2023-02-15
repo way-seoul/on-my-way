@@ -7,12 +7,46 @@ include_once './model/usersManager.php';
 
 class AdminContr {
     public static function admin(){
+
+        $manager = new Admin();
+
+        //create new account or verify to login for google users
+        if (isset($_POST['username'])) {
+            
+            $usermanager = new Users();
+            $googleName = $_POST['username'];
+            $userInfo = $usermanager->getUser($googleName);
+
+            //compare the google login user data with the users in our database
+            //if not existed, create a new account for the user
+            if($userInfo == null) {
+                $manager->addUsers($_POST);
+                $userInfo = $usermanager->getUser($googleName);
+            } 
+
+            $verified_username = $userInfo['username'];
+            $verified_user_id = $userInfo['id'];
+            $verified_admin = $userInfo['admin'];
+
+            $_SESSION['logged_in'] = true;
+            $_SESSION['user_id'] = $verified_user_id;
+            $_SESSION['admin'] = $verified_admin;
+            $_SESSION['user'] = $verified_username;
+
+            $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
+
+            if($logged_in){
+                header('location: '. ROOT);
+            }
+    
+        }
+
         if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
         if(!isset($_SESSION['admin']) || $_SESSION['admin'] != 1) header('location: ' . ROOT . 'home');
         
         //Delete user
         //prepare data
-        $manager = new Admin();
+        // $manager = new Admin();
         
         if (isset($_POST['delete'])) {
             // delete user
@@ -55,14 +89,6 @@ class AdminContr {
                 $f_msg_deletePlace = $delete_msg;
             }
         }
-
-        function stringToArray($string) {
-            // return an array from string exploding by , 
-            return explode(',', $string);
-        }
-
-        $total_points = Users::getUserTotalPoints($_SESSION['user_id']);
-        print_r($total_points);
 
         include './view/adminView.php';
     }

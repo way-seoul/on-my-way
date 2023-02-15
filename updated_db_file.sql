@@ -51,6 +51,7 @@ CREATE TABLE users (
   email varchar(64) NOT NULL,
   created_date datetime NOT NULL,
   points_total int(11) DEFAULT '0',
+  is_deleted tinyint(1) NOT NULL DEFAULT 0,
   admin tinyint(1) NOT NULL,
   PRIMARY KEY (id)
 );
@@ -63,30 +64,29 @@ CREATE TABLE user_challenge_r (
   PRIMARY KEY (id)
 );
  
-INSERT INTO challenges (id, name, content, place_id, conditions, score, created_date, updated_date) VALUES
-(2, 'challenge2', '', 1, NULL, 4, '2023-01-09 21:17:47', '2023-01-10 00:00:00'),
-(3, 'challenge3', '', 1, NULL, 5, '2023-01-09 21:17:59', '2023-01-10 00:00:00'),
-(4, 'challenge4', '', 2, NULL, 4, '2023-01-09 21:53:54', '2023-01-10 00:00:00'),
-(5, 'challenge5', '', 2, '-', 3, '2023-01-10 11:57:24', '2023-01-10 00:00:00');
+INSERT INTO `challenges` (`id`, `name`, `content`, `place_id`, `conditions`, `score`, `users_accomplished`, `created_date`, `updated_date`) VALUES
+(2, 'Get to Wcoding', '', 1, NULL, 4, 8, '2023-01-09 21:17:47', '2023-01-10 00:00:00'),
+(6, 'Visit Reichstag', '', 3, NULL, 100, 0, '2023-02-15 10:24:53', '2023-02-15 10:24:53'),
+(7, 'Visit Oriental Pearl Tower', '', 5, NULL, 100, 0, '2023-02-15 10:26:36', '2023-02-15 10:26:36'),
+(8, 'Climb the Tokyo skytree', '', 7, NULL, 1000, 0, '2023-02-15 11:01:33', '2023-02-15 11:01:33'),
+(9, 'Visit the Kremlin', '', 6, NULL, 500, 0, '2023-02-15 11:04:00', '2023-02-15 11:04:00');
  
-INSERT INTO challenge_comments (id, content, date_added, user_id, challenge_id) VALUES
-(11, 'Hi here is my newest comment', '2023-01-17 13:16:58', 1, 5),
-(13, 'Lets Add a New Comment here!', '2023-01-17 13:18:09', 1, 2),
-(16, 'sadads', '2023-01-17 13:28:46', 1, 3),
-(17, 'sadads', '2023-01-17 13:29:30', 1, 3),
-(18, 'a new one', '2023-01-18 09:15:57', 1, 5);
+INSERT INTO `challenge_comments` (`id`, `content`, `date_added`, `user_id`, `challenge_id`) VALUES
+(13, 'Lets Add a New Comment here!', '2023-01-17 13:18:09', 1, 2);
  
-INSERT INTO places (id, name, latitude, longitude) VALUES
-(1, 'sample place 1', '37.536228509594000', '126.894975568805080'),
-(2, 'sample place2', '37.537053744792225', '126.896220113787990');
+INSERT INTO `places` (`id`, `name`, `latitude`, `longitude`) VALUES
+(1, 'Wcoding', '37.536228509594000', '126.894975568805080'),
+(3, 'Berlin', '52.520007000000000', '13.404954000000000'),
+(5, 'Shanghai', '31.230416000000000', '121.473701000000000'),
+(6, 'Moscow', '55.755826000000000', '37.617300000000000'),
+(7, 'Tokyo', '35.689487000000000', '139.691706000000000');
  
-INSERT INTO users (id, username, password, first_name, last_name, email, created_date, admin) VALUES
-(1, 'admin', '$2y$10$gfk0EJM6FXUIipBlE8p4EOAR49YziUCZ7wC8D/uvLwea/ANCD0PoC', 'admin', 'kim', 'admin@admin.com', '2023-02-02 20:00:00', 1),
-(2, 'hyeonju', '$2y$10$E3J2qsyWmibYHsqOUt6c1uh2J1zSwR1Cw9aLOon3EFYsbNsnYWkJC', 'Hyeonju', 'Choe', 'test@test.com', '2023-01-09 12:47:36', 0),
-(3, 'Hyeonju', '$2y$10$RApN4G45YhDzX/3SOG.7R.geMTAm/ohR0pMI0gPbG1n889EZUeRBa', 'Hyeonju', 'Choe', 'test@test.com', '2023-01-10 12:16:56', 0);
- 
-INSERT INTO user_challenge_r (id, user_id, challenge_id) VALUES
-(1, 1, 5);
+INSERT INTO `users` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `created_date`, `points_total`, `admin`) VALUES
+(1, 'admin', '$2y$10$gfk0EJM6FXUIipBlE8p4EOAR49YziUCZ7wC8D/uvLwea/ANCD0PoC', 'admin', 'kim', 'admin@admin.com', '2023-02-02 20:00:00', 0, 1),
+(2, 'hyeonju', '$2y$10$E3J2qsyWmibYHsqOUt6c1uh2J1zSwR1Cw9aLOon3EFYsbNsnYWkJC', 'Hyeonju', 'Choe', 'test@test.com', '2023-01-09 12:47:36', 0, 0),
+(3, 'Hyeonju', '$2y$10$RApN4G45YhDzX/3SOG.7R.geMTAm/ohR0pMI0gPbG1n889EZUeRBa', 'Hyeonju', 'Choe', 'test@test.com', '2023-01-10 12:16:56', 0, 0),
+(5, 'test', '$2y$10$xGq6WNa6XeRmJVIBLx7qMuVr.9mWmllx8aAdwJ.fhFV7iBpCKY6A6', 'test', 'test', 'test@test.com', '2023-02-15 13:26:02', 4, 0);
+
  
 ALTER TABLE challenges 
   ADD FOREIGN KEY (place_id) REFERENCES places(id);

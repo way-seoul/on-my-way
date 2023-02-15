@@ -24,6 +24,7 @@ ob_start();
             }
         )
     <?php endforeach ?>
+    let search_key = "<?= $search_param ?>";
 </script>
 <script src="public/map.js" defer></script>
 <script defer src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -38,7 +39,11 @@ ob_start();
         <!--NEW CONTENT: Responsive Search Bar-->
         <div class="search-box col-md-6 col-12">
             <form id="search_form">
-                <input id="search" type="text" class="input" placeholder="search..."/>
+                <input id="search" type="text" class="input" placeholder="search..."
+                <?php if($search_param != ""): ?>
+                    value="<?= $search_param ?>"
+                <?php endif ?>
+                />
                 <button id="clear" type="button" class="clear-results">CLEAR</button>
             </form>
         </div>

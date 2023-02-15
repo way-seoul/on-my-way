@@ -43,8 +43,19 @@ div.row {
     height: 50px;
 }
 
+.green-btn:focus,
+.green-btn:hover {
+  filter: brightness(120%);
+}
+
 h1 {
     font-size: 2.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--brown);
+
 }
   
 

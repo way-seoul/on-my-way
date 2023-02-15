@@ -28,6 +28,23 @@ class ChallengeManager extends Db {
         return $challenges;
     }
 
+    private function getAllChallengesName() {
+        $db = $this->connectDB();
+        $challenges = $db->query('SELECT id, name, score FROM challenges');
+        $challenges = $challenges->fetchAll();
+        return $challenges;
+    }
+
+    public function newChallenges() {
+        $old_challenges = $this->getAllChallengesName();
+        $new_ch = [];
+        foreach($old_challenges as $chall) {
+            $id = $chall['id'];
+            $new_ch[$id] = $chall;
+        }
+        return $new_ch;
+    }
+
     public function validatePlace($data) {
         foreach($data as $key => $value) {
             if(empty($value)) return false;

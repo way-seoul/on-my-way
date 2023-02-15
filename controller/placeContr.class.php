@@ -10,7 +10,7 @@ class PlaceContr {
 
 
         $c_manager = new ChallengeManager();
-        $invalidInput = false; //TODO this should be edited to be delivered to other file
+        $invalidInput = false;
 
         if(isset($_POST['add-place']) && $_POST['add-place']) {
             $cleanData = $c_manager->validatePlace($_POST);
@@ -24,7 +24,7 @@ class PlaceContr {
                     'latitude' => isset($_POST['latitude']) ? $_POST['latitude']:'',
                     'longitude' => isset($_POST['longitude']) ? $_POST['longitude']:''
                 );
-                $invalidInput = true; //TODO here as well
+                $invalidInput = true;
             }
         }
 

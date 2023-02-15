@@ -9,13 +9,19 @@
   }
   
 /* Login Page & Register Page CSS */
+html {
+    height: 100%;
+}
 html,
 body {
-    height: 100%;
+    /* height: 100%; */
     margin: 0;
     padding: 0;
-    background-color: #f9f3e5;
+    background-color: #f9f3e5; 
+    position:relative; /* this is for popup */
 }
+
+/* If the text contains numbers, please use the font 'Sans Pro' */
 
 @font-face {
     font-family: 'Eastman-Bold';
@@ -27,7 +33,14 @@ body {
     src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Medium-trial.otf) format("Opentype");
 }
 
+
+@font-face {
+    font-family: 'Sans Pro';
+    src: url(../public/font/Sans-Pro/sourcesanspro/SourceSansPro-Light.ttf) format("Opentype");
+}
+
 /* Login Page & Register Page CSS */
+
 
 .login_pic, .register_pic {
     position: absolute;
@@ -71,11 +84,13 @@ body {
 
 .username_input, .password_input, .email_input, .firstname_input, .lastname_input {
     border:1px solid transparent;
+    font-family: 'Sans Pro';
     border-radius: 30px;
     width: 400px;
     height: 20px;
     background-color: #f9f3e5; 
     margin-top: 3px;
+    padding: 10px;
 }
 
 .admin_input {
@@ -243,6 +258,14 @@ header {
     color: #f9f3e5;
 }
 
+#ch-sp-lo a {
+    text-decoration: none;
+    color: inherit;
+}
+#ch-sp-lo a:hover {
+    text-decoration: underline;
+}
+
 #challenge-specific-description-box > div > p:first-child {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
@@ -326,10 +349,11 @@ header {
 }
 
 #onspot_container {
-    height: 150px;
+    /* height: 150px; */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px auto;
 }
 
 #onspot {
@@ -555,7 +579,8 @@ details ol li {
     cursor: pointer;
 }
 
-.admin-section .list-box {
+.admin-section .list-box,
+.list-box#leaders {
     overflow-x: scroll;
 }
 
@@ -615,10 +640,11 @@ details ol li {
     border: 10px #83b8a1 solid;
 }
 
-#leaders h2 {
+#leaders h2,
+#leaders .admin-table {
     color: #f9f3e5;
     text-align: center;
-    margin-bottom: 10px;
+    /* margin-bottom: 15px; */
 }
 
 .truncateTxt {
@@ -715,3 +741,26 @@ details ol li {
 
 /********************************* FROM HJ ends *************************************/
 
+/* POPUP */
+.popup-dim {
+    position:absolute; top:0; bottom:0; left:0; right:0; z-index:100; background-color:rgba(0, 0, 0, 0.3);
+    display: none;
+}
+.popup-fix {
+    position:relative; width:100vw; height:100vh;
+}
+.popup-container {
+    position: fixed; margin:auto; top:0; bottom:0; left:0; right:0; width:max-content; height:fit-content;
+    max-width: 80vh;
+}
+.popup-box {
+    /* width: 400px; height: 300px; */
+    background-color: #5c8271;
+    color: #f9f3e5;
+    visibility: hidden;
+    padding: 50px;
+}
+.loading-img {
+    width: 100px; height: 100px;
+    position: absolute; top:0; bottom:0; left:0; right:0;
+}

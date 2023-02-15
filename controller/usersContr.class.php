@@ -1,5 +1,6 @@
 <?php
-include_once './model/usersManager.php';
+include_once 'model/usersManager.php';
+include_once 'model/challengeManager.php';
 
 Class UsersContr extends Users{
     public static function registerUser(){
@@ -22,6 +23,7 @@ Class UsersContr extends Users{
             $password = $_POST['password'];
             
             $user_info = $user->getUser($username);
+
 
             if($user_info == true){
                 
@@ -58,9 +60,23 @@ Class UsersContr extends Users{
                 
             }else{
                 echo "<script>alert('Incorrect username or password!')</script>";
+
             }
         }
         
         include_once './view/loginView.php';
+    }
+
+    public static function listLeaders(){
+        if(!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) header('location: ' . ROOT);
+
+        $u_manager = new Users();
+        $how_many = 10;
+        $ten_leaders = $u_manager->getLeadingUsers($how_many);
+
+        $c_manager = new ChallengeManager();
+        $challenges = $c_manager->newChallenges();
+    
+        include_once 'view/leaderboardView.php';
     }
 }

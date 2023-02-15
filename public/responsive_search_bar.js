@@ -7,6 +7,7 @@ const resultsContainer = document.querySelectorAll('div#challenges > details');
 clearBtn.addEventListener('click', () => {
     showAllResults();
     searchForm.reset();
+    searchInput.value = "";
 })
 
 //Collect user input and call function to filter input..
@@ -73,3 +74,10 @@ const filterChallenges = (place, searchVal) => {
     return challengeFound;
 }
     
+// show search result of url param
+if(search_key != '' && search_key.length > 0) {
+    filterResults(search_key);
+} else {
+    showAllResults();
+}
+
