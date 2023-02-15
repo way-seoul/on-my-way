@@ -4,6 +4,7 @@ $coord = array(
     "lat" => $place['latitude'],
     "lng" => $place['longitude']
 );
+ob_start();
 ?>
 <!-- DEFINE GLOBAL VARS NEEDED IN CHALLENGE-SPECIFIC SCRIPT & map.js. -->
 <script>
@@ -52,17 +53,17 @@ defer>
                 </div>
                 <div class="description">
                     <p>DESCRIPTION</p>
-                    <p><?= $challenge['content'] ?></p>
+                    <p><?= ($challenge['content'] == null || $challenge['content'] == "") ? "-":$challenge['content']?></p>
                 </div>
                 <div class="conditions">
                     <p>CONDITIONS</p>
                     <p><?= ($challenge['conditions'] == null || $challenge['conditions'] == "") ? "none":$challenge['conditions']?></p>
                 </div>
-                <div class="location">
+                <div class="location" id="ch-sp-lo">
                     <p>LOCATION</p>
-                    <p><a href="<?= LIST_CHALLENGES_PATH ?>"><?= $place['name'] ?></a></p>
+                    <p><a href="<?= LIST_CHALLENGES_PATH ?>&search=<?= $place['name'] ?>" title="See every challenge at <?= $place['name'] ?>"><?= $place['name'] ?> →</a></p>
                 </div>
-                <p id="result-message-container"></p>
+                <div id="completed-container"></div>
             </div>
         </div>
         <div id="single-marker" class="col-md-8 col-12 text-center">
@@ -74,7 +75,12 @@ defer>
     </div>
 </div>
 <?php require_once 'listComments.php'?>
-
+<div class="popup-dim"><div class="popup-fix"><div class="popup-container">
+    <div id="loading-container"></div>
+    <div class="popup-box">
+        <p id="result-message-container"></p>
+    </div>
+</div></div></div>
 <?php
     $html = ob_get_clean(); // give the code into a variable
     include 'template.php'; // and call the variable from the template
