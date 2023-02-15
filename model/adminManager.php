@@ -6,7 +6,7 @@ class Admin extends Db {
     {
         $db = Db::connectDB();
 
-        $users = $db->query('SELECT * FROM users');
+        $users = $db->query('SELECT * FROM users WHERE is_deleted = 0');
         $users = $users->fetchAll(PDO::FETCH_ASSOC);
         //FETCH_ASSOC means only fetch field name, instead both field name & index
 
@@ -17,7 +17,7 @@ class Admin extends Db {
     {
         $db = Db::connectDB();
 
-        $users = $db->prepare('SELECT * FROM users WHERE id = ?');
+        $users = $db->prepare('SELECT * FROM users WHERE id = ? AND is_deleted = 0');
         $users->execute([$id]);
 
         $user = $users->fetch();
@@ -29,8 +29,15 @@ class Admin extends Db {
     {
         $db = Db::connectDB();
 
-        $users = $db->prepare('DELETE FROM users WHERE id = ?');
-        $users->execute([$id]);
+        $is_deleted = 1;
+        $users = $db->prepare('UPDATE users
+        SET is_deleted =:is_deleted
+        WHERE id=:id');
+        $users->execute([
+            'is_deleted' => $is_deleted,
+            'id' => $id
+        ]);
+
     }
 
     public function addUsers($entry){
@@ -61,7 +68,7 @@ class Admin extends Db {
     {
         $db = Db::connectDB();
 
-        $users = $db->prepare('SELECT * FROM users WHERE id = ?');
+        $users = $db->prepare('SELECT * FROM users WHERE id = ? AND is_deleted = 0');
         
         $users->execute([$id]);
         $user = $users->fetch();
