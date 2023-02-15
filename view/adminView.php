@@ -80,12 +80,6 @@
             </div>
         </div>
 
-        <div>
-            <div class="list-box" id="leaders">
-                <?php include_once 'view/leaderboardView.php'; ?>
-            </div>
-        </div>
-
     </div>
 
 

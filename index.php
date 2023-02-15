@@ -41,6 +41,9 @@
         case "add-place":
             PlaceContr::addPlace();
             break;
+        case "leader-board":
+            UsersContr::listLeaders();
+            break;
         case 'login':
             UsersContr::loginUser();
             break;

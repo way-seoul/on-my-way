@@ -554,7 +554,8 @@ details ol li {
     cursor: pointer;
 }
 
-.admin-section .list-box {
+.admin-section .list-box,
+.list-box#leaders {
     overflow-x: scroll;
 }
 
@@ -614,10 +615,11 @@ details ol li {
     border: 10px #83b8a1 solid;
 }
 
-#leaders h2 {
+#leaders h2,
+#leaders .admin-table {
     color: #f9f3e5;
     text-align: center;
-    margin-bottom: 10px;
+    /* margin-bottom: 15px; */
 }
 
 .truncateTxt {
