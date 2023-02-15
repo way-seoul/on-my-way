@@ -38,8 +38,8 @@ onTheSpot.addEventListener('mouseover', () => {
 const getUserLocation = async (position) => {
     userLoc.lat = await position.coords.latitude;
     userLoc.lng = await position.coords.longitude
-    let userPassedChall = await didUserPassChallenge();
     resultMsg.innerText = '';
+    let userPassedChall = await didUserPassChallenge();
     if(userPassedChall) {
         let dbUpdated = await addResultToDB();
         console.log(dbUpdated);
