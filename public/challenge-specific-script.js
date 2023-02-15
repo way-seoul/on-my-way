@@ -2,6 +2,7 @@
 const onTheSpot = document.getElementById('onspot');
 const completedMsg = document.getElementById('completed-container');
 const resultMsg = document.getElementById('result-message-container');
+const totalPoints = document.getElementById('total_points');
 const loadingImg = document.getElementById('loading-container');
 const popupBg = document.getElementsByClassName('popup-dim')[0];
 const popupClose = document.querySelector(".popup-box button");
@@ -44,6 +45,7 @@ const getUserLocation = async (position) => {
         let dbUpdated = await addResultToDB();
         console.log(dbUpdated);
         resultMsg.innerHTML += dbUpdated.msg;
+        totalPoints.innerText = `TOTAL POINTS: ${dbUpdated.totalPoints}`;
         onTheSpot.style.display = 'none';
         completedMsg.innerHTML = '<hr><img src="https://www.onlygfx.com/wp-content/uploads/2018/04/completed-stamp-3.png" alt="completed-img" height="150"></img>';
     } else {

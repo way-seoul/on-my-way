@@ -2,6 +2,7 @@
 include_once './model/adminManager.php';
 include_once './model/challengeManager.php';
 include_once './model/placeManager.php';
+include_once './model/usersManager.php';
 
 
 class AdminContr {
