@@ -32,21 +32,16 @@ onTheSpot.addEventListener('mouseover', () => {
 const getUserLocation = async (position) => {
     userLoc.lat = await position.coords.latitude;
     userLoc.lng = await position.coords.longitude
+    let userPassedChall = await didUserPassChallenge();
     resultMsg.innerText = '';
-    if(userCompleteChallenge != 0) {
-        resultMsg.innerText += 'You\'ve already completed the challenge! Try another one!';
-        return;
-    } else if(!didUserPassChallenge()) {
-        resultMsg.innerText += 'Sorry you didn\'t meet the conditions needed to achieve the challenge';
-        return;
-    } else {
-        //USER ACHIEVED CHALLENGE SO TRY TO UPDATE THE DB
+    if(userPassedChall) {
         let dbUpdated = await addResultToDB();
         console.log(dbUpdated);
-        //Then display msg to user..
         resultMsg.innerText += dbUpdated.msg;
         resultMsg.innerText += '.\nYou just completed this challenge! Now try a different one!';
         onTheSpot.style.display = 'none';
+    } else {
+        resultMsg.innerText += 'Sorry you didn\'t meet the conditions needed to achieve the challenge';
     }
 }
 
@@ -63,7 +58,9 @@ const didUserPassChallenge = async () => {
     resultMsg.innerHTML = `Your distance from the place is ${dist} metres. <br>`;
     //CONDITIONS WILL ALSO NEED TO BE PASSED ONCE ADDED TO DB..FOR NOW.. Set to true by default....
     let conditions = true;
-    if(dist <= maxDistance && conditions) {
+    console.log('MAX DIST', maxDistance);
+    console.log('userDist from loc', dist, typeof dist);
+    if((dist <= maxDistance) && conditions) {
         return true;
     } else {
         return false;

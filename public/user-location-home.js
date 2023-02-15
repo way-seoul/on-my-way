@@ -28,14 +28,6 @@ const getUserLocation = async (position) => {
     userCoords.longitude = await position.coords.longitude;
     let dbPlaces = await getExistingPlacesFromDB();
     resetPreviousResults();
-    // if(getPlacesWithinDist(dbPlaces, maxDistance)) {
-    //     reConfigureMapSettings();
-    //     initMap();
-    // } else {
-    //     resultMessageContainer.textContent += 
-    //     `Sorry there are no available places within ${maxDistance} KM of your location. `;
-    //     return;
-    // }
     let placesInDist = getPlacesWithinDist(dbPlaces, maxDistance);
     reConfigureMapSettings();
     initMap();
