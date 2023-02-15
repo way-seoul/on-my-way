@@ -3,8 +3,8 @@ $title = 'ON MY WAY | LOG IN';
 ob_start();
 ?>
 <div class="g-0 row" style="height:100vh;">
-    <div class="col-12 col-md-6">
-        <div class="login_div">
+    <div class="col-12 col-md-6" style="main-height:100vh;">
+        <div class="login_div"> 
             <div class="login_header">
                 <h1>WELCOME BACK!</h1>
                 <h2>LOG IN</h2>
@@ -39,7 +39,7 @@ ob_start();
         </div>
     </div>
     <!-- right block for the picture & the text -->
-    <div class="col-12 col-md-6" style="position: relative; padding-right:0; padding-left:0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div class="col-12 col-md-6" style="position: relative; padding-right:0; padding-left:0; display: flex; justify-content: center; align-items: center; main-height: 100vh;">
         <img class="login_pic" src="public/image/loginPic.jpg" alt="login pic" />
         <div class="on_my_way">ON MY WAY</div>
     </div>
