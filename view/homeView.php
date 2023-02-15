@@ -38,7 +38,7 @@ ob_start();
             </div>
             <div class="controls">
                 <button class="green-btn" id="get-location">
-                    Click To Share Location
+                    Click To View Places Near You
                 </button>
                 <p>In Order To Use Our App, you must share your location</p>
                 <div>
