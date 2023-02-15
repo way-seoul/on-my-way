@@ -23,6 +23,7 @@ Class UsersContr extends Users{
             
             $user_info = $user->getUser($username);
 
+
             if($user_info == true){
                 
                 $verified_password = password_verify($password, $user_info['password']);
@@ -53,6 +54,7 @@ Class UsersContr extends Users{
                 
             }else{
                 echo "<script>alert('Incorrect username or password!')</script>";
+
             }
         }
         

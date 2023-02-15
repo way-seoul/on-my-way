@@ -28,12 +28,14 @@ ob_start();
                         <button class="login_button" type="submit" name="login_button">Log In</button>
                         <div class="login_footer">
                             <div class="sign_up_link">
-                                <p>Don't have an account? <a href="<?= REGISTER_PATH ?>">Sign up</a></p>
+                                <p id="register_button">Don't have an account? <a href="<?= REGISTER_PATH ?>">Sign up</a></p>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
+            <!-- Google login div -->
+            <div id="firebaseui-auth-container"></div>
         </div>
     </div>
     <!-- right block for the picture & the text -->
@@ -42,6 +44,15 @@ ob_start();
         <div class="on_my_way">ON MY WAY</div>
     </div>
 </div>
+
+<!-- Add firebase to the project from Google FirebaseUI -->
+<script src="https://www.gstatic.com/firebasejs/8.0/firebase.js"></script>
+<script>
+    // Define api key & re-direct URL and make them readable thru JS
+    var googleLoginAPIKey = "<?= $_SERVER['ONMYWAY_GLOGIN_KEY']; ?>";
+    var redirectURL = "<?= ROOT ?>";
+</script>
+<script src="public/google-login.js"></script>
 
 <?php
 $html = ob_get_clean();
