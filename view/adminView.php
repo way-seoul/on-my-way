@@ -207,7 +207,7 @@
                                     <?php if($place['challenges'] != ''): ?>
                                         <ol>
                                         <?php 
-                                            $p_challenges = stringToArray($place['challenges']); 
+                                            $p_challenges = explode(',', $place['challenges']); 
                                             for ($i=0;$i<count($p_challenges);$i++):
                                         ?>
                                             <li><a href="#ch-<?= $p_challenges[$i] ?>"><?= $p_challenges[$i] ?></a></li>
