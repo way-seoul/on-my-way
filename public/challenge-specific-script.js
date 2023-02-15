@@ -2,6 +2,7 @@
 const maxDistance = 1000;
 const onTheSpot = document.getElementById('onspot');
 const resultMsg = document.getElementById('result-message-container');
+const totalPoints = document.getElementById('total_points');
 let userLoc = {};
 
 console.log(userCompleteChallenge);
@@ -46,6 +47,8 @@ const getUserLocation = async (position) => {
         //Then display msg to user..
         resultMsg.innerText += dbUpdated.msg;
         resultMsg.innerText += '.\nYou just completed this challenge! Now try a different one!';
+        totalPoints.innerText = `TOTAL POINTS: ${dbUpdated.totalPoints}`;
+        console.log(totalPoints.innerText);
         onTheSpot.style.display = 'none';
     }
 }

@@ -85,4 +85,23 @@ class Users extends Db {
         return $leaders;
     }
 
+    public static function getUserTotalPoints($user_id) {
+        $db = DB::connectDB();
+
+        $points = $db->prepare(
+        'SELECT SUM(challenges.score) as points_total
+        FROM users
+        LEFT JOIN user_challenge_r
+        ON users.id = user_challenge_r.user_id
+        LEFT JOIN challenges
+        ON challenges.id = user_challenge_r.challenge_id
+        WHERE users.id= ?
+        GROUP BY users.id');
+
+        $points->execute([$user_id]);
+        $total_points = $points->fetch();
+
+        return $total_points;
+    }
+
 }

@@ -2,6 +2,7 @@
 include_once './model/adminManager.php';
 include_once './model/challengeManager.php';
 include_once './model/placeManager.php';
+include_once './model/usersManager.php';
 
 
 class AdminContr {
@@ -59,7 +60,10 @@ class AdminContr {
             // return an array from string exploding by , 
             return explode(',', $string);
         }
-        
+
+        $total_points = Users::getUserTotalPoints($_SESSION['user_id']);
+        print_r($total_points);
+
         include './view/adminView.php';
     }
 

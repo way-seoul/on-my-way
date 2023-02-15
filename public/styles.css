@@ -138,7 +138,8 @@ header {
     align-items: center;
     background-color: #f9f3e5;
     color: #a86446;
-    font-family: 'Eastman';
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
     height: 70px;
 }
 
@@ -159,12 +160,15 @@ header {
     text-decoration: underline;
 }
 
-#login_button_header {
-    font-family: 'Eastman';
-    color: #f9f3e5;
-    background-color: #5c8271;
-    border: 0;
-    border-radius: 5px;
+#profile_container {
+    display: flex;
+    margin-right: 20px;
+    text-align: right;
+}
+
+#profile_toggle_container {
+    position: relative;
+    margin-left: 15px;
 }
 
 #profile_toggle {
@@ -174,6 +178,14 @@ header {
 #profile_toggle_label {
     width: 100px;
     text-align: center;
+}
+
+#profile_toggle_label img {
+    margin-top: 10px;
+}
+
+#profile_toggle_label:hover {
+    cursor: pointer;
 }
 
 #profile_ul {
@@ -191,6 +203,15 @@ header {
     border: 1px solid black;
 }
 
+#profile_link {
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    color: #5c8271;
+}
+
 #profile_toggle:checked ~ ul {
     display: block;
 }
@@ -199,12 +220,15 @@ header {
     border: 0;
     color: #5c8271;
     background-color: #f9f3e5;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
 }
 /* CHALLENGE SPECIFIC PAGE */
 
-#challenge-specific-title {
+#challenge-specific-title h1 {
     margin: 30px 0 15px;
-    font-family: 'Eastman-bold';
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
     color: #a86446;
     width: 300px;
 }
@@ -220,7 +244,8 @@ header {
 }
 
 #challenge-specific-description-box > div > p:first-child {
-    font-family: 'Eastman-bold';
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -259,13 +284,13 @@ header {
     width: 80px;
     height: 40px;
     margin-left: 20px;
-    font-family: 'Eastman';
+    font-family: 'Source Sans Pro', sans-serif;
     color: #5c8271;;
 }
 
 .comment_user {
     color: #5c8271;
-    font-family: 'Eastman';
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .delete_comment_form {
@@ -278,7 +303,7 @@ header {
     border-radius: 15px;
     color: #5c8271;
     background-color: #f9f3e5;
-    font-family: 'Eastman';
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .challenge-specific-comment {

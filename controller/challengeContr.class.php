@@ -122,13 +122,16 @@ class ChallengeContr {
         if(isset($_POST['challengeAchieved'])) {
             //Update User Points Total, then increment users_accomplished for challenge, then add record to user_chal Table
             try {
-                $userPointsTotal = $userManager->addChallengeAchievedPoints($_POST['userID'], $_POST['score']);
                 $c_manager->incrementUsersAccomplished($_POST['challID']);
                 $userManager->addRecordToUserChallTable($_POST['userID'], $_POST['challID']);
+                $userPointsTotal = Users::getUserTotalPoints($_SESSION['user_id']);
+
+                $_SESSION['total_points'] = $userPointsTotal['points_total'];
                 die(
                     json_encode(
                         [
-                            'msg' => 'Well Done You Completed The Challenge! Your new points total is ' . $userPointsTotal
+                            'msg' => 'Well Done You Completed The Challenge! Your new points total is ' . $userPointsTotal['points_total']
+                            , 'totalPoints' => $_SESSION['total_points']
                         ]
                     )
                 );
