@@ -1,5 +1,5 @@
 <?php
-include 'model/usersManager.php';
+include_once 'model/usersManager.php';
 include_once 'model/challengeManager.php';
 
 Class UsersContr extends Users{
@@ -16,11 +16,11 @@ Class UsersContr extends Users{
     public static function loginUser(){
         if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) header('location: ' . ROOT);
 
-        if(isset($_POST['login_button']) || isset($_POST['login_button_header']) && (isset($_POST['username']) || isset($_POST['username_header'])) !== '' && (isset($_POST['password']) || isset($_POST['password_header'])) !== ''){
+        if(isset($_POST['login_button']) && isset($_POST['username']) !== '' && isset($_POST['password']) !== ''){
             $user = new Users();
 
-            $username = $_POST['username'] ?? $_POST['username_header'];
-            $password = $_POST['password'] ?? $_POST['password_header'];
+            $username = $_POST['username'];
+            $password = $_POST['password'];
             
             $user_info = $user->getUser($username);
 
@@ -36,11 +36,16 @@ Class UsersContr extends Users{
                     $verified_username = $user_info['username'];
                     $verified_user_id = $user_info['id'];
                     $verified_admin = $user_info['admin'];
+
                     
                     $_SESSION['logged_in'] = true;
                     $_SESSION['user_id'] = $verified_user_id;
                     $_SESSION['admin'] = $verified_admin;
                     $_SESSION['user'] = $verified_username;
+
+                    $total_points = Users::getUserTotalPoints($_SESSION['user_id']);
+                    $_SESSION['total_points'] = $total_points['points_total'];
+
                 }else{
                     echo "<script>alert('Incorrect username or password!')</script>";
                 }

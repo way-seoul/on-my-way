@@ -2,6 +2,7 @@
 include_once './model/adminManager.php';
 include_once './model/challengeManager.php';
 include_once './model/placeManager.php';
+include_once './model/usersManager.php';
 
 
 class AdminContr {
@@ -31,6 +32,9 @@ class AdminContr {
             $_SESSION['user_id'] = $verified_user_id;
             $_SESSION['admin'] = $verified_admin;
             $_SESSION['user'] = $verified_username;
+
+            $total_points = Users::getUserTotalPoints($_SESSION['user_id']);
+            $_SESSION['total_points'] = $total_points['points_total'];
 
             $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
 
