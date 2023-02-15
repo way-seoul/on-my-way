@@ -81,9 +81,9 @@
 <?php
     //re-direct users after form submissions
     
-    if (isset($fromAdmin) && $fromAdmin == 1 && $_POST["add"]){
+    if (isset($fromAdmin) && $fromAdmin == 1 && isset($_POST["add"]) && $_POST["add"]){
         header('Location:'. ADMIN_PATH);
-    } else if(!isset($fromAdmin)&& $_POST["add"]){
+    } else if(!isset($fromAdmin) && isset($_POST["add"]) && $_POST["add"]){
         header('Location:'. LOGIN_PATH);
     }
 ?>
