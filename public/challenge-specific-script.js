@@ -1,5 +1,4 @@
-//DIST IN METRES - places further from user location  will not show on map
-const maxDistance = 1000;
+
 const onTheSpot = document.getElementById('onspot');
 const completedMsg = document.getElementById('completed-container');
 const resultMsg = document.getElementById('result-message-container');
@@ -39,25 +38,17 @@ onTheSpot.addEventListener('mouseover', () => {
 const getUserLocation = async (position) => {
     userLoc.lat = await position.coords.latitude;
     userLoc.lng = await position.coords.longitude
+    let userPassedChall = await didUserPassChallenge();
     resultMsg.innerText = '';
-    console.log(resultMsg);
-    if(userCompleteChallenge != 0) {
-        resultMsg.innerText += 'You\'ve already completed the challenge! Try another one!';
-        return;
-    } else if(!didUserPassChallenge()) {
-        resultMsg.innerText += 'Sorry you didn\'t meet the conditions needed to achieve the challenge';
-        return;
-    } else {
-        //USER ACHIEVED CHALLENGE SO TRY TO UPDATE THE DB
+    if(userPassedChall) {
         let dbUpdated = await addResultToDB();
         console.log(dbUpdated);
-        console.log(dbUpdated.msg);
-        //Then display msg to user..
-        resultMsg.innerText += dbUpdated.msg + ".";
-        console.log(resultMsg);
-        resultMsg.innerText += '\nYou just completed this challenge! Now try a different one!';
+        resultMsg.innerText += dbUpdated.msg;
+        resultMsg.innerText += '.\nYou just completed this challenge! Now try a different one!';
         onTheSpot.style.display = 'none';
         completedMsg.innerHTML = '<hr><img src="https://www.onlygfx.com/wp-content/uploads/2018/04/completed-stamp-3.png" alt="completed-img" height="150"></img>';
+    } else {
+        resultMsg.innerText += 'Sorry you didn\'t meet the conditions needed to achieve the challenge';
     }
     loadingImg.innerHTML='';
     resultMsg.parentElement.style.visibility = 'visible';
@@ -81,7 +72,9 @@ const didUserPassChallenge = async () => {
     console.log(resultMsg);
     //CONDITIONS WILL ALSO NEED TO BE PASSED ONCE ADDED TO DB..FOR NOW.. Set to true by default....
     let conditions = true;
-    if(dist <= maxDistance && conditions) {
+    console.log('MAX DIST', maxDistance);
+    console.log('userDist from loc', dist, typeof dist);
+    if((dist <= maxDistance) && conditions) {
         return true;
     } else {
         return false;

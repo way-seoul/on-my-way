@@ -8,6 +8,7 @@ ob_start();
 ?>
 <!-- DEFINE GLOBAL VARS NEEDED IN CHALLENGE-SPECIFIC SCRIPT & map.js. -->
 <script>
+    const maxDistance = <?=MAX_METRES_FROM_PLACE_FOR_USER_TO_ACHIEVE_CHALLENGE?>;
     let body = document.querySelector('body');
     //For better UX. Body shown once JS file loads.
     body.style.visibility = 'hidden';
@@ -73,8 +74,8 @@ defer>
     <div id="onspot_container">
         <button id="onspot">COMPLETE THE CHALLENGE!</button>
     </div>
-    <?php require_once 'listComments.php'?>
 </div>
+<?php require_once 'listComments.php'?>
 <div class="popup-dim"><div class="popup-fix"><div class="popup-container">
     <div id="loading-container"></div>
     <div class="popup-box">
