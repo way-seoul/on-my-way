@@ -41,8 +41,9 @@ ob_start();
                     Click To View Places Near You
                 </button>
                 <p>In Order To Use Our App, you must share your location</p>
-                <div>
-                    <p id="resultMessageContainer"></p>
+                <div id="resultMessageContainer">
+                    <h6 id="resultMsg"></h6>
+                    <ul id="placeResults"></ul>
                 </div>
             </div>
         </div>

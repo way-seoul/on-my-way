@@ -1,8 +1,10 @@
 
 const getLocationBtn = document.getElementById('get-location');
 let userCoords = {};
-const maxDistance = 1000; //METRES - places further from user will not show on map
-let resultMessageContainer = document.getElementById('resultMessageContainer');
+const maxDistance = 100; //METRES - places further from user will not show on map
+let resultMsg = document.getElementById('resultMsg');
+let placeResults = document.getElementById('placeResults');
+console.log(resultMsg, placeResults);
 
 window.onload = function () {
     //Check if browser supports geolocation......
@@ -32,13 +34,17 @@ const getUserLocation = async (position) => {
     reConfigureMapSettings();
     initMap();
     if(!placesInDist) {
-        resultMessageContainer.textContent += 
-        `Sorry there are no available places within ${maxDistance} KM of your location. `;
+        resultMsg.textContent += 
+        `Sorry there are no available places within ${(maxDistance / 1000).toFixed(2)} KM of your location. `;
+    } else {
+        resultMsg.textContent += 
+        `There are ${mapMarkers.length} available places within ${(maxDistance / 1000).toFixed(2)} KM of your location. `;
     }
 }
 
 const resetPreviousResults = () => {
-    resultMessageContainer.textContent = '';
+    resultMsg.innerHTML = '';
+    placeResults.innerHTML = '';
     mapMarkers = [];
 }
 
@@ -78,8 +84,8 @@ const getPlacesWithinDist = (places, maxDistance) => {
         );
         let dist = google.maps.geometry.spherical.computeDistanceBetween(place, userGMap);
         if(dist < maxDistance) {
-            resultMessageContainer.textContent += 
-            `${places[i]['name']}: ${(dist / 1000).toFixed(2)} KM from your location. `;
+            placeResults.innerHTML += 
+            `<li>${places[i]['name']}: ${(dist / 1000).toFixed(2)} KM from your location.</li>`;
             mapMarkers.push(
                 {
                 'name': places[i]['name'],
