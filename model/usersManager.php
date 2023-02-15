@@ -12,16 +12,16 @@ class Users extends Db {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
         $newEntry = $db->prepare('
-            INSERT INTO users (username, password, first_name, last_name, email, created_date, admin)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO users (username, password, first_name, last_name, email, created_date, admin, is_deleted)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ');
-        $newEntry->execute([$entry['username'], $hashed_password, $entry['first_name'], $entry['last_name'], $entry['email'], date('Y-m-d H:i:s'), '0']);
+        $newEntry->execute([$entry['username'], $hashed_password, $entry['first_name'], $entry['last_name'], $entry['email'], date('Y-m-d H:i:s'), '0', '0']);
     }
 
     public static function getUser($username){
         $db = DB::connectDB();
 
-        $user = $db->prepare('SELECT username, password, id, admin FROM users WHERE username = ?');
+        $user = $db->prepare('SELECT username, password, id, admin, email FROM users WHERE username = ? AND is_deleted = 0');
         $user->execute([$username]);
         
         return $user->fetch();
@@ -31,7 +31,7 @@ class Users extends Db {
         $db = DB::connectDB();
         $newTotalPoints = 0;
         //First Get Current Points Total & Update it
-        $user = $db->prepare('SELECT points_total FROM users WHERE id = ?');
+        $user = $db->prepare('SELECT points_total FROM users WHERE id = ? AND is_deleted = 0');
         $user->execute([$id]);
         $currentTotalPoints = $user->fetch();
         if($currentTotalPoints && $currentTotalPoints > 0) {

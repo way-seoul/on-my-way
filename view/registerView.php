@@ -4,13 +4,13 @@
 ?>
 
 <div class="g-0 row" style="height:100vh;">
-    <div class="col-12 col-md-6" style="position: relative; padding-right:0; padding-left:0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div class="col-12 col-md-6" style="position: relative; padding-right:0; padding-left:0; display: flex; justify-content: center; align-items: center; main-height: 100vh;">
         <img class="register_pic" src="public/image/loginPic.jpg" alt="register pic">
         <div class="on_my_way">ON MY WAY</div>
     </div>
 
 
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6" style="main-height:100vh;">
         <div class="register_div">
             <div class="register_header">
                 <h1>REGISTER</h1>
@@ -21,31 +21,31 @@
                         <div class="username_label">
                             <label for="username">Username</label>
                         </div>
-                        <input class="username_input" type="text" name="username" placeholder="Enter username" size="60">
+                        <input class="username_input" type="text" name="username" placeholder="Enter username" size="60" required>
                     </div>
                     <div class="signup_password">
                         <div class="password_label">
                             <label for="password">Password</label>
                         </div>
-                        <input class="password_input" type="text" name="password" placeholder="Enter password" size="60" value="<?= (isset($fromAdmin) && $fromAdmin == 1) ? "0000":'' ?>">
+                        <input class="password_input" type="password" name="password" placeholder="Enter password" size="60" value="<?= (isset($fromAdmin) && $fromAdmin == 1) ? "0000":'' ?>" required>
                     </div>
                     <div class="signup_email">
                         <div class="email_label">
                             <label for="email">Email</label>
                         </div>
-                        <input class="email_input" type="text" name="email" placeholder="Enter email" size="60">
+                        <input class="email_input" type="text" name="email" placeholder="Enter email" size="60" required>
                     </div>
                     <div class="firstname">
                         <div class="firstname_label">
                             <label for="firstname">First Name</label>
                         </div>
-                        <input class="firstname_input" type="text" name="first_name" placeholder="Enter first name" size="60">
+                        <input class="firstname_input" type="text" name="first_name" placeholder="Enter first name" size="60" required>
                     </div>
                     <div class="lastname">
                         <div class="lastname_label">
                             <label for="lastname">Last Name</label>
                         </div>
-                        <input class="lastname_input" type="text" name="last_name" placeholder="Enter last name" size="60">
+                        <input class="lastname_input" type="text" name="last_name" placeholder="Enter last name" size="60" required>
                     </div>
                     <?php if(isset($fromAdmin) && $fromAdmin == 1): ?> 
                         <div class="admin">
@@ -74,14 +74,19 @@
                     <?php endif ?>
                 </form>
             </div>
-
-
-        </div>
-        
+        </div>  
     </div>
-
 </div>
 
+<?php
+    //re-direct users after form submissions
+    
+    if (isset($fromAdmin) && $fromAdmin == 1 && $_POST["add"]){
+        header('Location:'. ADMIN_PATH);
+    } else if(!isset($fromAdmin)&& $_POST["add"]){
+        header('Location:'. LOGIN_PATH);
+    }
+?>
 
 <?php 
     $html = ob_get_clean();

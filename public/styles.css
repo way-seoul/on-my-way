@@ -21,6 +21,8 @@ body {
     position:relative; /* this is for popup */
 }
 
+/* If the text contains numbers, please use the font 'Sans Pro' */
+
 @font-face {
     font-family: 'Eastman-Bold';
     src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Bold-trial.otf) format("Opentype");
@@ -31,7 +33,14 @@ body {
     src: url(../public/font/eastman_grotesque/Eastman-Grotesque-Medium-trial.otf) format("Opentype");
 }
 
+
+@font-face {
+    font-family: 'Sans Pro';
+    src: url(../public/font/Sans-Pro/sourcesanspro/SourceSansPro-Light.ttf) format("Opentype");
+}
+
 /* Login Page & Register Page CSS */
+
 
 .login_pic, .register_pic {
     position: absolute;
@@ -75,11 +84,13 @@ body {
 
 .username_input, .password_input, .email_input, .firstname_input, .lastname_input {
     border:1px solid transparent;
+    font-family: 'Sans Pro';
     border-radius: 30px;
     width: 400px;
     height: 20px;
     background-color: #f9f3e5; 
     margin-top: 3px;
+    padding: 10px;
 }
 
 .admin_input {

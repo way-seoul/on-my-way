@@ -51,6 +51,7 @@ CREATE TABLE users (
   email varchar(64) NOT NULL,
   created_date datetime NOT NULL,
   points_total int(11) DEFAULT '0',
+  is_deleted tinyint(1) NOT NULL DEFAULT 0,
   admin tinyint(1) NOT NULL,
   PRIMARY KEY (id)
 );
