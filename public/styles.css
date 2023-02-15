@@ -714,6 +714,20 @@ details ol li {
     margin-right: 15px;
 }
 
+.list-view summary {
+    cursor: default;
+}
+.list-view .pan-map-icon {
+    display:inline-block; width:20px;
+    color:#f9f3e5;
+    vertical-align: text-bottom;
+}
+.list-view .pan-map-icon:hover {
+    color: #83b8a1;
+    cursor: pointer;
+}
+
+
 /********************************* FROM HJ ends *************************************/
 
 /* POPUP */

@@ -3,7 +3,6 @@ $h1 = 'Challenge List';
 $title = 'ON MY WAY | ' . $h1;
 ob_start();
 ?>
-<script src="public/responsive_search_bar.js" defer></script>
 <script>
     let mapOptions = {
         disableDefaultUI: true,
@@ -24,9 +23,13 @@ ob_start();
             }
         )
     <?php endforeach ?>
+    let placesById = JSON.parse('<?= $json_places ?>');
     let search_key = "<?= $search_param ?>";
+    const mapBound = true;
 </script>
+<script src="public/responsive_search_bar.js" defer></script>
 <script src="public/map.js" defer></script>
+<script src="public/list-challenge-script.js" defer></script>
 <script defer src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script
       src="https://maps.googleapis.com/maps/api/js?key=<?=$db_password = $_SERVER['ONMYWAY_GMAP_KEY'];?>&callback=initMap&v=weekly&libraries=geometry"
@@ -54,14 +57,18 @@ ob_start();
     <div class="row">
         <div class="col-md-6 col-12">
             <div id="challenges">
-                <?php if(isset($delete_msg)): ?> 
-                <p style="font-size:1.1em; margin-bottom:10px;color:red;"><?= $delete_msg ?></p>
-                <?php endif ?>
                 <?php for($i = 0; $i<count($places); $i++): 
                     $challenges = $c_manager->getChallenges($places[$i]["id"]);    
                 ?>
                 <details open class="list-box">
-                    <summary>Location <?= $i+1 . ": " . $places[$i]["name"] ?></summary>
+                    <summary>
+                        Location <?= $i+1 . ": " . $places[$i]["name"] ?>
+                        <span data-placeid="<?= $places[$i]["id"] ?>" class="pan-map-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                                <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </summary>
                     <ol>
                         <?php foreach($challenges as $challenge): ?>
                         <li>

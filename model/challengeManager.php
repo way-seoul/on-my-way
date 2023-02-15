@@ -45,6 +45,16 @@ class ChallengeManager extends Db {
         return $new_ch;
     }
 
+    public function newPlaces() {
+        $old_places = $this->getPlaces();
+        $new_p = [];
+        foreach($old_places as $place) {
+            $id = $place['id'];
+            $new_p[$id] = $place;
+        }
+        return $new_p;
+    }
+
     public function validatePlace($data) {
         foreach($data as $key => $value) {
             if(empty($value)) return false;

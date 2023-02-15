@@ -3,7 +3,7 @@ const getLocationBtn = document.getElementById('get-location');
 let userCoords = {};
 let resultMsg = document.getElementById('resultMsg');
 let placeResults = document.getElementById('placeResults');
-console.log(resultMsg, placeResults);
+// console.log(resultMsg, placeResults);
 
 window.onload = function () {
     //Check if browser supports geolocation......

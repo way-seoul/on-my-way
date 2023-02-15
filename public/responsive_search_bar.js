@@ -8,6 +8,7 @@ clearBtn.addEventListener('click', () => {
     showAllResults();
     searchForm.reset();
     searchInput.value = "";
+    initMap();
 })
 
 //Collect user input and call function to filter input..

@@ -42,10 +42,12 @@ class ChallengeContr {
         $c_manager = new ChallengeManager();
         $p_manager = new PlaceManager();
         $places = $c_manager->getPlaces();
+        $places_byId = $c_manager->newPlaces();
+        $json_places = json_encode($places_byId);
 
-        if(isset($_POST['delete']) && $_POST['delete']!= '') {
-            $c_manager->deleteChallenge($_POST['delete']);
-        } 
+        // if(isset($_POST['delete']) && $_POST['delete']!= '') {
+        //     $c_manager->deleteChallenge($_POST['delete']);
+        // } 
         require_once 'view/listChallengesView.php';
     }
 
