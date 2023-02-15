@@ -33,7 +33,7 @@ ob_start();
         <div class="content-container col-12 col-md-4">
             <div id="info-links-container">
                 <div id="sign-up-login-links">
-                    <a href="<?= REGISTER_PATH ?>">SIGN UP | </a>
+                    <a href="<?= REGISTER_PATH ?>">SIGN UP</a> |
                     <a href="<?= LOGIN_PATH ?>">LOGIN</a>
                 </div>
                 <div id="app-info">
