@@ -34,7 +34,12 @@ class AdminContr {
             $_SESSION['user'] = $verified_username;
 
             $total_points = Users::getUserTotalPoints($_SESSION['user_id']);
-            $_SESSION['total_points'] = $total_points['points_total'];
+
+            if($total_points['points_total'] == null){
+                $_SESSION['total_points'] = 0;
+            }else{
+                $_SESSION['total_points'] = $total_points['points_total'];
+            }
 
             $logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'];
 
