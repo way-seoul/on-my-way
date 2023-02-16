@@ -6,15 +6,19 @@
 //mapMarkers =  [{'name': xxx, 'lat': xxx, 'lng': xxx}, etc, etc]
 //-------------------------------------------------------//
 
-function initMap() {
+if( typeof mapBound == "undefined" ) {
+    mapBound = false;
+}
+// console.log(mapBound);
+
+function initMap(bool) { // there'll be no arguments from API call
     const map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    setMarkers(map);
+    setMarkers(map, bool); // then false will be delivered
 }
 
 
-function setMarkers(map) {
-    console.log(mapMarkers);
-    // let bounds = new google.maps.LatLngBounds();
+function setMarkers(map, bool) {
+    let bounds = new google.maps.LatLngBounds();
 
     for (let i = 0; i < mapMarkers.length; i++) { 
         let marker = mapMarkers[i];
@@ -23,9 +27,10 @@ function setMarkers(map) {
             map: map,
             title: 'Location: ' + marker.name
         });
-        // bounds.extend(mapMarkers[i]);
+        bounds.extend(mapMarkers[i]);
     }
 
-    // map.fitBounds(bounds); // this is to fit in all markers created on the map
+    // do this only when list-challenges page is on load
+    if(!bool && mapBound) map.fitBounds(bounds); // this is to fit in all markers created on the map
 }
 

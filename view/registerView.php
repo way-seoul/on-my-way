@@ -4,13 +4,13 @@
 ?>
 
 <div class="g-0 row" style="height:100vh;">
-    <div class="col-12 col-md-6" style="position: relative; padding-right:0; padding-left:0; display: flex; justify-content: center; align-items: center; main-height: 100vh;">
+    <div class="col-12 col-md-6" style="position: relative; padding-right:0; padding-left:0; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
         <img class="register_pic" src="public/image/loginPic.jpg" alt="register pic">
         <div class="on_my_way">ON MY WAY</div>
     </div>
 
 
-    <div class="col-12 col-md-6" style="main-height:100vh;">
+    <div class="col-12 col-md-6" style="min-height:100vh;">
         <div class="register_div">
             <div class="register_header">
                 <h1>REGISTER</h1>
@@ -81,9 +81,9 @@
 <?php
     //re-direct users after form submissions
     
-    if (isset($fromAdmin) && $fromAdmin == 1 && $_POST["add"]){
+    if (isset($fromAdmin) && $fromAdmin == 1 && isset($_POST["add"]) && $_POST["add"]){
         header('Location:'. ADMIN_PATH);
-    } else if(!isset($fromAdmin)&& $_POST["add"]){
+    } else if(!isset($fromAdmin) && isset($_POST["add"]) && $_POST["add"]){
         header('Location:'. LOGIN_PATH);
     }
 ?>
