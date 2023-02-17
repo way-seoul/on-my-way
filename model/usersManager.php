@@ -47,7 +47,8 @@ class Users extends Db {
         $query =             
             'SELECT 
                 users.username,
-                users.points_total,
+                -- users.points_total,
+                SUM(challenges.score) as points_total,
                 GROUP_CONCAT(challenges.id) AS challenge_ids
             FROM users
             LEFT JOIN user_challenge_r

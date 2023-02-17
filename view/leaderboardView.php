@@ -31,7 +31,7 @@
                     <tr>
                         <td><?= $i++ ?></td>
                         <td><?= $leader['username'] ?></td>
-                        <td><?= $leader['points_total'] ?></td>
+                        <td><?= $leader['points_total'] != "" ? $leader['points_total']:0 ?></td>
                         <td>
                             <?php if($leader['challenge_ids'] != ''): ?>
                                 <ol>
@@ -45,6 +45,8 @@
                                     </a></li>
                                     <?php endforeach ?>
                                 </ol>
+                            <?php else: ?>
+                                -
                             <?php endif ?>
                         </td>
                     </tr>
